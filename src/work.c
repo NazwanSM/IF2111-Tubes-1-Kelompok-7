@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 #include "work.h"
 
 List daftarPekerjaan;
@@ -51,7 +52,8 @@ Work* cariPekerjaan(List *L, Word input){
 void prosesKerja(Work* work, User* user){
     printf("Anda sedang bekerja sebagai %s>>. harap tunggu.\n", work->nama);
     
-    sleep(work->durasi);
+    struct timespec req = {work->durasi, 0};
+    nanosleep(&req, NULL);
     
     updateUserMoney(user, work->pendapatan);
     
