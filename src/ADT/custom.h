@@ -19,4 +19,8 @@ typedef struct {
     integer price;
 } Barang;
 
+
+// Fungsi untuk mengupdate uang user
+void updateUserMoney(User *user, int amount);
+
 #endif

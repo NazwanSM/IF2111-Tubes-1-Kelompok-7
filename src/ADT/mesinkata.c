@@ -54,3 +54,13 @@ F.S. : currentWord berisi kata yang sudah diakuisisi;
         currentChar = BLANK atau currentChar = MARK;
         currentChar adalah karakter sesudah karakter terakhir yang diakuisisi.
           Jika panjang kata melebihi NMax, maka sisa kata "dipotong" */
+
+int WordToInt(Word word){
+    int result = 0;
+    for (int i = 0; i < word.Length; i++) {
+        if (word.TabWord[i] >= '0' && word.TabWord[i] <= '9') {
+            result = result * 10 + (word.TabWord[i] - '0');
+        }
+    }
+    return result;
+}

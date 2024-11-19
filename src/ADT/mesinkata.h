@@ -46,4 +46,6 @@ F.S. : currentWord berisi kata yang sudah diakuisisi;
       currentChar adalah karakter sesudah karakter terakhir yang diakuisisi.
           Jika panjang kata melebihi NMax, maka sisa kata "dipotong" */
 
+int WordToInt(Word word);
+/* Mengubah Word menjadi integer */
 #endif
