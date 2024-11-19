@@ -23,11 +23,21 @@ typedef struct {
 
 // Deklarasi fungsi
 void isiDaftarPekerjaan(List* daftarPekerjaan);
-void displayDaftarPekerjaan(List *L);
-boolean isKataSama(Word kata1, char* kata2);
-Work* findPekerjaanByWord(List *L, Word input);
-void prosesKerja(Work* work, User* user);
-void work(User* user);
+/* Mengisi list DaftarPekerjaan dengan struct pekerjaan */
 
+void displayDaftarPekerjaan(List *L);
+/* Menampilkan daftar pekerjaan yang tersedia */
+
+boolean isKataSama(Word kata1, char* kata2);
+/* Fungsi untuk membandingkan kata */
+
+Work* cariPekerjaan(List *L, Word input);
+/* Fungsi untuk mencari pekerjaan yang diinputkan oleh user */
+
+void prosesKerja(Work* work, User* user);
+/* Fungsi untuk memproses pekerjaan yang dipilih oleh user */
+
+void work(User* user);
+/* Fungsi untuk menampilkan daftar pekerjaan yang tersedia dan meminta user untuk memilih pekerjaan yang ingin dikerjakan */
 
 #endif
