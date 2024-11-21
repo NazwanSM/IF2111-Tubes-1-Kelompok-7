@@ -1,6 +1,7 @@
 #ifndef __ARRAY_DINAMIK__
 #define __ARRAY_DINAMIK__
 
+#include "custom.h"
 // Boolean
 #define boolean unsigned char
 #define true 1
@@ -8,10 +9,10 @@
 
 #define InitialSize 10
 
-typedef int IdxType;
-typedef int ElType;
+typedef int idxType;
+typedef Barang elType;
 typedef struct {
-    ElType *A;
+    elType *A;
     int Capacity;
     int Neff;
 } ArrayDin;
@@ -34,36 +35,36 @@ void DeallocateArrayDin(ArrayDin *array);
  * Fungsi untuk mengetahui apakah suatu array kosong.
  * Prekondisi: array terdefinisi
  */
-boolean IsEmpty(ArrayDin array);
+boolean isEmpty(ArrayDin array);
 
 /**
  * Fungsi untuk mendapatkan banyaknya elemen efektif array, 0 jika tabel kosong.
  * Prekondisi: array terdefinisi
  */
-int Length(ArrayDin array);
+int length(ArrayDin array);
 
 /**
  * Mengembalikan elemen array L yang ke-I (indeks lojik).
  * Prekondisi: array tidak kosong, i di antara 0..Length(array).
  */
-ElType Get(ArrayDin array, IdxType i);
+elType get(ArrayDin array, idxType i);
 
 /**
  * Fungsi untuk mendapatkan kapasitas yang tersedia.
  * Prekondisi: array terdefinisi
  */
-int GetCapacity(ArrayDin array);
+int getCapacity(ArrayDin array);
 
 /**
  * Fungsi untuk menambahkan elemen baru di index ke-i
  * Prekondisi: array terdefinisi, i di antara 0..Length(array).
  */
-void InsertAt(ArrayDin *array, ElType el, IdxType i);
+void insertAt(ArrayDin *array, elType el, idxType i);
 
 /**
  * Fungsi untuk menghapus elemen di index ke-i ArrayDin
  * Prekondisi: array terdefinisi, i di antara 0..Length(array).
  */
-void DeleteAt(ArrayDin *array, IdxType i);
+void deleteAt(ArrayDin *array, idxType i);
 
 #endif
