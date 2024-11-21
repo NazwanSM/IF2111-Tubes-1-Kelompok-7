@@ -56,6 +56,4 @@ void CopyWordFile();
 
 void CopyWordSpasi();
 
-int WordToInt(Word word);
-/* Mengubah Word menjadi integer */
 #endif
