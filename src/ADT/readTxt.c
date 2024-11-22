@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "readtxt.h"
-
-
+#include "readTxt.h"
+#include "arraydin.h"
+#include "list.h"
 
 void manualStrcpy(char *dest, const char *source) {
     int i = 0;
@@ -13,46 +13,43 @@ void manualStrcpy(char *dest, const char *source) {
     dest[i] = '\0'; 
 }
 
-void readtxt(char *filename, Barang **barang, User **user, int nbarang, int nuser) {
+void readtxt(char *filename, ArrayDin *barang, List *user, int *nbarang, int *nuser) {
     FILE *file = fopen(filename, "r");
     if (file == NULL) {
         printf("Gagal membuka file: %s\n", filename);
         return;
     }
-    STARTWORD(file);
-    nbarang = atoi(CurrentWord.TabWord);
-    *barang = (Barang *)malloc(nbarang * sizeof(Barang)); // Allocate memory for barang
+    STARTWORDFILE(file);
+    *nbarang = atoi(CurrentWord.TabWord);
 
-    for (int i = 0; i < nbarang; i++) {
-        ADVWORD(); 
-        (*barang)[i].price = atoi(CurrentWord.TabWord);
+    for (int i = 0; i < *nbarang; i++) {
+        ADVWORDFILE(); 
+        (*barang).A[i].price = atoi(CurrentWord.TabWord);
 
         ADVWORDSpasi();
-        manualStrcpy((*barang)[i].name, CurrentWord.TabWord);
+        manualStrcpy((*barang).A[i].name, CurrentWord.TabWord);
     }
 
     if (!feof(file)) {
-        ADVWORD();
+        ADVWORDFILE();
     }
 
-    nuser = atoi(CurrentWord.TabWord);
-    *user = (User *)malloc(nuser * sizeof(User)); // Allocate memory for user
+    *nuser = atoi(CurrentWord.TabWord);
 
-    for (int i = 0; i < nuser; i++) {
-        ADVWORD();
-        (*user)[i].money = atoi(CurrentWord.TabWord);
+    for (int i = 0; i < *nuser; i++) {
+        ADVWORDFILE();
+        (*user).A[i].money = atoi(CurrentWord.TabWord);
 
-        ADVWORD();
-        manualStrcpy((*user)[i].name, CurrentWord.TabWord);
+        ADVWORDFILE();
+        manualStrcpy((*user).A[i].name, CurrentWord.TabWord);
 
-        if (i == nuser - 1) {
-            CopyWord();
+        if (i == *nuser - 1) {
+            CopyWordFile();
         }
         else {
-            ADVWORD();
+            ADVWORDFILE();
         }
-        manualStrcpy((*user)[i].password, CurrentWord.TabWord);
+        manualStrcpy((*user).A[i].password, CurrentWord.TabWord);
     }   
     fclose(file);
 }
-
