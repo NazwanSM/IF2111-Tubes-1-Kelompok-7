@@ -16,7 +16,7 @@ void manualStrcpy(char *dest, const char *source) {
 void readtxt(char *filename, ArrayDin *barang, List *user, int *nbarang, int *nuser) {
     FILE *file = fopen(filename, "r");
     if (file == NULL) {
-        printf("Gagal membuka file: %s\n", filename);
+        printf("Save file: %s tidak ditemukan. PURRMART gagal dijalankan.\n", filename);
         return;
     }
     STARTWORDFILE(file);

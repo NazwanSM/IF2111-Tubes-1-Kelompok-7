@@ -84,6 +84,7 @@ void CopyWordFile(){
         i++;
         ADV();
     }
+    CurrentWord.TabWord[i] = '\0';
     CurrentWord.Length = i;
 }
 /* Mengakuisisi kata, menyimpan dalam currentWord
