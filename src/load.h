@@ -2,6 +2,9 @@
 #define __LOAD_H__
 
 #include "ADT/readTxt.h"
+#include "ADT/arraydin.h"
+#include "ADT/list.h"
+#include "ADT/queue.h"
 
 void load(ArrayDin *barang, List *user, int *nbarang, int *nuser);
 /* Fungsi untuk load file txt */

@@ -1,9 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
+
 #include "load.h"
-#include "ADT/arraydin.h"
-#include "ADT/list.h"
-#include "ADT/queue.h"
 
 void load(ArrayDin *barang, List *user, int *nbarang, int *nuser) {
     printf("Load: ");
