@@ -1,8 +1,8 @@
 #ifndef __READTXT_H__
 #define __READTXT_H__
 
-#include "mesinkarakter_readtxt.h"
-#include "mesinkata_readtxt.h"
+#include "mesinkarakter.h"
+#include "mesinkata.h"
 #include "custom.h"
 #include "arraydin.h"
 #include "list.h"

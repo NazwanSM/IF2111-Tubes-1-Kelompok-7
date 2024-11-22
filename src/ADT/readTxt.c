@@ -1,11 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "readtxt.h"
-/* The `#include "arraydin.h"` and `#include "list.h"` lines are including header files named
-`arraydin.h` and `list.h` respectively in the C program. */
+#include "readTxt.h"
 #include "arraydin.h"
 #include "list.h"
-
 
 void manualStrcpy(char *dest, const char *source) {
     int i = 0;
@@ -22,11 +19,11 @@ void readtxt(char *filename, ArrayDin *barang, List *user, int nbarang, int nuse
         printf("Gagal membuka file: %s\n", filename);
         return;
     }
-    STARTWORD(file);
+    STARTWORDFILE(file);
     nbarang = atoi(CurrentWord.TabWord);
 
     for (int i = 0; i < nbarang; i++) {
-        ADVWORD(); 
+        ADVWORDFILE(); 
         (*barang).A[i].price = atoi(CurrentWord.TabWord);
 
         ADVWORDSpasi();
@@ -34,23 +31,23 @@ void readtxt(char *filename, ArrayDin *barang, List *user, int nbarang, int nuse
     }
 
     if (!feof(file)) {
-        ADVWORD();
+        ADVWORDFILE();
     }
 
     nuser = atoi(CurrentWord.TabWord);
 
     for (int i = 0; i < nuser; i++) {
-        ADVWORD();
+        ADVWORDFILE();
         (*user).A[i].money = atoi(CurrentWord.TabWord);
 
-        ADVWORD();
+        ADVWORDFILE();
         manualStrcpy((*user).A[i].name, CurrentWord.TabWord);
 
         if (i == nuser - 1) {
-            CopyWord();
+            CopyWordFile();
         }
         else {
-            ADVWORD();
+            ADVWORDFILE();
         }
         manualStrcpy((*user).A[i].password, CurrentWord.TabWord);
     }   
