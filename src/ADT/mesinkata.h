@@ -44,6 +44,8 @@ F.S. : currentWord adalah kata terakhir yang sudah diakuisisi,
 
 void ADVWORDSpasi();
 
+void ADVWORDFILE();
+
 void CopyWord();
 /* Mengakuisisi kata, menyimpan dalam currentWord
 I.S. : currentChar adalah karakter pertama dari kata

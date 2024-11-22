@@ -33,7 +33,7 @@ void STARTWORDFILE(FILE *inputFile){
     IgnoreBlanksFile();
     
     EndWord = (currentChar == MARK);
-    ADVWORD();
+    ADVWORDFILE();
 }
 /* I.S. : currentChar sembarang
 F.S. : EndWord = true, dan currentChar = MARK;
@@ -54,20 +54,29 @@ F.S. : currentWord adalah kata terakhir yang sudah diakuisisi,
    Proses : Akuisisi kata menggunakan procedure SalinWord */
 
 void ADVWORDSpasi(){
-    IgnoreBlanks();
+    IgnoreBlanksFile();
 
     EndWord = (currentChar == MARK);
-    CopyWord();
-    IgnoreBlanks();
+    CopyWordSpasi();
+    IgnoreBlanksFile();
+}
+
+void ADVWORDFILE(){
+    IgnoreBlanksFile();
+
+    EndWord = (currentChar == MARK);
+    CopyWordFile();
+    IgnoreBlanksFile();
 }
 
 void CopyWord(){
-    int i=0;
-    while ((currentChar!=MARK) && (currentChar!=BLANK) && (i<NMax)){
+    int i = 0;
+    while (currentChar != MARK && currentChar != BLANK && currentChar != '\n' && i < NMax) {
         CurrentWord.TabWord[i] = currentChar;
-        i++;
         ADV();
+        i++;
     }
+    CurrentWord.TabWord[i] = '\0'; 
     CurrentWord.Length = i;
 }
 
