@@ -4,6 +4,6 @@
 #include "ADT/arraydin.h"
 #include "ADT/list.h"
 
-void start(char *filename, ArrayDin *barang, List *user, int nbarang, int nuser) {
+void start(char *filename, ArrayDin *barang, List *user, int *nbarang, int *nuser) {
     readtxt("../save/config.txt", barang, user, nbarang, nuser);
 }   

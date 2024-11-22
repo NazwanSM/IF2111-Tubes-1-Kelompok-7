@@ -3,6 +3,6 @@
 
 #include "ADT/readTxt.h"
 
-void start(char *filename, ArrayDin *barang, List *user, int nbarang, int nuser);
+void start(char *filename, ArrayDin *barang, List *user, int *nbarang, int *nuser);
 
 #endif
