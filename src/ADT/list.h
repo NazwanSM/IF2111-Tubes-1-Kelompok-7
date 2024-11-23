@@ -113,3 +113,7 @@ List Concat(List L1, List L2);
 /* Urutan elemen terisi dari L1, lalu L2 */
 /* Contoh : L1 : [1, 2]; L2 : [3, 4]; Mengembalikan [1, 2, 3, 4] */
 #endif
+
+/* fungsi strcmp tanpa menggunakan string.h */
+/* mengembalikan 1 jika string TIDAK sama dan 0 jika iya */
+int myStrcmp(const char *str1, const char *str2);

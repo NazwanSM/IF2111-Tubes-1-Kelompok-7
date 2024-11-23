@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+
 #include "save.h"
 
 // Function to write data to a file
@@ -36,22 +37,15 @@ void save(ArrayDin barang, List user, int nbarang, int nuser) {
             READADV();
         }
         savefile[savefileLen] = '\0';
-        boolean config = true;
+
         boolean txt = false;
-        const char *configtxt = "../save/config.txt";
-        
-        for (int i = 0; configtxt[i] != '\0'; i++) {
-            if (savefile[i] != configtxt[i]) {
-                config = false;
-                break;
-            }
-        }
+        int config = myStrcmp(savefile, "../save/config.txt");
 
         if (savefile[savefileLen-4] == '.' && savefile[savefileLen-3] == 't' && savefile[savefileLen-2] == 'x' && savefile[savefileLen-1] == 't') {
             txt = true;
         }
 
-        if (config) {
+        if (!config) {
             printf("Ini merupakan file konfigurasi, mohon jangan save disini!\n");
         } else if(!txt) {
             printf("Pastikan file disimpan dalam format <nama file>.txt!\n");
@@ -62,8 +56,10 @@ void save(ArrayDin barang, List user, int nbarang, int nuser) {
     } while (check == false);
 }
 
-int main() {
-    /* ini semua deklarasi buat ngetes aja */
+/* int main() {
+
+    ini semua deklarasi buat ngetes aja 
+
     ArrayDin barang = MakeArrayDin(); 
     List user = MakeList();
     barang.A[0].price = 10;
@@ -84,4 +80,4 @@ int main() {
 
     save(barang, user, nbarang, nuser);
     return 0;
-}
+} */

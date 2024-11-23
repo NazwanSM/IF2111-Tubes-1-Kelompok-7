@@ -20,10 +20,12 @@ void loadcheck(ArrayDin *barang, List *user, int *nbarang, int *nuser) {
     do {
         load(barang, user, nbarang, nuser);
     } while (*nbarang == 0);
+    printf("Save file berhasil dibaca. PURRMART berhasil dijalankan\n");
 }
 
-int main() {
-    /* deklarasi buat ngetes */
+/* int main() {
+
+    deklarasi buat ngetes
     ArrayDin barang = MakeArrayDin();
     List user = MakeList();
     int nbarang;
@@ -31,11 +33,10 @@ int main() {
     Queue q;
     CreateQueue(&q);
 
-    /* nanti ditaro di main*/
+    nanti ditaro di main
     loadcheck(&barang, &user, &nbarang, &nuser);
-    printf("Save file berhasil dibaca. PURRMART berhasil dijalankan\n");
-    
-    /* cuma buat ngetes*/
+
+    cuma buat ngetes
     printf("%d %s\n",barang.A[5].price, barang.A[5].name);
     printf("%d %s %s\n",user.A[0].money, user.A[0].name, user.A[0].password);
     printf("%d %s %s\n",user.A[1].money, user.A[1].name, user.A[1].password);
@@ -54,4 +55,4 @@ int main() {
     enqueue(&q, barang.A[3]);
     displayQueue(q);
     return 0;
-}
+} */
