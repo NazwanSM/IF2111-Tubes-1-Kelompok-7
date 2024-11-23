@@ -6,12 +6,11 @@
 void storeremove(ArrayDin *store, int *nbarang) {
     elType itemArrayDin;
     idxType i;
+
     printf("Nama barang yang akan dihapus: ");
     START();
     char item[100] = {0};
-    int itemLen = 0;
-    
-    // Reading input for item to delete
+    int itemLen = 0;    
     while (currentChar != '\n' && itemLen < 100 - 1) {
         item[itemLen++] = currentChar;
         READADV();
@@ -21,18 +20,12 @@ void storeremove(ArrayDin *store, int *nbarang) {
     manualStrcpy(itemArrayDin.name, item);
     itemArrayDin.price = -1;
 
-    // Search the item in the array
     i = search(*store, itemArrayDin);
     if(i == -1) {
         printf("Toko tidak menjual barang %s\n", item);
     } else {
-        // Delete the item from the array
         deleteAt(store, i);
-
-        // Decrease the count of barang
         (*nbarang)--;
-
-        // Confirm deletion
         printf("%s telah berhasil dihapus\n", item);
     }
 }
