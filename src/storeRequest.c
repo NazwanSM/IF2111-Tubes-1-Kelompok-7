@@ -1,14 +1,11 @@
+
 #include <stdio.h>
 #include <stdlib.h>
 
-
-#include "start.h"
 #include "storeRequest.h"
 
-void storeRequest(ArrayDin *barang, Queue antrian, int *nbarang) {
-    elType itemArrayDin;
-    idxType i, x;
-    CreateQueue(&antrian);
+void storeRequest(ArrayDin *store, Queue *antrian) {
+    ElTypeQ itemQueue;
 
     printf("Nama barang yang diminta: ");
     START();
@@ -20,15 +17,13 @@ void storeRequest(ArrayDin *barang, Queue antrian, int *nbarang) {
     } 
     item[itemLen] = '\0';
 
-    manualStrcpy(itemArrayDin.name, item);
-    itemArrayDin.price = -1;
+    manualStrcpy(itemQueue.name, item);
+    itemQueue.price = -1;
 
-    i = search(*barang, itemArrayDin);
-    x = searchQueue(antrian, itemArrayDin);
-    if(i == -1) {
-        if (x == -1){
+    if(search(*store, itemQueue) == -1) {
+        if (!searchQueue(*antrian, itemQueue)){
             printf("Berhasil menambahkan barang ke antrean\n");
-            enqueue(&antrian, itemArrayDin);
+            enqueue(antrian, itemQueue);
         } else {
             printf("Barang sudah ada di antrean\n");
         }
@@ -38,18 +33,22 @@ void storeRequest(ArrayDin *barang, Queue antrian, int *nbarang) {
 }
 
 
-int main() {
+/* int main() {
     ArrayDin barang = MakeArrayDin();
     List user = MakeList();
     int nbarang;
     int nuser;
-    start("../save/config.txt", &barang, &user, &nbarang, &nuser);
+    Queue q;
+    CreateQueue(&q);
 
-    Queue antrian;
-    CreateQueue(&antrian);
-    storeRequest(&barang, antrian, &nbarang);
-    printf("\n");
-    displayQueue(antrian);
-   
+    loadcheck(&barang, &user, &nbarang, &nuser);
+
+    storeRequest(&barang, &q);
+    storeRequest(&barang, &q);
+    storeRequest(&barang, &q);
+    storeRequest(&barang, &q);
+    storeRequest(&barang, &q);
+
+    displayQueue(q);
     return 0;
-}
+} */

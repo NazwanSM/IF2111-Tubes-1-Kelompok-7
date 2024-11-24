@@ -12,7 +12,6 @@
 #define CAPACITY 100
 
 /* Definisi elemen dan address */
-typedef int idxType;
 typedef Barang ElTypeQ;
 typedef struct {
 	ElTypeQ buffer[CAPACITY]; 
@@ -68,15 +67,6 @@ void displayQueue(Queue q);
 /* Contoh : jika ada tiga elemen bernilai 1, 20, 30 akan dicetak: [1,20,30] */
 /* Jika Queue kosong : menulis [] */
 
-
-
-/**
- * Fungsi untuk mencari elemen di dalam queue.
- * Mengembalikan indeks logis dari elemen jika ditemukan, IDX_UNDEF jika tidak.
- * Prekondisi: queue terdefinisi.
- */
-idxType searchQueue(Queue q, ElTypeQ val);
-
-boolean compareBarang(Barang b1, Barang b2);
+boolean searchQueue(Queue q, ElTypeQ val);
 
 #endif

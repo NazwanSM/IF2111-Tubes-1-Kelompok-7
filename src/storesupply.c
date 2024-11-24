@@ -5,11 +5,36 @@
 #include "save.h"
 #include "load.h"
 #include "storeList.h"
+#include "storeRequest.h"
 
-void storesupply(ArrayDin *barang, Queue *antrian, int *nbarang){
+int stringToInt(const char *str) {
+    int result = 0;
+    int sign = 1; // Untuk menangani angka negatif (opsional)
+    int i = 0;
+
+    // Tangani tanda negatif jika ada
+    if (str[0] == '-') {
+        sign = -1;
+        i++;
+    }
+
+    // Iterasi tiap karakter dan ubah menjadi integer
+    for (; str[i] != '\0'; i++) {
+        if (str[i] < '0' || str[i] > '9') {
+            printf("Input bukan angka.\n");
+            return -1; // Tanda error jika ada karakter non-angka
+        }
+        result = result * 10 + (str[i] - '0');
+    }
+
+    return sign * result;
+}
+
+void storesupply(ArrayDin *store, Queue *antrian, int *nbarang){
+    ElTypeQ itemQueue;
+    elType pilihan, baranginput;
+    ElTypeQ x;
     while (!(isEmptyQueue(*antrian))){
-        elType pilihan, baranginput;
-        ElTypeQ x;
         printf("Apakah kamu ingin menambahkan barang %s: ", antrian->buffer[0].name);
 
         START();
@@ -26,12 +51,24 @@ void storesupply(ArrayDin *barang, Queue *antrian, int *nbarang){
 
         if (myStrcmp(pilihan.name, "terima") == 0){
             int price;
-            idxType i = *nbarang;
+            idxType i = *nbarang + 1;
             ElTypeQ input;
             printf("Masukkan harga barang: ");
-            scanf("%d", &price);
-            antrian->buffer[0].price = price;
-            insertAt(barang, antrian->buffer[0], i);
+            
+            START();
+            char harga[100] = {0};
+            int hargaLen = 0;    
+            while (currentChar != '\n' && hargaLen < 100 - 1) {
+                harga[hargaLen++] = currentChar;
+                READADV();
+            } 
+            harga[hargaLen] = '\0';
+
+            int hargabarang = stringToInt(harga);
+            manualStrcpy(input.name, antrian->buffer[0].name);
+            input.price = hargabarang;
+
+            insertAt(store, input, i);
             dequeue(antrian, &x);
         } else if (myStrcmp(pilihan.name, "tolak") == 0) {
             enqueue(antrian, antrian->buffer[0]);
@@ -53,17 +90,21 @@ int main(){
     start("../save/config.txt", &barang, &user, &nbarang, &nuser);
     elType pilihan;
     Queue antrian;
+    CreateQueue(&antrian);
     ElTypeQ val;
-    manualStrcpy(val.name, "hehe");  // Manually copy "hehe" to val.name
-    val.price = -1;  // Assuming price should also be initialized
 
-    enqueue(&antrian, val);
+    
     storeList(barang, nbarang);
+
+    storeRequest(&barang, &antrian);
+
+    displayQueue(antrian);
     printf("\n");
     storesupply(&barang, &antrian, &nbarang);
     printf("\n");
     storeList(barang, nbarang);
+
+    displayQueue(antrian);
     printf("\n");
-    printf("%s", pilihan.name[0]);
 }
 

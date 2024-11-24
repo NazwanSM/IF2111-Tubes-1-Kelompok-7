@@ -94,35 +94,12 @@ void displayQueue(Queue q){
 /* Contoh : jika ada tiga elemen bernilai 1, 20, 30 akan dicetak: [1,20,30] */
 /* Jika Queue kosong : menulis [] */
 
-/**
- * Fungsi untuk mencari nama barang dalam array.
- * Mengembalikan indeks dari nama jika ditemukan, -1 jika tidak.
- * Prekondisi: array terdefinisi
- */
-idxType searchQueue(Queue q, ElTypeQ val) {
-    if (isEmptyQueue(q)) {
-        return IDX_UNDEF;
-    }
-
-    idxType i = IDX_HEAD(q);
-    idxType logicalIndex = 0;
-
-    while (true) {
-        if (compareBarang(q.buffer[i], val)) { // Gunakan fungsi pembanding
-            return logicalIndex;
-        }
-        i = (i + 1) % CAPACITY;
-        logicalIndex++;
-
-        if (i == IDX_HEAD(q)) { // Sudah kembali ke awal
-            break;
+boolean searchQueue(Queue q, ElTypeQ val) {
+    int i;
+    for (i = 0; i <= IDX_TAIL(q); i++) {
+        if (myStrcmp(q.buffer[i].name, val.name) == 0) {
+            return true;
         }
     }
-
-    return IDX_UNDEF;
-}
-
-
-boolean compareBarang(Barang b1, Barang b2) {
-    return (myStrcmp(b1.name, b2.name) == 0);
+    return false; 
 }
