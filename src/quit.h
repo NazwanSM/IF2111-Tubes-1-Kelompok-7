@@ -7,6 +7,6 @@
 #include "save.h"
 #include "start.h"
 
-void quit(ArrayDin Barang, List User, int nBarang, int nUser);
+void quit(ArrayDin Barang, List User, int nBarang, int nUser, boolean isMasuk);
 
 #endif

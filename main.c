@@ -11,6 +11,12 @@
 #include "src/start.h"
 #include "src/work.h"
 #include "src/work_challenge.h"
+#include "src/load.h"
+#include "src/save.h"
+#include "src/help.h"
+#include "src/quit.h"
+#include "src/register.h"
+#include "src/login.h"
 
 
 void displayWelcome() {
@@ -25,7 +31,7 @@ void displayWelcome() {
     printf("\033[0m");
 }
 
-void displayMenu() {
+void displatWelcomeMenu() {
     printf("\n\033[1;33mWelcome to PURRMART!\033[0m\n");
     printf("Please choose an option:\n");
     printf("1. START\n");
@@ -36,15 +42,16 @@ void displayMenu() {
 int main() {
     int nBarang = 0;
     int nUser = 0;
+    boolean isMasuk = false; // variabel untuk mengecek apakah user sudah login atau belum
     ArrayDin barang = MakeArrayDin();
     List user = MakeList();
 
 
     system("cls || clear");
     displayWelcome();
-    displayMenu();
+    displatWelcomeMenu();
 
-    printf("Enter your choice (1-3): ");
+    printf("Silahkan pilih menu: ");
     STARTWORD();
     Word choice = CurrentWord;
 
@@ -59,9 +66,14 @@ int main() {
         system("cls || clear");
     }
     else if (isKataSama(choice, "LOAD")) {
-        printf("LOAD\n");
+        printf(">> LOAD\n");
+        loadcheck(&barang, &user, &nBarang, &nUser);
     }
     else if (isKataSama(choice, "QUIT")) {
+        printf(">> QUIT\n");
+        quit(barang, user, nBarang, nUser);
+    }
+    else if (isKataSama(choice, "HELP")) {
         printf("QUIT\n");
     }
     else {

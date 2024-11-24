@@ -3,34 +3,36 @@
 #include <time.h>
 #include "quit.h"
 
-void quit(ArrayDin Barang, List User, int nBarang, int nUser) {    
-    char cc ='\0';
-    while (cc != 'Y' && cc != 'y' && cc != 'N' && cc != 'n') {
-        printf("Apakah anda ingin save terlebih dahulu(y/n)? ");
+void quit(ArrayDin Barang, List User, int nBarang, int nUser, boolean isMasuk) {    
+    if (isMasuk) {
+        char cc ='\0';
+        while (cc != 'Y' && cc != 'y' && cc != 'N' && cc != 'n') {
+            printf("Apakah anda ingin save terlebih dahulu(y/n)? ");
 
-        START();            
-        cc = GetCC();       
+            START();            
+            cc = GetCC();       
 
-        if (cc != 'Y' && cc != 'y' && cc != 'N' && cc != 'n') {
-            printf("Masukkan 'y' untuk ya atau 'n' untuk tidak.\n");
-            while (cc != '\n' && cc != EOF) {
-                ADV();       
-                cc = GetCC(); 
+            if (cc != 'Y' && cc != 'y' && cc != 'N' && cc != 'n') {
+                printf("Masukkan 'y' untuk ya atau 'n' untuk tidak.\n");
+                while (cc != '\n' && cc != EOF) {
+                    ADV();       
+                    cc = GetCC(); 
+                }
             }
         }
-    }
-    if (cc == 'Y' || cc == 'y') {
-        save(Barang, User, nBarang, nUser);
-        printf("Save berhasil!\n");
-    }
-    else if (cc == 'N' || cc == 'n') {
-        printf("Save dibatalkan!\n");
+        if (cc == 'Y' || cc == 'y') {
+            save(Barang, User, nBarang, nUser);
+            printf("Save berhasil!\n");
+        }
+        else if (cc == 'N' || cc == 'n') {
+            printf("Save dibatalkan!\n");
+        }
     }
     printf("\n\033[1m------TERIMA KASIH SUDAH BERKUNJUNG DI PURRMART------\033[0m\n");
     
     struct timespec req = {2, 0};
     nanosleep(&req, NULL);
-    
+
     exit(0);
 }
 /*
