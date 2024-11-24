@@ -35,7 +35,7 @@ void ADV(){
 
 void READADV(){
     retval = fscanf(pita, "%c", &currentChar);
-    EOP = (currentChar == '\n');
+    EOP = (currentChar == '\0');
 
     if (EOP){
         fclose(pita);
