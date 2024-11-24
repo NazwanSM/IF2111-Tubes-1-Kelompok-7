@@ -9,10 +9,15 @@
 
 
 void storeList(ArrayDin barang, int nbarang){
-    printf("List barang yang ada di toko : \n");
-    for (int i = 0; i < nbarang; i++){
-        printf("- ");
-        printf("%s\n", barang.A[i].name);
+    if (nbarang == 0){
+        printf("TOKO KOSONG\n");
+        return;
+    }
+    else {
+        printf("\033[1;34mList barang yang ada di toko : \033[0m\n");
+        for (int i = 0; i < nbarang; i++){
+            printf("- ");
+            printf("%s\n", barang.A[i].name);
     }
 }
 
