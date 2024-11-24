@@ -3,11 +3,11 @@
 #ifndef WORK_H
 #define WORK_H
 
-#include "src/ADT/list.h"
-#include "src/ADT/mesinkata.h"
-#include "src/ADT/mesinkarakter.h"
-#include "src/ADT/custom.h"
-#include "boolean.h"
+#include "ADT/list.h"
+#include "ADT/mesinkata.h"
+#include "ADT/mesinkarakter.h"
+#include "ADT/custom.h"
+#include "ADT/boolean.h"
 
 #define JUMLAH_PEKERJAAN 5
 
@@ -19,19 +19,21 @@ typedef struct {
 
 typedef struct {
     Work A[JUMLAH_PEKERJAAN];
-} List;
+} WorkList;
+
+extern WorkList daftarPekerjaan;
 
 // Deklarasi fungsi
-void isiDaftarPekerjaan(List* daftarPekerjaan);
+void isiDaftarPekerjaan(WorkList* daftarPekerjaan);
 /* Mengisi list DaftarPekerjaan dengan struct pekerjaan */
 
-void displayDaftarPekerjaan(List *L);
+void displayDaftarPekerjaan(WorkList *L);
 /* Menampilkan daftar pekerjaan yang tersedia */
 
 boolean isKataSama(Word kata1, char* kata2);
 /* Fungsi untuk membandingkan kata */
 
-Work* cariPekerjaan(List *L, Word input);
+Work* cariPekerjaan(WorkList *L, Word input);
 /* Fungsi untuk mencari pekerjaan yang diinputkan oleh user */
 
 void prosesKerja(Work* work, User* user);

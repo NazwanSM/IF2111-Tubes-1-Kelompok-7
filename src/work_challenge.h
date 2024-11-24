@@ -3,10 +3,10 @@
 #ifndef WORK_CHALLENGE_H
 #define WORK_CHALLENGE_H
 
-#include "src/ADT/mesinkata.h"
-#include "src/ADT/mesinkarakter.h"
-#include "src/ADT/custom.h"
-#include "boolean.h"
+#include "ADT/mesinkata.h"
+#include "ADT/mesinkarakter.h"
+#include "ADT/custom.h"
+#include "ADT/boolean.h"
 
 #define GAME_COST1 200
 #define GAME_COST2 500
@@ -28,7 +28,7 @@ Jika percobaan habis akan return 0
 Jika uang lebih kecil dari 500 maka akan return -1
 Jika benar maka akan mengupdate uang dari user */ 
 
-void displayGuessResult(char target[], char guess[], int length);
+void displayGuessResult(const char target[], const char guess[], int length);
 /* Fungsi untuk menampilkan hasil tebakan user */
 
 boolean isValidWord(Word input);

@@ -3,9 +3,9 @@
 #include <time.h>
 #include "work.h"
 
-List daftarPekerjaan;
+WorkList daftarPekerjaan;
 
-void isiDaftarPekerjaan(List* daftarPekerjaan){
+void isiDaftarPekerjaan(WorkList* daftarPekerjaan){
     
     Work pekerjaan[JUMLAH_PEKERJAAN] = {
         {"Evil Lab Assistant", 100, 14},
@@ -20,15 +20,21 @@ void isiDaftarPekerjaan(List* daftarPekerjaan){
     }
 }
 
-void displayDaftarPekerjaan(List *L){
+void displayDaftarPekerjaan(WorkList *L){
     printf("Daftar pekerjaan:\n");
     for(int i = 0; i < JUMLAH_PEKERJAAN; i++) {
-        printf("%d. %s (pendapatan=%d, durasi=%ds)\n", i + 1, L->A[i].nama, L->A[i].pendapatan, L->A[i].durasi);
+        printf("%d. %s (pendapatan = %d, durasi = %ds)\n", i + 1, L->A[i].nama, L->A[i].pendapatan, L->A[i].durasi);
     }
 }
 
 boolean isKataSama(Word kata1, char* kata2){
-    if (kata1.Length != strlen(kata2)) {
+
+    int panjangKata2 = 0;
+    while (kata2[panjangKata2] != '\0') {
+        panjangKata2++;
+    }
+
+    if (kata1.Length != panjangKata2) {
         return false;
     }
     
@@ -40,7 +46,7 @@ boolean isKataSama(Word kata1, char* kata2){
     return true;
 }
 
-Work* cariPekerjaan(List *L, Word input){
+Work* cariPekerjaan(WorkList *L, Word input){
     for(int i = 0; i < JUMLAH_PEKERJAAN; i++){
         if(isKataSama(input, L->A[i].nama)){
             return &L->A[i];
@@ -50,14 +56,14 @@ Work* cariPekerjaan(List *L, Word input){
 }
 
 void prosesKerja(Work* work, User* user){
-    printf("Anda sedang bekerja sebagai %s>>. harap tunggu.\n", work->nama);
+    printf("\nAnda sedang bekerja sebagai %s... harap tunggu.\n", work->nama);
     
     struct timespec req = {work->durasi, 0};
     nanosleep(&req, NULL);
     
     updateUserMoney(user, work->pendapatan);
     
-    printf("Pekerjaan selesai, +%d rupiah telah ditambahkan ke akun Anda.\n", 
+    printf("\nPekerjaan selesai, +%d rupiah telah ditambahkan ke akun Anda.\n", 
         work->pendapatan);
 }
 
@@ -65,7 +71,7 @@ void work(User* user){
 
     displayDaftarPekerjaan(&daftarPekerjaan);
     
-    printf("Masukkan pekerjaan yang dipilih: ");
+    printf("\nMasukkan pekerjaan yang dipilih: ");
     
     STARTWORD();
     Word inputPekerjaan = CurrentWord;
