@@ -6,6 +6,7 @@
 
 #include "boolean.h"
 #include "custom.h"
+#include "list.h"
 
 #define IDX_UNDEF -1
 #define CAPACITY 100
@@ -66,5 +67,6 @@ void displayQueue(Queue q);
 /* Contoh : jika ada tiga elemen bernilai 1, 20, 30 akan dicetak: [1,20,30] */
 /* Jika Queue kosong : menulis [] */
 
+boolean searchQueue(Queue q, ElTypeQ val);
 
 #endif

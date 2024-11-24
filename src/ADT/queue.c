@@ -93,3 +93,13 @@ void displayQueue(Queue q){
 /* F.S. Jika q tidak kosong: [e1,e2,...,en] */
 /* Contoh : jika ada tiga elemen bernilai 1, 20, 30 akan dicetak: [1,20,30] */
 /* Jika Queue kosong : menulis [] */
+
+boolean searchQueue(Queue q, ElTypeQ val) {
+    int i;
+    for (i = 0; i <= IDX_TAIL(q); i++) {
+        if (myStrcmp(q.buffer[i].name, val.name) == 0) {
+            return true;
+        }
+    }
+    return false; 
+}
