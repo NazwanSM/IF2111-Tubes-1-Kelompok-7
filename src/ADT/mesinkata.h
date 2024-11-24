@@ -6,6 +6,7 @@
 
 #include "boolean.h"
 #include "mesinkarakter.h"
+#include <stdio.h>
 
 #define NMax 50
 #define BLANK ' '
