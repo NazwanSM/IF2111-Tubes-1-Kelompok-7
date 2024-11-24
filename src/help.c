@@ -11,6 +11,7 @@ void help2() {
     printf("=====[Login Menu Help PURRMART]=====\n");
     printf("1. REGISTER -> Untuk melakukan pendaftaran akun baru\n");
     printf("2. LOGIN -> Untuk masuk ke dalam akun dan memulai sesi\n");
+    printf("3. QUIT -> Untuk keluar dari program\n");
 }
 
 void help3() {
@@ -25,3 +26,14 @@ void help3() {
     printf("8. SAVE -> Untuk menyimpan state ke dalam file\n");
     printf("9. QUIT -> Untuk keluar dari program\n");
 }
+
+/*
+int main(){
+    help1();
+    printf("\n");
+    help2();
+    printf("\n");
+    help3();
+    return 0;
+}
+*/
