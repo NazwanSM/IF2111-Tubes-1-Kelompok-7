@@ -4,6 +4,7 @@
 #include "arraydin.h"
 #include "list.h"
 
+// untuk masukin string dari mesin kata
 void manualStrcpy(char *dest, const char *source) {
     int i = 0;
     while (source[i] != '\0') {
@@ -12,7 +13,7 @@ void manualStrcpy(char *dest, const char *source) {
     }
     dest[i] = '\0'; 
 }
-
+// Buat baca file txt dan convert ke arraydin dan list
 void readtxt(char *filename, ArrayDin *barang, List *user, int *nbarang, int *nuser) {
     FILE *file = fopen(filename, "r");
     if (file == NULL) {
