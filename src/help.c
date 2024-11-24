@@ -1,21 +1,21 @@
 #include "help.h"
 
 void help1() {
-    printf("=====[Welcome Menu Help PURRMART]=====\n");
+    printf("\n\033[1;33m=====[Welcome Menu Help PURRMART]=====\033[0m\n");
     printf("1. START -> Untuk masuk sesi baru\n");
     printf("2. LOAD -> Untuk memulai sesi berdasarkan file konfigurasi\n");
     printf("3. QUIT -> Untuk keluar dari program\n");
 }
 
 void help2() {
-    printf("=====[Login Menu Help PURRMART]=====\n");
+    printf("\n\033[1;33m=====[Login Menu Help PURRMART]=====\033[0m\n");
     printf("1. REGISTER -> Untuk melakukan pendaftaran akun baru\n");
     printf("2. LOGIN -> Untuk masuk ke dalam akun dan memulai sesi\n");
     printf("3. QUIT -> Untuk keluar dari program\n");
 }
 
 void help3() {
-    printf("=====[Main Menu Help PURRMART]=====\n");
+    printf("\n\033[1;33m=====[Main Menu Help PURRMART]=====\033[0m\n");
     printf("1. WORK -> Untuk bekerja\n");
     printf("2. WORKCHALLENGE -> Untuk mengerjakan challenge\n");
     printf("3. STORELIST -> Untuk melihat barang-barang di toko\n");
