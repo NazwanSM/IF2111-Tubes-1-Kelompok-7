@@ -108,3 +108,22 @@ void CopyWordSpasi(){
     CurrentWord.TabWord[i] = '\0'; // Null-terminate the string
     CurrentWord.Length = i;
 }
+
+boolean isKataSama(Word kata1, char* kata2){
+
+    int panjangKata2 = 0;
+    while (kata2[panjangKata2] != '\0') {
+        panjangKata2++;
+    }
+
+    if (kata1.Length != panjangKata2) {
+        return false;
+    }
+    
+    for (int i = 0; i < kata1.Length; i++) {
+        if (kata1.TabWord[i] != kata2[i]) {
+            return false;
+        }
+    }
+    return true;
+}

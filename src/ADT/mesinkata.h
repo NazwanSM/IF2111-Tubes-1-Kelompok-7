@@ -58,4 +58,7 @@ void CopyWordFile();
 
 void CopyWordSpasi();
 
+boolean isKataSama(Word kata1, char* kata2);
+/* Fungsi untuk membandingkan kata */
+
 #endif
