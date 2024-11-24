@@ -11,7 +11,7 @@ void storesupply(ArrayDin *store, Queue *antrian, int *nbarang){
     ElTypeQ itemQueue;
     elType pilihan, baranginput;
     ElTypeQ x;
-    printf("Apakah kamu ingin menambahkan barang %s: ", antrian->buffer[0].name);
+    printf("Apakah kamu ingin menambahkan barang %s: ", antrian->buffer[antrian->idxHead].name);
 
     START();
     char item[100] = {0};
@@ -41,14 +41,14 @@ void storesupply(ArrayDin *store, Queue *antrian, int *nbarang){
         harga[hargaLen] = '\0';
 
         int hargabarang = atoi(harga);
-        manualStrcpy(input.name, antrian->buffer[0].name);
+        manualStrcpy(input.name, antrian->buffer[antrian->idxHead].name);
         input.price = hargabarang;
 
         insertAt(store, input, i);
         (*nbarang)++;
         dequeue(antrian, &x);
     } else if (myStrcmp(pilihan.name, "tunda") == 0) {
-        enqueue(antrian, antrian->buffer[0]);
+        enqueue(antrian, antrian->buffer[antrian->idxHead]);
         dequeue(antrian, &x);
         printf("Barang ditunda dan dimasukkan kembali ke antrian.\n");
     } else if (myStrcmp(pilihan.name, "tolak") == 0){
@@ -58,12 +58,10 @@ void storesupply(ArrayDin *store, Queue *antrian, int *nbarang){
         printf("Input tidak dikenali\n");
     }
 
-        
-    
 }
 
 
-/*int main(){
+int main(){
     ArrayDin barang = MakeArrayDin();
     List user = MakeList();
     int nbarang;
@@ -78,14 +76,27 @@ void storesupply(ArrayDin *store, Queue *antrian, int *nbarang){
     storeList(barang, nbarang);
 
     storeRequest(&barang, &antrian);
+    storeRequest(&barang, &antrian);
+    storeRequest(&barang, &antrian);
 
     displayQueue(antrian);
     printf("\n");
     storesupply(&barang, &antrian, &nbarang);
+    displayQueue(antrian);
+    printf("\n");
+    storeList(barang, nbarang);
+
+    storesupply(&barang, &antrian, &nbarang);
+    displayQueue(antrian);
+    printf("\n");
+    storeList(barang, nbarang);
+
+    storesupply(&barang, &antrian, &nbarang);
+    displayQueue(antrian);
     printf("\n");
     storeList(barang, nbarang);
 
     displayQueue(antrian);
     printf("\n");
-}*/
+}
 
