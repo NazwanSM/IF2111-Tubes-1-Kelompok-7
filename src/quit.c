@@ -1,3 +1,6 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 #include "quit.h"
 
 void quit(ArrayDin Barang, List User, int nBarang, int nUser) {    
@@ -23,7 +26,11 @@ void quit(ArrayDin Barang, List User, int nBarang, int nUser) {
     else if (cc == 'N' || cc == 'n') {
         printf("Save dibatalkan!\n");
     }
-    printf("------TERIMA KASIH SUDAH BERKUNJUNG DI PURRMART------\n");
+    printf("\n\033[1m------TERIMA KASIH SUDAH BERKUNJUNG DI PURRMART------\033[0m\n");
+    
+    struct timespec req = {2, 0};
+    nanosleep(&req, NULL);
+    
     exit(0);
 }
 /*
