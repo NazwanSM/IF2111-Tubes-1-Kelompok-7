@@ -21,30 +21,12 @@ void isiDaftarPekerjaan(WorkList* daftarPekerjaan){
 }
 
 void displayDaftarPekerjaan(WorkList *L){
-    printf("Daftar pekerjaan:\n");
+    printf("\033[1;34mDaftar pekerjaan:\033[0m\n");
     for(int i = 0; i < JUMLAH_PEKERJAAN; i++) {
         printf("%d. %s (pendapatan = %d, durasi = %ds)\n", i + 1, L->A[i].nama, L->A[i].pendapatan, L->A[i].durasi);
     }
 }
 
-boolean isKataSama(Word kata1, char* kata2){
-
-    int panjangKata2 = 0;
-    while (kata2[panjangKata2] != '\0') {
-        panjangKata2++;
-    }
-
-    if (kata1.Length != panjangKata2) {
-        return false;
-    }
-    
-    for (int i = 0; i < kata1.Length; i++) {
-        if (kata1.TabWord[i] != kata2[i]) {
-            return false;
-        }
-    }
-    return true;
-}
 
 Work* cariPekerjaan(WorkList *L, Word input){
     for(int i = 0; i < JUMLAH_PEKERJAAN; i++){
@@ -55,20 +37,20 @@ Work* cariPekerjaan(WorkList *L, Word input){
     return NULL;
 }
 
-void prosesKerja(Work* work, User* user){
+void prosesKerja(Work* work, List* user, int indexUser){
     printf("\nAnda sedang bekerja sebagai %s... harap tunggu.\n", work->nama);
     
     struct timespec req = {work->durasi, 0};
     nanosleep(&req, NULL);
     
-    updateUserMoney(user, work->pendapatan);
+    user->A[indexUser].money += work->pendapatan;
     
     printf("\nPekerjaan selesai, +%d rupiah telah ditambahkan ke akun Anda.\n", 
         work->pendapatan);
 }
 
-void work(User* user){
-
+void work(List* user, int indexUser){
+    printf("\033[1;33mSelamat datang di Work!\033[0m\n\n");
     displayDaftarPekerjaan(&daftarPekerjaan);
     
     printf("\nMasukkan pekerjaan yang dipilih: ");
@@ -94,5 +76,5 @@ void work(User* user){
         return;
     }
     
-    prosesKerja(selectedWork, user);
+    prosesKerja(selectedWork, user, indexUser);
 }

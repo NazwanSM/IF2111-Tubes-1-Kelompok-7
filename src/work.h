@@ -30,16 +30,13 @@ void isiDaftarPekerjaan(WorkList* daftarPekerjaan);
 void displayDaftarPekerjaan(WorkList *L);
 /* Menampilkan daftar pekerjaan yang tersedia */
 
-boolean isKataSama(Word kata1, char* kata2);
-/* Fungsi untuk membandingkan kata */
-
 Work* cariPekerjaan(WorkList *L, Word input);
 /* Fungsi untuk mencari pekerjaan yang diinputkan oleh user */
 
-void prosesKerja(Work* work, User* user);
+void prosesKerja(Work* work, List* user, int indexUser);
 /* Fungsi untuk memproses pekerjaan yang dipilih oleh user */
 
-void work(User* user);
+void work(List* user, int indexUser);
 /* Fungsi untuk menampilkan daftar pekerjaan yang tersedia dan meminta user untuk memilih pekerjaan yang ingin dikerjakan */
 
 #endif

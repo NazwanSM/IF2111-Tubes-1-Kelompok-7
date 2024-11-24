@@ -113,4 +113,7 @@ List Concat(List L1, List L2);
 /* Mengirimkan sebuah List yang merupakan gabungan dari L1 dan L2 */
 /* Urutan elemen terisi dari L1, lalu L2 */
 /* Contoh : L1 : [1, 2]; L2 : [3, 4]; Mengembalikan [1, 2, 3, 4] */
+
+int myStrcmp(const char *str1, const char *str2);
+
 #endif

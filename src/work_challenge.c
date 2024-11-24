@@ -12,15 +12,15 @@ const char* validWords[] = {
 };
 const int numValidWords = 20;
 
-int tebak_angka(User* user){
+int tebak_angka(List* user, int userIdx){
     // Mengecek uang user
-    if (user->money < GAME_COST1){
+    if (user->A[userIdx].money < GAME_COST1){
         printf("Uang Anda tidak cukup untuk bermain game ini.\n");
         return -1;
     }
 
     // Mengurangi uang user
-    updateUserMoney(user, -GAME_COST1);
+    user->A[userIdx].money -= GAME_COST1;
 
     // Membuat angka random
     srand(time(NULL));
@@ -41,16 +41,16 @@ int tebak_angka(User* user){
             reward = 500 - ((attempts -1) * 30);
             if (reward < 200) reward = 200;
 
-                updateUserMoney(user, reward);
+                user->A[userIdx].money += reward;
                 printf("Tebakanmu benar! +%d rupiah telah ditambahkan ke akun anda.\n", reward);
                 return reward;
         }
         // Jika tebakan salah
         else if (guess < target){
-            printf("Tebakanmu lebih kecil!\n");
+            printf("Tebakanmu lebih kecil!\n\n");
         }
         else {
-            printf("Tebakanmu lebih besar!\n");
+            printf("Tebakanmu lebih besar!\n\n");
         }
     }
     
@@ -101,21 +101,21 @@ void displayGuessResult(const char target[], const char guess[], int length){
     printf("\n");
 }
 
-int WORLD3(User* user){
+int WORLD3(List* user, int userIdx){
     // Mengecek uang user
-    if (user->money < GAME_COST2) {
+    if (user->A[userIdx].money < GAME_COST2) {
         printf("Uang Anda tidak cukup untuk bermain game ini.\n");
         return -1;
     }
 
     // Mengurangi uang user
-    updateUserMoney(user, -GAME_COST2);
+    user->A[userIdx].money -= GAME_COST2;
 
     // Pilih kata target secara random
     srand(time(NULL));
     const char* targetWord = validWords[rand() % numValidWords];
 
-    printf("\n\033[1mWELCOME TO W0RDL3, YOU HAVE %d CHANCES TO ANSWER BEFORE YOU LOSE!\033[0m\n", MAX_ATTEMPTS2);
+    printf("\n\033[1;33mWELCOME TO W0RDL3, YOU HAVE %d CHANCES TO ANSWER BEFORE YOU LOSE!\033[0m\n\n", MAX_ATTEMPTS2);
 
     for (int i = 0; i < MAX_ATTEMPTS2; i++){
         printf("_ _ _ _ _ \n");
@@ -160,7 +160,7 @@ int WORLD3(User* user){
         if (correct) {
             printf("\nSelamat, Anda menang!\n");
             printf("+%d rupiah telah ditambahkan ke akun Anda.\n", WORLD3_REWARD);
-            updateUserMoney(user, WORLD3_REWARD);
+            user->A[userIdx].money += WORLD3_REWARD;
             return WORLD3_REWARD;
         }
 
@@ -172,22 +172,22 @@ int WORLD3(User* user){
     return 0;
 }
 
-void work_challenge(User* user){
-    printf("Selamat datang di Work Challenge!\n");
-    printf("Daftar challenge yang tersedia:\n");
+void work_challenge(List* user, int userIdx){
+    printf("\033[1;33mSelamat datang di Work Challenge!\033[0m\n\n");
+    printf("\033[1;34mDaftar challenge yang tersedia:\033[0m\n");
     printf("1. Tebak Angka (Biaya: %d rupiah)\n", GAME_COST1);
     printf("2. WORDL399 (Biaya: %d rupiah)\n", GAME_COST2);
 
     int challenge;
-    printf("Masukkan challenge yang hendak dimainkan: ");
+    printf("\nMasukkan challenge yang hendak dimainkan: ");
     STARTWORD();
     challenge = atoi(CurrentWord.TabWord);
 
     if (challenge == 1){
-        tebak_angka(user);
+        tebak_angka(user, userIdx);
     }
     else if (challenge == 2){
-        WORLD3(user);
+        WORLD3(user, userIdx);
     }
     else {
         printf("Challenge tidak valid!\n");
