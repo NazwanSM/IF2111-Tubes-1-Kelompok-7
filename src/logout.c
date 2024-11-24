@@ -1,18 +1,9 @@
 #include <stdio.h>
-#include "userauth.h"
 #include "logout.h"
 
 
-
-void logoutUser() {
-    // Check if any user is logged in
-    if (currentLoggedInUser == -1) {
-        printf("Anda belum login.\n");
-        return;
-    }
-    
-    // Set user as logged out
-    users[currentLoggedInUser].isLoggedIn = 0;
-    printf("Anda telah logout dari PURRMART.\n");
-    currentLoggedInUser = -1;
+void logoutUser(int *userIdx, List user) {
+    userIdx = -1;
+    printf("%s telah logout dari sistem PURRMART.", user.A[*userIdx].name);
+    printf("Silakan REGISTER/LOGIN kembali untuk melanjutkan.");
 }

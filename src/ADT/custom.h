@@ -3,7 +3,11 @@
 #ifndef CUSTOM_H
 #define CUSTOM_H
 
+#include "boolean.h"
+#include "list.h"
+
 #define MAX_LEN 100
+#define MAX_USERS 50
 
 #define integer int
 
@@ -19,8 +23,11 @@ typedef struct {
     integer price;
 } Barang;
 
+extern int currentUserCount ;
+extern int currentLoggedInUser;
 
-// Fungsi untuk mengupdate uang user
-void updateUserMoney(User *user, int amount);
+
+int checkUsernameExists(const char *username, List user);
+int compareStrings(const char *str1, const char *str2);
 
 #endif
