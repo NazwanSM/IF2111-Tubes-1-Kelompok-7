@@ -4,6 +4,7 @@
 #include "ADT/arraydin.h"
 #include "ADT/list.h"
 
-void start(char *filename, ArrayDin *barang, List *user, int *nbarang, int *nuser) {
-    readtxt("../save/config.txt", barang, user, nbarang, nuser);
+void start(char *filename, ArrayDin *barang, List *user, int *nBarang, int *nUser) {
+    readtxt("../save/config.txt", barang, user, nBarang, nUser);
+    printf("File konfigurasi aplikasi berhasil dibaca. PURRMART berhasil dijalankan.\n");
 }   

@@ -9,7 +9,7 @@
 
 void manualStrcpy(char *dest, const char *source);
 
-void readtxt(char *filename, ArrayDin *barang, List *user, int *nbarang, int *nuser);
+void readtxt(char *filename, ArrayDin *barang, List *user, int *nBarang, int *nUser);
 
 
 #endif

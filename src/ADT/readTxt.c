@@ -13,16 +13,16 @@ void manualStrcpy(char *dest, const char *source) {
     dest[i] = '\0'; 
 }
 
-void readtxt(char *filename, ArrayDin *barang, List *user, int *nbarang, int *nuser) {
+void readtxt(char *filename, ArrayDin *barang, List *user, int *nBarang, int *nUser) {
     FILE *file = fopen(filename, "r");
     if (file == NULL) {
         printf("Gagal membuka file: %s\n", filename);
         return;
     }
     STARTWORDFILE(file);
-    *nbarang = atoi(CurrentWord.TabWord);
+    *nBarang = atoi(CurrentWord.TabWord);
 
-    for (int i = 0; i < *nbarang; i++) {
+    for (int i = 0; i < *nBarang; i++) {
         ADVWORDFILE(); 
         (*barang).A[i].price = atoi(CurrentWord.TabWord);
 
@@ -34,16 +34,16 @@ void readtxt(char *filename, ArrayDin *barang, List *user, int *nbarang, int *nu
         ADVWORDFILE();
     }
 
-    *nuser = atoi(CurrentWord.TabWord);
+    *nUser = atoi(CurrentWord.TabWord);
 
-    for (int i = 0; i < *nuser; i++) {
+    for (int i = 0; i < *nUser; i++) {
         ADVWORDFILE();
         (*user).A[i].money = atoi(CurrentWord.TabWord);
 
         ADVWORDFILE();
         manualStrcpy((*user).A[i].name, CurrentWord.TabWord);
 
-        if (i == *nuser - 1) {
+        if (i == *nUser - 1) {
             CopyWordFile();
         }
         else {
