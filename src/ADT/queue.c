@@ -13,18 +13,18 @@ void CreateQueue(Queue *q){
 /* Proses : Melakukan alokasi, membuat sebuah q kosong */
 
 /* ********* Prototype ********* */
-boolean isEmpty(Queue q){
+boolean isEmptyQueue(Queue q){
     return IDX_HEAD(q) == IDX_UNDEF && IDX_TAIL(q) == IDX_UNDEF;
 }
 /* Mengirim true jika q kosong: lihat definisi di atas */
-boolean isFull(Queue q){
+boolean isFullQueue(Queue q){
     return IDX_TAIL(q) == CAPACITY -1;
 }
 /* Mengirim true jika tabel penampung elemen q sudah penuh */
 /* yaitu IDX_TAIL akan selalu di belakang IDX_HEAD dalam buffer melingkar*/
 
-int length(Queue q){
-    if (isEmpty(q)){
+int lengthQueue(Queue q){
+    if (isEmptyQueue(q)){
         return 0;
     }
     else if (IDX_TAIL(q)<IDX_HEAD(q)){
@@ -37,8 +37,8 @@ int length(Queue q){
 /* Mengirimkan banyaknya elemen queue. Mengirimkan 0 jika q kosong. */
 
 /* *** Primitif Add/Delete *** */
-void enqueue(Queue *q, ElType val){
-    if (isEmpty(*q)){
+void enqueue(Queue *q, ElTypeQ val){
+    if (isEmptyQueue(*q)){
         IDX_HEAD(*q)=0; 
         IDX_TAIL(*q)=0;
     }
@@ -51,7 +51,7 @@ void enqueue(Queue *q, ElType val){
 /* I.S. q mungkin kosong, tabel penampung elemen q TIDAK penuh */
 /* F.S. val menjadi TAIL yang baru, IDX_TAIL "mundur" dalam buffer melingkar. */
 
-void dequeue(Queue *q, ElType *val){
+void dequeue(Queue *q, ElTypeQ *val){
     *val = HEAD(*q);
     if (IDX_HEAD(*q)==IDX_TAIL(*q)){
         IDX_HEAD(*q) = IDX_UNDEF;
@@ -69,22 +69,22 @@ void dequeue(Queue *q, ElType *val){
 /* *** Display Queue *** */
 void displayQueue(Queue q){
     printf("[");
-    if (!isEmpty(q)){
+    if (!isEmptyQueue(q)){
         if (IDX_HEAD(q)<=IDX_TAIL(q)){
             for (int i=IDX_HEAD(q); i<IDX_TAIL(q); i++){
-                printf("%d,", q.buffer[i]);
+                printf("%d %s,", q.buffer[i].price, q.buffer[i].name);
             }
         }
         else{
             for (int i=IDX_HEAD(q); i<=CAPACITY-1; i++){
-                printf("%d,", q.buffer[i]);
+                printf("%d %s,", q.buffer[i].price, q.buffer[i].name);
             }
             for (int i=0; i<IDX_TAIL(q); i++){
-                printf("%d,", q.buffer[i]);
+                printf("%d %s,", q.buffer[i].price, q.buffer[i].name);
             }
         }
     }
-    printf("%d]\n", q.buffer[IDX_TAIL(q)]);
+    printf("%d %s]\n", q.buffer[IDX_TAIL(q)].price, q.buffer[IDX_TAIL(q)].name);
 }
 /* Proses : Menuliskan isi Queue dengan traversal, Queue ditulis di antara kurung 
     siku; antara dua elemen dipisahkan dengan separator "koma", tanpa tambahan 
@@ -93,3 +93,36 @@ void displayQueue(Queue q){
 /* F.S. Jika q tidak kosong: [e1,e2,...,en] */
 /* Contoh : jika ada tiga elemen bernilai 1, 20, 30 akan dicetak: [1,20,30] */
 /* Jika Queue kosong : menulis [] */
+
+/**
+ * Fungsi untuk mencari nama barang dalam array.
+ * Mengembalikan indeks dari nama jika ditemukan, -1 jika tidak.
+ * Prekondisi: array terdefinisi
+ */
+idxType searchQueue(Queue q, ElTypeQ val) {
+    if (isEmptyQueue(q)) {
+        return IDX_UNDEF;
+    }
+
+    idxType i = IDX_HEAD(q);
+    idxType logicalIndex = 0;
+
+    while (true) {
+        if (compareBarang(q.buffer[i], val)) { // Gunakan fungsi pembanding
+            return logicalIndex;
+        }
+        i = (i + 1) % CAPACITY;
+        logicalIndex++;
+
+        if (i == IDX_HEAD(q)) { // Sudah kembali ke awal
+            break;
+        }
+    }
+
+    return IDX_UNDEF;
+}
+
+
+boolean compareBarang(Barang b1, Barang b2) {
+    return (myStrcmp(b1.name, b2.name) == 0);
+}

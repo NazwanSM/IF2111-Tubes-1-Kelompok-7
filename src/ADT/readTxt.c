@@ -16,11 +16,12 @@ void manualStrcpy(char *dest, const char *source) {
 void readtxt(char *filename, ArrayDin *barang, List *user, int *nbarang, int *nuser) {
     FILE *file = fopen(filename, "r");
     if (file == NULL) {
-        printf("Gagal membuka file: %s\n", filename);
+        printf("Save file: %s tidak ditemukan. PURRMART gagal dijalankan.\n", filename);
         return;
     }
     STARTWORDFILE(file);
     *nbarang = atoi(CurrentWord.TabWord);
+    (*barang).Neff = *nbarang;
 
     for (int i = 0; i < *nbarang; i++) {
         ADVWORDFILE(); 
@@ -28,6 +29,7 @@ void readtxt(char *filename, ArrayDin *barang, List *user, int *nbarang, int *nu
 
         ADVWORDSpasi();
         manualStrcpy((*barang).A[i].name, CurrentWord.TabWord);
+        
     }
 
     if (!feof(file)) {

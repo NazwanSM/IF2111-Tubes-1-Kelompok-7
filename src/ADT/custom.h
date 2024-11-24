@@ -13,12 +13,12 @@
 typedef struct {
     char name[MAX_LEN];
     char password[MAX_LEN];
-    integer money;
+    int money;
 } User;
 
 typedef struct {
     char name[MAX_LEN];
-    integer price;
+    int price;
 } Barang;
 
 

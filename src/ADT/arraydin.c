@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 #include "arraydin.h"
@@ -82,4 +81,19 @@ void deleteAt(ArrayDin *array, idxType i){
         array->A[j] = array->A[j + 1];
     }
     array->Neff--;
+}
+
+/**
+ * Fungsi untuk mencari nama barang dalam array.
+ * Mengembalikan indeks dari nama jika ditemukan, -1 jika tidak.
+ * Prekondisi: array terdefinisi
+ */
+idxType search(ArrayDin array, elType el) {
+    int i;
+    for (i = 0; i < array.Neff; i++) {
+        if ( myStrcmp(array.A[i].name, el.name) == 0) {  
+            return i; 
+        }
+    }
+    return -1; 
 }

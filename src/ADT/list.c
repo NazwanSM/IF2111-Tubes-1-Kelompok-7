@@ -79,16 +79,17 @@ boolean IsIdxEff(List L, IdxType i){
 }
 
 /* ********** Operasi-operasi ********** */
-boolean Search(List L, ElType X){
+boolean Search(List L, ElType X) {
     int i;
     for (i = 0; i <= LastIdx(L); i++) {
+        // Compare money directly
         if (L.A[i].money == X.money && 
-            (L.A[i].name == X.name) && 
-            (L.A[i].password == X.password)) {
+            myStrcmp(L.A[i].name, X.name) == 0 &&  // Compare name with myStrcmp
+            myStrcmp(L.A[i].password, X.password) == 0) {  // Compare password with myStrcmp
             return true;  // Found the matching User object
         }
     }
-    return false;
+    return false; 
 }
 
 /* Prekondisi : X sembarang */
@@ -177,3 +178,19 @@ List Concat(List L1, List L2) {
 /* Prekondisi : L1 dan L2 tidak kosong */
 /* Mengirimkan sebuah List yang merupakan gabungan dari L1 dan L2 */
 /* Urutan elemen terisi dari L1, lalu L2 */
+
+/* fungsi strcmp tanpa menggunakan string.h */
+/* mengembalikan 1 jika string TIDAK sama dan 0 jika iya */
+int myStrcmp(const char *str1, const char *str2) {
+    while (*str1 != '\0' && *str2 != '\0') {
+        if (*str1 != *str2) {
+            return 1;  
+        }
+        str1++;
+        str2++;
+    }
+    if (*str1 == '\0' && *str2 == '\0') {
+        return 0;  
+    }
+    return 1;  
+}

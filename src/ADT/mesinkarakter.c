@@ -1,3 +1,4 @@
+
 #include <stdio.h>
 #include "mesinkarakter.h"
 
@@ -27,6 +28,15 @@ void STARTFILE(FILE *inputFile){
 void ADV(){
     retval = fscanf(pita, "%c", &currentChar);
     EOP = IsEOP();
+
+    if (EOP){
+        fclose(pita);
+    }
+}
+
+void READADV(){
+    retval = fscanf(pita, "%c", &currentChar);
+    EOP = (currentChar == '\n');
 
     if (EOP){
         fclose(pita);
