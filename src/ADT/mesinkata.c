@@ -84,6 +84,7 @@ void CopyWordFile(){
         i++;
         ADV();
     }
+    CurrentWord.TabWord[i] = '\0';
     CurrentWord.Length = i;
 }
 /* Mengakuisisi kata, menyimpan dalam currentWord
@@ -96,12 +97,12 @@ F.S. : currentWord berisi kata yang sudah diakuisisi;
 void CopyWordSpasi(){
     int i = 0;
     while ((currentChar != MARK) && (currentChar != '\n') && (i < NMax)) {
-        if (currentChar != BLANK || i != 0) { // Ignore leading spaces but keep spaces within names
+        if (currentChar != BLANK || i != 0) { 
             CurrentWord.TabWord[i] = currentChar;
             i++;
         }
         ADV();
     }
-    CurrentWord.TabWord[i] = '\0'; // Null-terminate the string
+    CurrentWord.TabWord[i] = '\0'; 
     CurrentWord.Length = i;
 }

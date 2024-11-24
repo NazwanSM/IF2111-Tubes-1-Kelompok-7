@@ -4,7 +4,9 @@
 #include <stdio.h>
 #include "ADT/mesinkarakter.h"
 #include <stdlib.h>
+#include "save.h"
+#include "start.h"
 
-void quit();
+void quit(ArrayDin Barang, List User, int nBarang, int nUser);
 
 #endif
