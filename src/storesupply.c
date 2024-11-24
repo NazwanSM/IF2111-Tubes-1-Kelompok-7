@@ -11,59 +11,59 @@ void storesupply(ArrayDin *store, Queue *antrian, int *nbarang){
     ElTypeQ itemQueue;
     elType pilihan, baranginput;
     ElTypeQ x;
-    while (!(isEmptyQueue(*antrian))){
-        printf("Apakah kamu ingin menambahkan barang %s: ", antrian->buffer[0].name);
+    printf("Apakah kamu ingin menambahkan barang %s: ", antrian->buffer[0].name);
 
+    START();
+    char item[100] = {0};
+    int itemLen = 0;    
+    while (currentChar != '\n' && itemLen < 100 - 1) {
+        item[itemLen++] = currentChar;
+        READADV();
+    } 
+    item[itemLen] = '\0';
+
+    manualStrcpy(pilihan.name, item);
+    pilihan.price = -1;
+
+    if (myStrcmp(pilihan.name, "terima") == 0){
+        int price;
+        idxType i = *nbarang;
+        ElTypeQ input;
+        printf("Masukkan harga barang: ");
+        
         START();
-        char item[100] = {0};
-        int itemLen = 0;    
-        while (currentChar != '\n' && itemLen < 100 - 1) {
-            item[itemLen++] = currentChar;
+        char harga[100] = {0};
+        int hargaLen = 0;    
+        while (currentChar != '\n' && hargaLen < 100 - 1) {
+            harga[hargaLen++] = currentChar;
             READADV();
         } 
-        item[itemLen] = '\0';
+        harga[hargaLen] = '\0';
 
-        manualStrcpy(pilihan.name, item);
-        pilihan.price = -1;
+        int hargabarang = atoi(harga);
+        manualStrcpy(input.name, antrian->buffer[0].name);
+        input.price = hargabarang;
 
-        if (myStrcmp(pilihan.name, "terima") == 0){
-            int price;
-            idxType i = *nbarang;
-            ElTypeQ input;
-            printf("Masukkan harga barang: ");
-            
-            START();
-            char harga[100] = {0};
-            int hargaLen = 0;    
-            while (currentChar != '\n' && hargaLen < 100 - 1) {
-                harga[hargaLen++] = currentChar;
-                READADV();
-            } 
-            harga[hargaLen] = '\0';
-
-            int hargabarang = atoi(harga);
-            manualStrcpy(input.name, antrian->buffer[0].name);
-            input.price = hargabarang;
-
-            insertAt(store, input, i);
-            (*nbarang)++;
-            dequeue(antrian, &x);
-        } else if (myStrcmp(pilihan.name, "tunda") == 0) {
-            enqueue(antrian, antrian->buffer[0]);
-            dequeue(antrian, &x);
-            printf("Barang ditunda dan dimasukkan kembali ke antrian.\n");
-        } else if (myStrcmp(pilihan.name, "tolak") == 0){
-            dequeue(antrian, &x);
-            printf("Barang ditolak\n");
-        } else {
-            printf("Input tidak dikenali\n");
-        }
+        insertAt(store, input, i);
+        (*nbarang)++;
+        dequeue(antrian, &x);
+    } else if (myStrcmp(pilihan.name, "tunda") == 0) {
+        enqueue(antrian, antrian->buffer[0]);
+        dequeue(antrian, &x);
+        printf("Barang ditunda dan dimasukkan kembali ke antrian.\n");
+    } else if (myStrcmp(pilihan.name, "tolak") == 0){
+        dequeue(antrian, &x);
+        printf("Barang ditolak\n");
+    } else {
+        printf("Input tidak dikenali\n");
+    }
 
         
-    }
+    
 }
 
-int main(){
+
+/*int main(){
     ArrayDin barang = MakeArrayDin();
     List user = MakeList();
     int nbarang;
@@ -87,5 +87,5 @@ int main(){
 
     displayQueue(antrian);
     printf("\n");
-}
+}*/
 
