@@ -8,7 +8,7 @@ List MakeList(){
     int i;
     
     for (i = 0; i < MaxEl; i++) {
-        L.A[i].money = Mark;  // Set money field as Mark to indicate "empty"
+        L.A[i].money = Mark;  
     }
     
     return L;
@@ -20,7 +20,7 @@ List MakeList(){
 /* ********** TEST KOSONG/PENUH ********** */
 /* *** Test list kosong *** */
 boolean IsEmpty(List L){
-    return L.A[0].money == Mark;  // Check if the first element's money is Mark (empty)
+    return L.A[0].money == Mark;  
 }
 
 /* Mengirimkan true jika list L kosong, mengirimkan false jika tidak */
@@ -44,7 +44,7 @@ int Length(List L){
     int i;
     int count = 0;
     for (i = 0; i < MaxEl; i++) {
-        if (L.A[i].money != Mark) {  // Check if the money field is not Mark
+        if (L.A[i].money != Mark) {  
             count++;
         }
     }
@@ -82,11 +82,10 @@ boolean IsIdxEff(List L, IdxType i){
 boolean Search(List L, ElType X) {
     int i;
     for (i = 0; i <= LastIdx(L); i++) {
-        // Compare money directly
         if (L.A[i].money == X.money && 
-            myStrcmp(L.A[i].name, X.name) == 0 &&  // Compare name with myStrcmp
-            myStrcmp(L.A[i].password, X.password) == 0) {  // Compare password with myStrcmp
-            return true;  // Found the matching User object
+            myStrcmp(L.A[i].name, X.name) == 0 && 
+            myStrcmp(L.A[i].password, X.password) == 0) {  
+            return true;  
         }
     }
     return false; 
@@ -99,9 +98,9 @@ boolean Search(List L, ElType X) {
 void InsertFirst(List *L, ElType X){
     int i;
     for (i = LastIdx(*L); i >= 0; i--) {
-        L->A[i + 1] = L->A[i];  // Shift elements to the right
+        L->A[i + 1] = L->A[i];  
     }
-    L->A[0] = X;  // Insert new element at the start
+    L->A[0] = X;  
 }
 
 /* I.S. L terdefinisi, mungkin kosong. */
@@ -111,9 +110,9 @@ void InsertAt(List *L, ElType X, IdxType i){
     int j;
     if (IsIdxValid(*L, i)) {
         for (j = LastIdx(*L); j >= i; j--) {
-            L->A[j + 1] = L->A[j];  // Shift elements to the right
+            L->A[j + 1] = L->A[j];  
         }
-        L->A[i] = X;  // Insert at specified index
+        L->A[i] = X;  
     }
 }
 
@@ -121,7 +120,7 @@ void InsertAt(List *L, ElType X, IdxType i){
 /* F.S. v disisipkan dalam L pada indeks ke-i (bukan menimpa elemen di i). */
 
 void InsertLast(List *L, ElType X){
-    L->A[LastIdx(*L) + 1] = X;  // Insert at the last index
+    L->A[LastIdx(*L) + 1] = X;  
 }
 
 /* I.S. L terdefinisi, mungkin kosong. */
@@ -130,9 +129,9 @@ void InsertLast(List *L, ElType X){
 void DeleteFirst(List *L){
     int i;
     for (i = 0; i < LastIdx(*L); i++) {
-        L->A[i] = L->A[i + 1];  // Shift elements to the left
+        L->A[i] = L->A[i + 1];  
     }
-    L->A[LastIdx(*L)] = (User){.money = Mark};  // Mark as deleted
+    L->A[LastIdx(*L)] = (User){.money = Mark};  
 }
 
 /* I.S. L terdefinisi, tidak kosong. */
@@ -142,9 +141,9 @@ void DeleteAt(List *L, IdxType i){
     int j;
     if (IsIdxEff(*L, i)) {
         for (j = i; j < LastIdx(*L); j++) {
-            L->A[j] = L->A[j + 1];  // Shift elements to the left
+            L->A[j] = L->A[j + 1];  
         }
-        L->A[LastIdx(*L)] = (User){.money = Mark};  // Mark as deleted
+        L->A[LastIdx(*L)] = (User){.money = Mark};  
     }
 }
 
@@ -152,27 +151,27 @@ void DeleteAt(List *L, IdxType i){
 /* F.S. Elemen L pada indeks ke-i dihapus dari L. */
 
 void DeleteLast(List *L){
-    L->A[LastIdx(*L)] = (User){.money = Mark};  // Mark as deleted
+    L->A[LastIdx(*L)] = (User){.money = Mark}; 
 }
 
 /* I.S. L terdefinisi, tidak kosong. */
 /* F.S. F diset dengan elemen terakhir L, elemen terakhir L dihapus dari L. */
 
 List Concat(List L1, List L2) {
-    List L3 = MakeList();  // Membuat list baru untuk hasil penggabungan
+    List L3 = MakeList();  
     int i, j;
     
-    // Tambahkan elemen-elemen dari L1 ke L3
+    
     for (i = 0; i < Length(L1); i++) {
         L3.A[i] = L1.A[i];
     }
     
-    // Tambahkan elemen-elemen dari L2 ke L3
+    
     for (j = 0; j < Length(L2) && i < MaxEl; j++, i++) {
         L3.A[i] = L2.A[j];
     }
     
-    return L3;  // Mengembalikan list gabungan
+    return L3;  
 }
 
 /* Prekondisi : L1 dan L2 tidak kosong */
