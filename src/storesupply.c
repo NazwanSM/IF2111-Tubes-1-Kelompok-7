@@ -7,29 +7,6 @@
 #include "storeList.h"
 #include "storeRequest.h"
 
-int stringToInt(const char *str) {
-    int result = 0;
-    int sign = 1; // Untuk menangani angka negatif (opsional)
-    int i = 0;
-
-    // Tangani tanda negatif jika ada
-    if (str[0] == '-') {
-        sign = -1;
-        i++;
-    }
-
-    // Iterasi tiap karakter dan ubah menjadi integer
-    for (; str[i] != '\0'; i++) {
-        if (str[i] < '0' || str[i] > '9') {
-            printf("Input bukan angka.\n");
-            return -1; // Tanda error jika ada karakter non-angka
-        }
-        result = result * 10 + (str[i] - '0');
-    }
-
-    return sign * result;
-}
-
 void storesupply(ArrayDin *store, Queue *antrian, int *nbarang){
     ElTypeQ itemQueue;
     elType pilihan, baranginput;
@@ -51,7 +28,7 @@ void storesupply(ArrayDin *store, Queue *antrian, int *nbarang){
 
         if (myStrcmp(pilihan.name, "terima") == 0){
             int price;
-            idxType i = *nbarang + 1;
+            idxType i = *nbarang;
             ElTypeQ input;
             printf("Masukkan harga barang: ");
             
@@ -64,18 +41,22 @@ void storesupply(ArrayDin *store, Queue *antrian, int *nbarang){
             } 
             harga[hargaLen] = '\0';
 
-            int hargabarang = stringToInt(harga);
+            int hargabarang = atoi(harga);
             manualStrcpy(input.name, antrian->buffer[0].name);
             input.price = hargabarang;
 
             insertAt(store, input, i);
+            (*nbarang)++;
             dequeue(antrian, &x);
-        } else if (myStrcmp(pilihan.name, "tolak") == 0) {
+        } else if (myStrcmp(pilihan.name, "tunda") == 0) {
             enqueue(antrian, antrian->buffer[0]);
             dequeue(antrian, &x);
-            printf("Barang ditolak dan dimasukkan kembali ke antrian.\n");
+            printf("Barang ditunda dan dimasukkan kembali ke antrian.\n");
+        } else if (myStrcmp(pilihan.name, "tolak") == 0){
+            dequeue(antrian, &x);
+            printf("Barang ditolak\n");
         } else {
-            printf("Input tidak dikenali");
+            printf("Input tidak dikenali\n");
         }
 
         
