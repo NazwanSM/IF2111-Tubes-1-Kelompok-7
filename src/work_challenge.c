@@ -101,7 +101,7 @@ void displayGuessResult(const char target[], const char guess[], int length){
     printf("\n");
 }
 
-int WORLD3(List* user, int userIdx){
+int W0RDL3(List* user, int userIdx){
     // Mengecek uang user
     if (user->A[userIdx].money < GAME_COST2) {
         printf("Uang Anda tidak cukup untuk bermain game ini.\n");
@@ -127,8 +127,8 @@ int WORLD3(List* user, int userIdx){
 
     // Menebak kata
     while (attempts < MAX_ATTEMPTS2 && !won){
-        printf("Kata bisa dalam bahasa Inggris / Indonesia\n");
-        printf("\nMasukkan kata tebakan Anda: ");
+        printf("\n(Kata bisa dalam bahasa Inggris / Indonesia dan harus kapital)\n");
+        printf("Masukkan kata tebakan Anda: ");
         STARTWORD();
 
         // Mengecek validitas kata
@@ -160,9 +160,9 @@ int WORLD3(List* user, int userIdx){
 
         if (correct) {
             printf("\nSelamat, Anda menang!\n");
-            printf("+%d rupiah telah ditambahkan ke akun Anda.\n", WORLD3_REWARD);
-            user->A[userIdx].money += WORLD3_REWARD;
-            return WORLD3_REWARD;
+            printf("+%d rupiah telah ditambahkan ke akun Anda.\n", W0RDL3_REWARD);
+            user->A[userIdx].money += W0RDL3_REWARD;
+            return W0RDL3_REWARD;
         }
 
         attempts++;
@@ -177,17 +177,28 @@ void work_challenge(List* user, int userIdx){
     printf("\033[1;33mSelamat datang di Work Challenge!\033[0m\n\n");
     printf("\033[1;34mDaftar challenge yang tersedia:\033[0m\n");
     printf("1. Tebak Angka (Biaya: %d rupiah)\n", GAME_COST1);
-    printf("2. WORDL399 (Biaya: %d rupiah)\n", GAME_COST2);
+    printf("2. W0RDL3 (Biaya: %d rupiah)\n", GAME_COST2);
 
     printf("\nMasukkan challenge yang hendak dimainkan: ");
     STARTWORD();
-    Word challenge = CurrentWord;;
+    Word challenge = CurrentWord;
+
+    while (currentChar != '\n'){
+            ADVWORD();
+            challenge.TabWord[challenge.Length] = ' ';
+            challenge.Length++;
+        
+                for (int i = 0; i < CurrentWord.Length; i++){
+                    challenge.TabWord[challenge.Length] = CurrentWord.TabWord[i];
+                    challenge.Length++;
+                }
+            }
 
     if (isKataSama(challenge, "Tebak Angka") || isKataSama(challenge, "tebak angka") || isKataSama(challenge, "TEBAK ANGKA")){
         tebak_angka(user, userIdx);
     }
-    else if (isKataSama(challenge, "WORLD399") || isKataSama(challenge, "world399") || isKataSama(challenge, "World399")){
-        WORLD3(user, userIdx);
+    else if (isKataSama(challenge, "W0RDL3") || isKataSama(challenge, "w0rdl3") || isKataSama(challenge, "W0rdl3")){
+        W0RDL3(user, userIdx);
     }
     else {
         printf("Challenge tidak valid!\n");

@@ -1,73 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include "src/ADT/arraydin.h"
-#include "src/ADT/list.h"
-#include "src/ADT/readTxt.h"
-#include "src/ADT/mesinkata.h"
-#include "src/ADT/mesinkarakter.h"
-#include "src/ADT/custom.h"
-#include "src/ADT/boolean.h"
-#include "src/ADT/queue.h"
-#include "src/start.h"
-#include "src/work.h"
-#include "src/work_challenge.h"
-#include "src/load.h"
-#include "src/save.h"
-#include "src/help.h"
-#include "src/quit.h"
-#include "src/register.h"
-#include "src/login.h"
-#include "src/logout.h"
-#include "src/storeList.h"
-#include "src/storeRequest.h"
-#include "src/storeSupply.h"
-#include "src/storeRemove.h"
-
-void displayPurrMart() {
-    printf("\033[1;33m"); 
-    printf(" ######  ##  ## ######  ######  ##   ##  ######  ######  ######\n");
-    printf(" ##  ##  ##  ## ##  #   ##  #   ### ###  ##  ##  ##  #     ##  \n");
-    printf(" ######  ##  ## ######  ######  ## # ##  ######  ######    ##  \n");
-    printf("\033[0m");
-    printf("\033[1;32m");
-    printf(" ##      ##  ## ##  ##  ##  ##  ##   ##  ##  ##  ##  ##    ##  \n");
-    printf(" ##       ####  ##  ##  ##  ##  ##   ##  ##  ##  ##  ##    ##  \n");
-    printf("\033[0m");
-}
-
-void displayWelcomeMenu() {
-    printf("\n\033[1;33mWELCOME TO PURRMART!\033[0m\n\n");
-    printf("\033[1;34mPILIHAN MENU:\033[0m\n");
-    printf("1. START\n");
-    printf("2. LOAD\n");
-    printf("3. QUIT\n");
-    printf("\n\033[1;34mKetik 'HELP' untuk bantuan\033[0m\n");
-}
-
-void displayLoginMenu() {
-    printf("\n\033[1;33mLOGIN OR SIGNUP TO YOUR ACCOUNT!\033[0m\n\n");
-    printf("\033[1;34mPILIHAN MENU:\033[0m\n");
-    printf("1. REGISTER\n");
-    printf("2. LOGIN\n");
-    printf("3. QUIT\n");
-    printf("\n\033[1;34mKetik 'HELP' untuk bantuan\033[0m\n");
-}
-
-void displayMainMenu() {
-    printf("\n\033[1;33mWELCOME TO MAIN MENU\033[0m\n\n");
-    printf("\033[1;34mPILIHAN MENU:\033[0m\n");
-    printf("1. WORK\n");
-    printf("2. WORK CHALLENGE\n");
-    printf("3. STORE LIST\n");
-    printf("4. STORE REQUEST\n");
-    printf("5. STORE SUPPLY\n");
-    printf("6. STORE REMOVE\n");
-    printf("7. LOGOUT\n");
-    printf("8. SAVE\n");
-    printf("9. QUIT\n");
-    printf("\n\033[1;34mKetik 'HELP' untuk bantuan\033[0m\n");
-}
+#include "console.h"
 
 int main() {
     int nBarang = 0;
@@ -190,7 +124,7 @@ int main() {
         while(loggedIn){
             system("cls || clear");
             displayPurrMart();
-            displayMainMenu();
+            displayMainMenu(user, userIdx);
             printf("\033[1;34mMasukkan perintah Anda: \033[0m");
             STARTWORD();
             Word choice = CurrentWord;
@@ -200,11 +134,11 @@ int main() {
             choice.TabWord[choice.Length] = ' ';
             choice.Length++;
         
-            for (int i = 0; i < CurrentWord.Length; i++){
-                choice.TabWord[choice.Length] = CurrentWord.TabWord[i];
-                choice.Length++;
+                for (int i = 0; i < CurrentWord.Length; i++){
+                    choice.TabWord[choice.Length] = CurrentWord.TabWord[i];
+                    choice.Length++;
+                }
             }
-    }
 
             if (isKataSama(choice, "WORK")) {
                 system("cls || clear");
