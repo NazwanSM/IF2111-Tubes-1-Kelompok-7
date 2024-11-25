@@ -1,5 +1,5 @@
-#ifndef __START_H__
-#define __START_H__
+#ifndef __SAVE_H__
+#define __SAVE_H__
 
 #include "ADT/readTxt.h"
 #include "ADT/arraydin.h"

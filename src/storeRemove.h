@@ -1,5 +1,5 @@
-#ifndef STOREREMOVE_H
-#define STOREREMOVE_H
+#ifndef STORE_REMOVE_H
+#define STORE_REMOVE_H
 
 #include "load.h"
 #include "save.h"
