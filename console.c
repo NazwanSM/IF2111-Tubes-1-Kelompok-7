@@ -22,6 +22,8 @@ void displayWelcomeMenu() {
     printf("2. LOAD\n");
     printf("3. QUIT\n");
     printf("\n\033[1;34mKetik 'HELP' untuk bantuan\033[0m\n");
+    printf("\033[1;34mLoad file bisa langsung dipanggil dengan mendouble huruf\033[0m\n");
+    printf("\033[1;34mpertamanya (contoh: LOAD ssave.txt)\033[0m\n\n");
 }
 
 void displayLoginMenu() {
