@@ -33,7 +33,7 @@ int main() {
                 loaded = true;
             }
             else if (isKataSama(choice, "LOAD")) {
-                printf("\n\033[1;34m>> LOAD\033[0m\n");
+                printf("\n\033[1;34m>> LOAD\033[0m ");
                 load(&barang, &user, &nBarang, &nUser);
 
                 struct timespec req = {2, 0};
