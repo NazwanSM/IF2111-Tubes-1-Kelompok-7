@@ -2,6 +2,11 @@
 #define __START_H__
 
 #include "ADT/readTxt.h"
+#include "ADT/arraydin.h"
+#include "ADT/list.h"
+#include "ADT/mesinkata.h"
+#include "ADT/mesinkarakter.h"
+#include "ADT/boolean.h"
 
 void write(char *filename, ArrayDin barang, List user, int nbarang, int nuser);
 /* Menyimpan file input dalam bentuk txt */

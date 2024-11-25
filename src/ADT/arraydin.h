@@ -1,6 +1,7 @@
 #ifndef __ARRAY_DINAMIK__
 #define __ARRAY_DINAMIK__
 
+#include "list.h"
 #include "custom.h"
 // Boolean
 #define boolean unsigned char
@@ -66,5 +67,7 @@ void insertAt(ArrayDin *array, elType el, idxType i);
  * Prekondisi: array terdefinisi, i di antara 0..Length(array).
  */
 void deleteAt(ArrayDin *array, idxType i);
+
+idxType search(ArrayDin array, elType el);
 
 #endif

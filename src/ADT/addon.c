@@ -1,9 +1,9 @@
-#include "custom.h"
+#include "addon.h"
 
 
-int checkUsernameExists(const char *username, List user) {
+int checkUsernameExists(const char *username, List user, int nUser) {
 
-    for (int i = 0; i < currentUserCount; i++) {
+    for (int i = 0; i < nUser; i++) {
         if (compareStrings(user.A[i].name, username)) {
             return 1;
         }

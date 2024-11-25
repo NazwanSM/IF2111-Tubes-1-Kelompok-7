@@ -1,9 +1,6 @@
 #include <stdio.h>
 #include "login.h"
 
-
-
-
 // Handle user login process
 int loginUser(List user, int nUser) {
     
@@ -42,7 +39,7 @@ int loginUser(List user, int nUser) {
 
     if (userIdx == -1 || !compareStrings(user.A[userIdx].password, password)) {
         printf("Username atau password salah.\n");
-        return 0;
+        return -1;
     }
     else {
         printf("Anda telah login ke PURRMART sebagai %s.\n", username);

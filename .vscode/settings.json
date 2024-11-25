@@ -1,0 +1,22 @@
+{
+    "files.associations": {
+        "stdlib.h": "c",
+        "queue.h": "c",
+        "work_challenge.h": "c",
+        "load.h": "c",
+        "save.h": "c",
+        "help.h": "c",
+        "quit.h": "c",
+        "register.h": "c",
+        "login.h": "c",
+        "logout.h": "c",
+        "storelist.h": "c",
+        "storerequest.h": "c",
+        "storesupply.h": "c",
+        "storeremove.h": "c",
+        "list.h": "c",
+        "mesinkarakter.h": "c",
+        "mesinkata.h": "c",
+        "boolean.h": "c"
+    }
+}

@@ -3,8 +3,8 @@
 #include <time.h>
 #include "quit.h"
 
-void quit(ArrayDin Barang, List User, int nBarang, int nUser, boolean isMasuk) {    
-    if (isMasuk) {
+void quit(ArrayDin Barang, List User, int nBarang, int nUser, boolean change) {    
+    if (change) {
         char cc ='\0';
         while (cc != 'Y' && cc != 'y' && cc != 'N' && cc != 'n') {
             printf("Apakah anda ingin save terlebih dahulu(y/n)? ");

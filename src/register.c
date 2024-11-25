@@ -33,7 +33,7 @@ void addUser(List *user, int *nUser) {
             continue;
         }
         
-        if (checkUsernameExists(username, *user)) {
+        if (checkUsernameExists(username, *user, *nUser)) {
             printf("Username %s sudah digunakan. Silakan gunakan username lain.\n", username);
             continue;
         }

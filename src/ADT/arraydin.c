@@ -82,3 +82,13 @@ void deleteAt(ArrayDin *array, idxType i){
     }
     array->Neff--;
 }
+
+idxType search(ArrayDin array, elType el) {
+    int i;
+    for (i = 0; i < array.Neff; i++) {
+        if ( myStrcmp(array.A[i].name, el.name) == 0) {  
+            return i; 
+        }
+    }
+    return -1; 
+}
