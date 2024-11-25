@@ -49,11 +49,11 @@ void storesupply(ArrayDin *store, Queue *antrian, int *nbarang){
         (*nbarang)++;
         dequeue(antrian, &x);
         printf("Barang diterima dan dimasukkan ke store.\n");
-    } else if (myStrcmp(pilihan.name, "tunda") == 0 || myStrcmp(pilihan.name, "Tunda" || myStrcmp(pilihan.name, "TUNDA") == 0) == 0) {
+    } else if (myStrcmp(pilihan.name, "tunda") == 0 || myStrcmp(pilihan.name, "Tunda") == 0 || myStrcmp(pilihan.name, "TUNDA") == 0) {
         enqueue(antrian, HEAD(*antrian));
         dequeue(antrian, &x);
         printf("Barang ditunda dan dimasukkan kembali ke antrian.\n");
-    } else if (myStrcmp(pilihan.name, "tolak") == 0 || myStrcmp(pilihan.name, "Tolak" || myStrcmp(pilihan.name, "TOLAK") == 0) == 0) {
+    } else if (myStrcmp(pilihan.name, "tolak") == 0 || myStrcmp(pilihan.name, "Tolak") == 0 || myStrcmp(pilihan.name, "TOLAK") == 0) {
         dequeue(antrian, &x);
         printf("Barang ditolak\n");
     } else {
