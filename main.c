@@ -77,6 +77,7 @@ int main() {
     ArrayDin store = MakeArrayDin();
     List user = MakeList();
     Queue antrian;
+    CreateQueue(&antrian);
 
     boolean loaded = false; // untuk start dan load
     boolean loggedIn = false; // untuk login
@@ -115,7 +116,7 @@ int main() {
                 printf("\n\033[1;34m>> HELP\033[0m\n");
                 help1();
 
-                struct timespec req = {3, 0};
+                struct timespec req = {4, 0};
                 nanosleep(&req, NULL);
             }
             else {
@@ -175,7 +176,7 @@ int main() {
                 printf("\n\033[1;34m>> HELP\033[0m\n");
                 help2();
 
-                struct timespec req = {3, 0};
+                struct timespec req = {4, 0};
                 nanosleep(&req, NULL);
             }
             else {
@@ -212,7 +213,7 @@ int main() {
                 work(&user, userIdx);
                 change = true;
 
-                struct timespec req = {2, 0};
+                struct timespec req = {4, 0};
                 nanosleep(&req, NULL);
             }
             else if (isKataSama(choice, "WORK CHALLENGE")) {
@@ -222,7 +223,7 @@ int main() {
                 work_challenge(&user, userIdx);
                 change = true;
 
-                struct timespec req = {2, 0};
+                struct timespec req = {4, 0};
                 nanosleep(&req, NULL);
             }
             else if (isKataSama(choice, "STORE LIST")) {
@@ -286,7 +287,7 @@ int main() {
                 printf("\n\033[1;34m>> HELP\033[0m\n");
                 help3();
 
-                struct timespec req = {3, 0};
+                struct timespec req = {4, 0};
                 nanosleep(&req, NULL);
             }
             else {

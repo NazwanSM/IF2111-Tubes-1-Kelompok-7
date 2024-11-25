@@ -2,7 +2,6 @@
 10 AK47
 20 Lalabu
 20 Ayam Goreng Crisbar
-3
-100 admin alstrukdatkeren
+2
+1217 admin alstrukdatkeren
 25 praktikan kerenbangetkak
-10000 nazwan 1234
