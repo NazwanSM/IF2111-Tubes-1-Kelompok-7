@@ -8,6 +8,7 @@ TARGET = program
 SRC_DIR = ../src
 ADT_DIR = $(SRC_DIR)/ADT
 MAIN = ../main.c
+CONSOLE = ../console.c
 
 # Daftar semua source files
 SOURCES = $(MAIN) \
