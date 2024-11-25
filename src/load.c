@@ -7,7 +7,7 @@ void load(ArrayDin *barang, List *user, int *nbarang, int *nuser) {
     printf("Load: ");
     START();
     char loadfile[100] = "save/";
-    int loadfileLen = 8;
+    int loadfileLen = 5;
     while (currentChar != '\n' && loadfileLen < 100 - 1) {
         loadfile[loadfileLen++] = currentChar;
         READADV();
