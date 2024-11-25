@@ -26,7 +26,6 @@ int main() {
             Word choice = CurrentWord;
 
             if (isKataSama(choice, "START")) {
-                printf("\n\033[1;34m>> START\033[0m\n");
                 start("../save/config.txt", &barang, &user, &nBarang, &nUser);
 
                 struct timespec req = {2, 0};
