@@ -19,6 +19,7 @@ void readtxt(char *filename, ArrayDin *barang, List *user, int *nBarang, int *nU
         printf("Gagal membuka file: %s\n", filename);
         return;
     }
+    printf("Save file berhasil dibaca. PURRMART berhasil dijalankan\n");
     STARTWORDFILE(file);
     *nBarang = atoi(CurrentWord.TabWord);
     (*barang).Neff = *nBarang;

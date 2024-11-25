@@ -50,6 +50,7 @@ void save(ArrayDin barang, List user, int nbarang, int nuser) {
         } else if(!txt) {
             printf("\nPastikan file disimpan dalam format <nama file>.txt!\n");
         } else {
+            printf("Save file berhasil disimpan\n");
             write(savefile, barang, user, nbarang, nuser);
             check = true;
         }

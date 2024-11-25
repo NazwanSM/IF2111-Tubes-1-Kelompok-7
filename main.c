@@ -35,11 +35,13 @@ int main() {
             }
             else if (isKataSama(choice, "LOAD")) {
                 printf("\n\033[1;34m>> LOAD\033[0m\n");
-                loadcheck(&barang, &user, &nBarang, &nUser);
+                load(&barang, &user, &nBarang, &nUser);
 
                 struct timespec req = {2, 0};
                 nanosleep(&req, NULL);
-                loaded = true;
+                if (nUser > 0){
+                    loaded = true;
+                }
             }
             else if (isKataSama(choice, "QUIT")) {
                 printf("\n\033[1;34m>> QUIT\033[0m\n");
