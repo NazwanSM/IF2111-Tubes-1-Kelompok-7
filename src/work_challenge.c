@@ -127,7 +127,7 @@ int W0RDL3(List* user, int userIdx){
 
     // Menebak kata
     while (attempts < MAX_ATTEMPTS2 && !won){
-        printf("\n(Kata bisa dalam bahasa Inggris / Indonesia)\n");
+        printf("\n(Kata bisa dalam bahasa Inggris / Indonesia dan harus kapital)\n");
         printf("Masukkan kata tebakan Anda: ");
         STARTWORD();
 
