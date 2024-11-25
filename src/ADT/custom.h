@@ -3,10 +3,11 @@
 #ifndef CUSTOM_H
 #define CUSTOM_H
 
+#include "boolean.h"
+
 #define MAX_LEN 100
 
 #define integer int
-
 
 typedef struct {
     char name[MAX_LEN];

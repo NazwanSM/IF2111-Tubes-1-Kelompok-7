@@ -1,3 +1,4 @@
+
 /* MODUL LIST INTEGER */
 /* Berisi definisi dan semua primitif pemrosesan list integer */
 /* Penempatan elemen selalu rapat kiri */
@@ -6,6 +7,7 @@
 #define ADTList1
 
 #include "boolean.h"
+#include "custom.h"
 
 /* Kamus Umum */
 #define MaxEl 100
@@ -14,7 +16,7 @@
 
 /* Definisi elemen dan koleksi objek */
 #define IdxType int
-#define ElType int
+#define ElType User
 
 typedef struct {
 	ElType A[MaxEl];  /* Memori tempat penyimpanan elemen (container) */
@@ -111,4 +113,7 @@ List Concat(List L1, List L2);
 /* Mengirimkan sebuah List yang merupakan gabungan dari L1 dan L2 */
 /* Urutan elemen terisi dari L1, lalu L2 */
 /* Contoh : L1 : [1, 2]; L2 : [3, 4]; Mengembalikan [1, 2, 3, 4] */
+
+int myStrcmp(const char *str1, const char *str2);
+
 #endif
