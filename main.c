@@ -54,8 +54,10 @@ void displayLoginMenu() {
     printf("\n\033[1;34mKetik 'HELP' untuk bantuan\033[0m\n");
 }
 
-void displayMainMenu() {
+void displayMainMenu(List user, int userIdx) {
     printf("\n\033[1;33mWELCOME TO MAIN MENU\033[0m\n\n");
+    printf("\033[1;32mUsername: %s\033[0m\n", user.A[userIdx].name);
+    printf("\033[1;32mMoney: %d\033[0m\n\n", user.A[userIdx].money);
     printf("\033[1;34mPILIHAN MENU:\033[0m\n");
     printf("1. WORK\n");
     printf("2. WORK CHALLENGE\n");
@@ -190,7 +192,7 @@ int main() {
         while(loggedIn){
             system("cls || clear");
             displayPurrMart();
-            displayMainMenu();
+            displayMainMenu(user, userIdx);
             printf("\033[1;34mMasukkan perintah Anda: \033[0m");
             STARTWORD();
             Word choice = CurrentWord;
@@ -200,11 +202,11 @@ int main() {
             choice.TabWord[choice.Length] = ' ';
             choice.Length++;
         
-            for (int i = 0; i < CurrentWord.Length; i++){
-                choice.TabWord[choice.Length] = CurrentWord.TabWord[i];
-                choice.Length++;
+                for (int i = 0; i < CurrentWord.Length; i++){
+                    choice.TabWord[choice.Length] = CurrentWord.TabWord[i];
+                    choice.Length++;
+                }
             }
-    }
 
             if (isKataSama(choice, "WORK")) {
                 system("cls || clear");

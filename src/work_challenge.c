@@ -127,8 +127,8 @@ int WORLD3(List* user, int userIdx){
 
     // Menebak kata
     while (attempts < MAX_ATTEMPTS2 && !won){
-        printf("Kata bisa dalam bahasa Inggris / Indonesia\n");
-        printf("\nMasukkan kata tebakan Anda: ");
+        printf("\n(Kata bisa dalam bahasa Inggris / Indonesia)\n");
+        printf("Masukkan kata tebakan Anda: ");
         STARTWORD();
 
         // Mengecek validitas kata
@@ -181,7 +181,18 @@ void work_challenge(List* user, int userIdx){
 
     printf("\nMasukkan challenge yang hendak dimainkan: ");
     STARTWORD();
-    Word challenge = CurrentWord;;
+    Word challenge = CurrentWord;
+
+    while (currentChar != '\n'){
+            ADVWORD();
+            challenge.TabWord[challenge.Length] = ' ';
+            challenge.Length++;
+        
+                for (int i = 0; i < CurrentWord.Length; i++){
+                    challenge.TabWord[challenge.Length] = CurrentWord.TabWord[i];
+                    challenge.Length++;
+                }
+            }
 
     if (isKataSama(challenge, "Tebak Angka") || isKataSama(challenge, "tebak angka") || isKataSama(challenge, "TEBAK ANGKA")){
         tebak_angka(user, userIdx);
