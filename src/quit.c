@@ -3,6 +3,11 @@
 #include <time.h>
 #include "quit.h"
 
+void clearInputBuffer() {
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF);
+}
+
 void quit(ArrayDin Barang, List User, int nBarang, int nUser, boolean change) {    
     if (change) {
         char cc ='\0';
@@ -20,6 +25,9 @@ void quit(ArrayDin Barang, List User, int nBarang, int nUser, boolean change) {
                 }
             }
         }
+
+        clearInputBuffer();
+        
         if (cc == 'Y' || cc == 'y') {
             save(Barang, User, nBarang, nUser);
             printf("Save berhasil!\n");

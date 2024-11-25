@@ -27,7 +27,7 @@ void write(char *filename, ArrayDin barang, List user, int nbarang, int nuser) {
 void save(ArrayDin barang, List user, int nbarang, int nuser) {
     boolean check = false;
     do {
-        printf("Save: ");
+        printf("Save (contoh: save.txt): ");
         START();
         char savefile[100] = "save/";
         int savefileLen = 5;
