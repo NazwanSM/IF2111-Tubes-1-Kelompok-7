@@ -14,7 +14,7 @@
 #define MAX_ATTEMPTS1 10
 #define MAX_ATTEMPTS2 6
 #define WORD_LENGTH 5
-#define WORLD3_REWARD 1500
+#define W0RDL3_REWARD 1500
 
 
 int tebak_angka(List* user, int userIdx);
@@ -23,7 +23,7 @@ Jika percobaan habis akan return 0
 Jika uang lebih kecil dari 200 maka akan return -1
 Jika benar maka akan mengupdate uang dari user */
 
-int WORLD3(List* user, int userIdx);
+int W0RDL3(List* user, int userIdx);
 /* Permainan world 3 yang akan meminta user untuk menebak kata berjumlah 5 karakter dengan maksimal 5 percobaan 
 Jika percobaan habis akan return 0
 Jika uang lebih kecil dari 500 maka akan return -1
