@@ -11,6 +11,7 @@ MAIN = ../main.c
 
 # Daftar semua source files
 SOURCES = $(MAIN) \
+	$(CONSOLE) \
         $(ADT_DIR)/addon.c \
         $(ADT_DIR)/arraydin.c \
         $(ADT_DIR)/list.c \
