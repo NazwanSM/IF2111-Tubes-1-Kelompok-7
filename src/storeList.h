@@ -3,7 +3,6 @@
 #define __storeList_H__
 
 #include <stdio.h>
-#include "storeList.h"
 #include "ADT/mesinkarakter.h"
 #include "ADT/mesinkata.h"
 #include "ADT/boolean.h"

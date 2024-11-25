@@ -1,11 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "start.h"
-#include "save.h"
-#include "load.h"
-#include "storeList.h"
-#include "storeRequest.h"
+#include "storeSupply.h"
 
 void storesupply(ArrayDin *store, Queue *antrian, int *nbarang){
     ElTypeQ itemQueue;
@@ -25,7 +21,7 @@ void storesupply(ArrayDin *store, Queue *antrian, int *nbarang){
     manualStrcpy(pilihan.name, item);
     pilihan.price = -1;
 
-    if (myStrcmp(pilihan.name, "terima") == 0){
+    if (myStrcmp(pilihan.name, "terima") == 0 || myStrcmp(pilihan.name, "Terima") == 0){
         int price;
         idxType i = *nbarang;
         ElTypeQ input;
@@ -47,11 +43,11 @@ void storesupply(ArrayDin *store, Queue *antrian, int *nbarang){
         insertAt(store, input, i);
         (*nbarang)++;
         dequeue(antrian, &x);
-    } else if (myStrcmp(pilihan.name, "tunda") == 0) {
+    } else if (myStrcmp(pilihan.name, "tunda") == 0 || myStrcmp(pilihan.name, "Tunda") == 0) {
         enqueue(antrian, antrian->buffer[antrian->idxHead]);
         dequeue(antrian, &x);
         printf("Barang ditunda dan dimasukkan kembali ke antrian.\n");
-    } else if (myStrcmp(pilihan.name, "tolak") == 0){
+    } else if (myStrcmp(pilihan.name, "tolak") == 0 || myStrcmp(pilihan.name, "Tolak") == 0) {
         dequeue(antrian, &x);
         printf("Barang ditolak\n");
     } else {
@@ -60,7 +56,7 @@ void storesupply(ArrayDin *store, Queue *antrian, int *nbarang){
 
 }
 
-
+/*
 int main(){
     ArrayDin barang = MakeArrayDin();
     List user = MakeList();
@@ -99,4 +95,4 @@ int main(){
     displayQueue(antrian);
     printf("\n");
 }
-
+*/

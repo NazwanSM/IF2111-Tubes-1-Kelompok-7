@@ -30,7 +30,7 @@ void storeremove(ArrayDin *store, int *nbarang) {
     }
 }
 
-
+/*
 int main() {
 
 
@@ -83,3 +83,5 @@ int main() {
     save(barang, user, nbarang, nuser);
     return 0;
 }
+
+*/

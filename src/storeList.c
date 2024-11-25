@@ -1,12 +1,5 @@
 #include <stdio.h>
 #include "storeList.h"
-#include "ADT/mesinkarakter.h"
-#include "ADT/mesinkata.h"
-#include "ADT/boolean.h"
-#include "ADT/arraydin.h"
-#include "ADT/readTxt.h"
-#include "start.h"
-
 
 void storeList(ArrayDin barang, int nbarang){
     if (nbarang == 0){
@@ -18,6 +11,7 @@ void storeList(ArrayDin barang, int nbarang){
         for (int i = 0; i < nbarang; i++){
             printf("- ");
             printf("%s\n", barang.A[i].name);
+        }
     }
 }
 
