@@ -95,7 +95,7 @@ int main() {
                 printf("\n\033[1;34m>> START\033[0m\n");
                 start("../save/config.txt", &barang, &user, &nBarang, &nUser);
 
-                struct timespec req = {5, 0};
+                struct timespec req = {2, 0};
                 nanosleep(&req, NULL);
                 loaded = true;
             }
@@ -193,6 +193,17 @@ int main() {
             printf("\033[1;34mMasukkan perintah Anda: \033[0m");
             STARTWORD();
             Word choice = CurrentWord;
+
+            while (currentChar != '\n'){
+            ADVWORD();
+            choice.TabWord[choice.Length] = ' ';
+            choice.Length++;
+        
+            for (int i = 0; i < CurrentWord.Length; i++){
+                choice.TabWord[choice.Length] = CurrentWord.TabWord[i];
+                choice.Length++;
+            }
+    }
 
             if (isKataSama(choice, "WORK")) {
                 system("cls || clear");

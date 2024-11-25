@@ -30,7 +30,7 @@ void save(ArrayDin barang, List user, int nbarang, int nuser) {
         printf("Save: ");
         START();
         char savefile[100] = "save/";
-        int savefileLen = 8;
+        int savefileLen = 5;
         
         while (currentChar != '\n' && savefileLen < 100 - 1) {
             savefile[savefileLen++] = currentChar;
@@ -48,7 +48,7 @@ void save(ArrayDin barang, List user, int nbarang, int nuser) {
         if (!config) {
             printf("Ini merupakan file konfigurasi, mohon jangan save disini!\n");
         } else if(!txt) {
-            printf("Pastikan file disimpan dalam format <nama file>.txt!\n");
+            printf("\nPastikan file disimpan dalam format <nama file>.txt!\n");
         } else {
             write(savefile, barang, user, nbarang, nuser);
             check = true;
