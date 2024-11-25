@@ -127,6 +127,7 @@ int WORLD3(List* user, int userIdx){
 
     // Menebak kata
     while (attempts < MAX_ATTEMPTS2 && !won){
+        printf("Kata bisa dalam bahasa Inggris / Indonesia\n");
         printf("\nMasukkan kata tebakan Anda: ");
         STARTWORD();
 
@@ -178,15 +179,14 @@ void work_challenge(List* user, int userIdx){
     printf("1. Tebak Angka (Biaya: %d rupiah)\n", GAME_COST1);
     printf("2. WORDL399 (Biaya: %d rupiah)\n", GAME_COST2);
 
-    int challenge;
     printf("\nMasukkan challenge yang hendak dimainkan: ");
     STARTWORD();
-    challenge = atoi(CurrentWord.TabWord);
+    Word challenge = CurrentWord;;
 
-    if (challenge == 1){
+    if (isKataSama(challenge, "Tebak Angka") || isKataSama(challenge, "tebak angka") || isKataSama(challenge, "TEBAK ANGKA")){
         tebak_angka(user, userIdx);
     }
-    else if (challenge == 2){
+    else if (isKataSama(challenge, "WORLD399") || isKataSama(challenge, "world399") || isKataSama(challenge, "World399")){
         WORLD3(user, userIdx);
     }
     else {

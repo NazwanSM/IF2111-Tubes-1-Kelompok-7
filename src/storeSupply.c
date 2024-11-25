@@ -12,7 +12,7 @@ void storesupply(ArrayDin *store, Queue *antrian, int *nbarang){
     printf("Antrian kosong.\n");
     return;
     }
-    printf("Apakah kamu ingin menambahkan barang %s: ",HEAD(*antrian).name);
+    printf("Apakah kamu ingin menambahkan barang %s (Terima/Tunda/Tolak): ",HEAD(*antrian).name);
 
     START();
     char item[100] = {0};
@@ -26,7 +26,7 @@ void storesupply(ArrayDin *store, Queue *antrian, int *nbarang){
     manualStrcpy(pilihan.name, item);
     pilihan.price = -1;
 
-    if (myStrcmp(pilihan.name, "terima") == 0 || myStrcmp(pilihan.name, "Terima") == 0){
+    if (myStrcmp(pilihan.name, "terima") == 0 || myStrcmp(pilihan.name, "Terima") == 0 || myStrcmp(pilihan.name, "TERIMA") == 0){
         int price;
         idxType i = *nbarang;
         ElTypeQ input;
@@ -49,11 +49,11 @@ void storesupply(ArrayDin *store, Queue *antrian, int *nbarang){
         (*nbarang)++;
         dequeue(antrian, &x);
         printf("Barang diterima dan dimasukkan ke store.\n");
-    } else if (myStrcmp(pilihan.name, "tunda") == 0 || myStrcmp(pilihan.name, "Tunda") == 0) {
+    } else if (myStrcmp(pilihan.name, "tunda") == 0 || myStrcmp(pilihan.name, "Tunda" || myStrcmp(pilihan.name, "TUNDA") == 0) == 0) {
         enqueue(antrian, HEAD(*antrian));
         dequeue(antrian, &x);
         printf("Barang ditunda dan dimasukkan kembali ke antrian.\n");
-    } else if (myStrcmp(pilihan.name, "tolak") == 0 || myStrcmp(pilihan.name, "Tolak") == 0) {
+    } else if (myStrcmp(pilihan.name, "tolak") == 0 || myStrcmp(pilihan.name, "Tolak" || myStrcmp(pilihan.name, "TOLAK") == 0) == 0) {
         dequeue(antrian, &x);
         printf("Barang ditolak\n");
     } else {
