@@ -29,7 +29,7 @@ void save(ArrayDin barang, List user, int nbarang, int nuser) {
     do {
         printf("Save: ");
         START();
-        char savefile[100] = "../save/";
+        char savefile[100] = "save/";
         int savefileLen = 8;
         
         while (currentChar != '\n' && savefileLen < 100 - 1) {
@@ -39,7 +39,7 @@ void save(ArrayDin barang, List user, int nbarang, int nuser) {
         savefile[savefileLen] = '\0';
 
         boolean txt = false;
-        int config = myStrcmp(savefile, "../save/config.txt");
+        int config = myStrcmp(savefile, "save/config.txt");
 
         if (savefile[savefileLen-4] == '.' && savefile[savefileLen-3] == 't' && savefile[savefileLen-2] == 'x' && savefile[savefileLen-1] == 't') {
             txt = true;

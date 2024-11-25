@@ -51,6 +51,8 @@ void prosesKerja(Work* work, List* user, int indexUser){
 
 void work(List* user, int indexUser){
     printf("\033[1;33mSelamat datang di Work!\033[0m\n\n");
+    isiDaftarPekerjaan(&daftarPekerjaan);
+    
     displayDaftarPekerjaan(&daftarPekerjaan);
     
     printf("\nMasukkan pekerjaan yang dipilih: ");

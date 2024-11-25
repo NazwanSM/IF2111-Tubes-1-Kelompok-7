@@ -5,15 +5,15 @@
 int loginUser(List user, int nUser) {
     
     printf("Username: ");
-    START();
+    STARTWORD();
     char username[MAX_LEN] = {0};
     int usernameLen = 0;
     
-    while (currentChar != MARK && usernameLen < MAX_LEN - 1) {
-        username[usernameLen++] = currentChar;
-        ADV();
+    for (int i = 0; i < CurrentWord.Length; i++) {
+        username[i] = CurrentWord.TabWord[i];
     }
-    username[usernameLen] = '\0';
+    username[CurrentWord.Length] = '\0';
+    usernameLen = CurrentWord.Length;
 
     int userIdx = -1;
     for (int i = 0; i < nUser; i++) {
@@ -25,17 +25,16 @@ int loginUser(List user, int nUser) {
 
 
     printf("Password: ");
-    START();
+    STARTWORD();
     char password[MAX_LEN] = {0};
     int passwordLen = 0;
     
 
-    while (currentChar != MARK && passwordLen < MAX_LEN - 1) {
-        password[passwordLen++] = currentChar;
-        ADV();
+    for (int i = 0; i < CurrentWord.Length; i++) {
+        password[i] = CurrentWord.TabWord[i];
     }
-    password[passwordLen] = '\0';
-
+    password[CurrentWord.Length] = '\0';
+    passwordLen = CurrentWord.Length;
 
     if (userIdx == -1 || !compareStrings(user.A[userIdx].password, password)) {
         printf("Username atau password salah.\n");

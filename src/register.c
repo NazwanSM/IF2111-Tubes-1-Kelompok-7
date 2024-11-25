@@ -18,15 +18,14 @@ void addUser(List *user, int *nUser) {
     
     while (!validUsername) {
         printf("Username: ");
-        START();
+        STARTWORD();
         usernameLen = 0;
         
-        while (currentChar != MARK && usernameLen < MAX_LEN - 1) {
-            username[usernameLen++] = currentChar;
-            ADV();
+        for (int i = 0; i < CurrentWord.Length; i++) {
+        username[i] = CurrentWord.TabWord[i];
         }
-
-        username[usernameLen] = '\0';
+        username[CurrentWord.Length] = '\0';
+        usernameLen = CurrentWord.Length;
 
         if (usernameLen == 0) {
             printf("Username tidak boleh kosong. Silakan coba lagi.\n");
@@ -51,12 +50,12 @@ void addUser(List *user, int *nUser) {
 
 
     printf("Password: ");
-    START();
-    while (currentChar != MARK && passwordLen < MAX_LEN - 1) {
-        password[passwordLen++] = currentChar;
-        ADV();
+    STARTWORD();
+    for (int i = 0; i < CurrentWord.Length; i++) {
+        password[i] = CurrentWord.TabWord[i];
     }
-    password[passwordLen] = '\0';
+    password[CurrentWord.Length] = '\0';
+    passwordLen = CurrentWord.Length;
 
     for (int i = 0; i <= passwordLen; i++) {
         user->A[*nUser].password[i] = password[i];

@@ -34,6 +34,7 @@ void readtxt(char *filename, ArrayDin *barang, List *user, int *nBarang, int *nU
         ADVWORDFILE();
     }
 
+    
     *nUser = atoi(CurrentWord.TabWord);
 
     for (int i = 0; i < *nUser; i++) {
