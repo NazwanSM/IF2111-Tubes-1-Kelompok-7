@@ -21,6 +21,7 @@ void readtxt(char *filename, ArrayDin *barang, List *user, int *nBarang, int *nU
     }
     STARTWORDFILE(file);
     *nBarang = atoi(CurrentWord.TabWord);
+    (*barang).Neff = *nBarang;
 
     for (int i = 0; i < *nBarang; i++) {
         ADVWORDFILE(); 

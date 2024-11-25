@@ -7,7 +7,12 @@ void storesupply(ArrayDin *store, Queue *antrian, int *nbarang){
     ElTypeQ itemQueue;
     elType pilihan, baranginput;
     ElTypeQ x;
-    printf("Apakah kamu ingin menambahkan barang %s: ", antrian->buffer[antrian->idxHead].name);
+
+    if (isEmptyQueue(*antrian)) {
+    printf("Antrian kosong.\n");
+    return;
+    }
+    printf("Apakah kamu ingin menambahkan barang %s: ",HEAD(*antrian).name);
 
     START();
     char item[100] = {0};
@@ -37,14 +42,15 @@ void storesupply(ArrayDin *store, Queue *antrian, int *nbarang){
         harga[hargaLen] = '\0';
 
         int hargabarang = atoi(harga);
-        manualStrcpy(input.name, antrian->buffer[antrian->idxHead].name);
+        manualStrcpy(input.name, HEAD(*antrian).name);
         input.price = hargabarang;
 
         insertAt(store, input, i);
         (*nbarang)++;
         dequeue(antrian, &x);
+        printf("Barang diterima dan dimasukkan ke store.\n");
     } else if (myStrcmp(pilihan.name, "tunda") == 0 || myStrcmp(pilihan.name, "Tunda") == 0) {
-        enqueue(antrian, antrian->buffer[antrian->idxHead]);
+        enqueue(antrian, HEAD(*antrian));
         dequeue(antrian, &x);
         printf("Barang ditunda dan dimasukkan kembali ke antrian.\n");
     } else if (myStrcmp(pilihan.name, "tolak") == 0 || myStrcmp(pilihan.name, "Tolak") == 0) {
@@ -53,7 +59,6 @@ void storesupply(ArrayDin *store, Queue *antrian, int *nbarang){
     } else {
         printf("Input tidak dikenali\n");
     }
-
 }
 
 /*

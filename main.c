@@ -74,7 +74,6 @@ int main() {
     int nUser = 0;
     int userIdx = -1;
     ArrayDin barang = MakeArrayDin();
-    ArrayDin store = MakeArrayDin();
     List user = MakeList();
     Queue antrian;
     CreateQueue(&antrian);
@@ -155,6 +154,7 @@ int main() {
                     struct timespec req = {2, 0};
                     nanosleep(&req, NULL);
                     loggedIn = true;
+                    break;
                 }
 
                 struct timespec req = {2, 0};
@@ -235,14 +235,14 @@ int main() {
             }
             else if (isKataSama(choice, "STORE REQUEST")) {
                 printf("\n\033[1;34m>> STORE REQUEST\033[0m\n\n");
-                storeRequest(&store, &antrian);
+                storeRequest(&barang, &antrian);
 
                 struct timespec req = {2, 0};
                 nanosleep(&req, NULL);
             }
             else if (isKataSama(choice, "STORE SUPPLY")) {
                 printf("\n\033[1;34m>> STORE SUPPLY\033[0m\n\n");
-                storesupply(&store, &antrian, &nBarang);
+                storesupply(&barang, &antrian, &nBarang);
                 change = true;
 
                 struct timespec req = {2, 0};
@@ -250,7 +250,7 @@ int main() {
             }
             else if (isKataSama(choice, "STORE REMOVE")) {
                 printf("\n\033[1;34m>> STORE REMOVE\033[0m\n\n");
-                storeremove(&store, &nBarang);
+                storeremove(&barang, &nBarang);
                 change = true;
 
                 struct timespec req = {2, 0};
