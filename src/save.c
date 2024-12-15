@@ -47,7 +47,9 @@ void write(char *filename, ArrayDin barang, List user, int nbarang, int nuser) {
                 P = Next(P);
             }
         }
-        fprintf(file, "\n");
+        if (i < nuser - 1) {
+            fprintf(file, "\n");  // Add newline between users but not after the last user
+        }
     }    
     fclose(file);
 }

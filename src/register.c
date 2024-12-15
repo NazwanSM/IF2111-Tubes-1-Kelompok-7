@@ -62,6 +62,9 @@ void addUser(List *user, int *nUser) {
     }
 
     user->A[*nUser].money = 0;
+    Top(user->A[*nUser].riwayat_pembelian) = NilS;
+    user->A[*nUser].keranjang.Count = NilM;
+    First(user->A[*nUser].wishlist) = Nil;
     (*nUser)++;
     printf("Akun dengan username %s telah berhasil dibuat. Silakan LOGIN untuk melanjutkan.\n", username);
 }

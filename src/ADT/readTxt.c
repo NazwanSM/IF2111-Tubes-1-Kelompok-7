@@ -34,6 +34,7 @@ void readtxt(char *filename, ArrayDin *barang, List *user, int *nBarang, int *nU
     for (int i = 0; i < *nUser; i++) {
         CreateEmptyLink(&((*user).A[i].wishlist));
         CreateEmptyStack(&((*user).A[i].riwayat_pembelian));
+        CreateEmptyMap(&((*user).A[i].keranjang));
         
         Stack tempStack;
         CreateEmptyStack(&tempStack);
