@@ -8,9 +8,11 @@
 
 #include "boolean.h"
 #include "custom.h"
+#include "stack.h"
+#include "map.h"
+#include "listlinier.h"
 
 /* Kamus Umum */
-#define MaxEl 100
 #define Mark -9999  /* Nilai tak terdefinisi */
 #define InvalidIdx -1  /* Indeks tak terdefinisi */
 
