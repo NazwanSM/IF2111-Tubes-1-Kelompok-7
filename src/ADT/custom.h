@@ -48,7 +48,7 @@ Deklarasi stack yang dengan implementasi array eksplisit-statik rata kiri
 #define Undefined 0
 
 // typedef int bool;
-typedef int keytype;
+typedef Barang keytype;
 typedef int valuetype;
 typedef int addressMap;
 
@@ -60,7 +60,7 @@ typedef struct {
 typedef struct {
 	infotypeMap Elements[MaxEl];
 	addressMap Count;
-} Map;
+} SetMap;
 
 /* Definisi Map M kosong : M.Count = Nil */
 /* M.Count = jumlah element Map */
@@ -93,7 +93,7 @@ typedef struct {
     char name[MAX_LEN];
     char password[MAX_LEN];
     integer money;
-    Map keranjang;
+    SetMap keranjang;
     Stack riwayat_pembelian;
     LinkedList wishlist;
 } User;
