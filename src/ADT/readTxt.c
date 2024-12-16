@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "readTxt.h"
-#include "arraydin.h"
-#include "list.h"
 
 
 void readtxt(char *filename, ArrayDin *barang, List *user, int *nBarang, int *nUser) {

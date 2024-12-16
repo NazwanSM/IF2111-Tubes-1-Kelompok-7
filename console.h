@@ -26,10 +26,11 @@
 #include "src/storeRequest.h"
 #include "src/storeSupply.h"
 #include "src/storeRemove.h"
+#include "src/profile.h"
 
 void displayPurrMart();
 void displayWelcomeMenu();
 void displayLoginMenu();
-void displayMainMenu(List user, int userIdx);
+void displayMainMenu();
 
 #endif

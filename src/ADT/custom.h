@@ -69,7 +69,7 @@ typedef struct {
 /* MODUL LinkedList */
 #define Nil NULL
 
-typedef char infotype[MAX_LEN];
+typedef char infotype[50];
 typedef struct tElmtlist *address;
 typedef struct tElmtlist
 {

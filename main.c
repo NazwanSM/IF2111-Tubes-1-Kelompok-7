@@ -125,7 +125,7 @@ int main() {
         while(loggedIn){
             system("cls || clear");
             displayPurrMart();
-            displayMainMenu(user, userIdx);
+            displayMainMenu();
             printf("\033[1;34mMasukkan perintah Anda: \033[0m");
             STARTWORD();
             Word choice = CurrentWord;
@@ -141,7 +141,16 @@ int main() {
                 }
             }
 
-            if (isKataSama(choice, "WORK")) {
+            if (isKataSama(choice, "PROFILE")) {
+                system("cls || clear");
+                displayPurrMart();
+                printf("\n\033[1;34m>> PROFILE\033[0m\n\n");
+                profile(user, userIdx);
+                struct timespec req = {4, 0};
+                nanosleep(&req, NULL);
+            }
+
+            else if (isKataSama(choice, "WORK")) {
                 system("cls || clear");
                 displayPurrMart();
                 printf("\n\033[1;34m>> WORK\033[0m\n\n");
