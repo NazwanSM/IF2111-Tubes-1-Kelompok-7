@@ -200,6 +200,32 @@ int main() {
                 struct timespec req = {2, 0};
                 nanosleep(&req, NULL);
             }
+            else if (isKataSama(choice, "CART ADD")) {
+                system("cls || clear");
+                displayPurrMart();
+                printf("\n\033[1;34m>> CART ADD\033[0m\n\n");
+                cartAdd(&user, userIdx, barang);
+
+                struct timespec req = {2, 0};
+                nanosleep(&req, NULL);
+            }
+            else if (isKataSama(choice, "CART SHOW")) {
+                printf("\n\033[1;34m>> CART SHOW\033[0m\n\n");
+                cartShow(user, userIdx);
+
+                struct timespec req = {4, 0};
+                nanosleep(&req, NULL);
+            }
+            else if (isKataSama(choice, "HISTORY")) {
+                int N;
+                printf("\nMasukkan nilai N : ");
+                scanf("%d", &N); // buat sementara
+                printf("\n\033[1;34m>> HISTORY %d\033[0m\n\n", N);
+                displayHistory(user, userIdx, N);
+
+                struct timespec req = {4, 0};
+                nanosleep(&req, NULL);
+            }
             else if (isKataSama(choice, "LOGOUT")) {
                 printf("\n\033[1;34m>> LOGOUT\033[0m\n\n");
                 logoutUser(&userIdx, user);

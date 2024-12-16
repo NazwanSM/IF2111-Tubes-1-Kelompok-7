@@ -45,8 +45,12 @@ void displayMainMenu() {
     printf("5.  STORE REQUEST\n");
     printf("6.  STORE SUPPLY\n");
     printf("7.  STORE REMOVE\n");
-    printf("8.  LOGOUT\n");
-    printf("9.  SAVE\n");
-    printf("10. QUIT\n");
+    printf("8.  CART ADD\n");
+    printf("9.  CART REMOVE\n");
+    printf("10. CART SHOW\n");
+    printf("11. HISTORY\n");
+    printf("12. LOGOUT\n");
+    printf("13. SAVE\n");
+    printf("14. QUIT\n");
     printf("\n\033[1;34mKetik 'HELP' untuk bantuan\033[0m\n");
 }
