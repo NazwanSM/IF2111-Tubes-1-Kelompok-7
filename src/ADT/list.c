@@ -6,9 +6,9 @@
 List MakeList(){
     List L;
     int i;
-    
+
     for (i = 0; i < MaxEl; i++) {
-        L.A[i].money = Mark;  
+        L.A[i].money = Mark;
     }
     
     return L;
@@ -193,4 +193,3 @@ int myStrcmp(const char *str1, const char *str2) {
     }
     return 1;  
 }
-

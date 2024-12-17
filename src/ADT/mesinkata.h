@@ -6,6 +6,7 @@
 
 #include "boolean.h"
 #include "mesinkarakter.h"
+#include <stdio.h>
 
 #define NMax 50
 #define BLANK ' '
@@ -19,6 +20,8 @@ typedef struct
 /* State Mesin Kata */
 extern boolean EndWord;
 extern Word CurrentWord;
+
+void manualStrcpy(char *dest, const char *source);
 
 void IgnoreBlanks();
 /* Mengabaikan satu atau beberapa BLANK
@@ -57,5 +60,8 @@ F.S. : currentWord berisi kata yang sudah diakuisisi;
 void CopyWordFile();
 
 void CopyWordSpasi();
+
+boolean isKataSama(Word kata1, char* kata2);
+/* Fungsi untuk membandingkan kata */
 
 #endif

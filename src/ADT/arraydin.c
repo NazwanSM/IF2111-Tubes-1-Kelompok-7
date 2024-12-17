@@ -83,11 +83,6 @@ void deleteAt(ArrayDin *array, idxType i){
     array->Neff--;
 }
 
-/**
- * Fungsi untuk mencari nama barang dalam array.
- * Mengembalikan indeks dari nama jika ditemukan, -1 jika tidak.
- * Prekondisi: array terdefinisi
- */
 idxType search(ArrayDin array, elType el) {
     int i;
     for (i = 0; i < array.Neff; i++) {

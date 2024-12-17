@@ -1,8 +1,15 @@
-#ifndef STOREREMOVE_H
-#define STOREREMOVE_H
+#ifndef STORE_REMOVE_H
+#define STORE_REMOVE_H
 
 #include "load.h"
 #include "save.h"
+#include "ADT/arraydin.h"
+#include "ADT/custom.h"
+#include "ADT/list.h"
+#include "ADT/mesinkata.h"
+#include "ADT/mesinkarakter.h"
+#include "ADT/boolean.h"
+
 
 void storeremove(ArrayDin *store, int *nbarang);
 /* Fungsi menghapus barang yang ada pada toko. 

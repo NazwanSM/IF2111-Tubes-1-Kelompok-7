@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "storeremove.h"
+#include "storeRemove.h"
 
 void storeremove(ArrayDin *store, int *nbarang) {
     elType itemArrayDin;
@@ -30,10 +30,10 @@ void storeremove(ArrayDin *store, int *nbarang) {
     }
 }
 
+/*
+int main() {
 
-/* int main() {
 
-    deklarasi buat ngetes
 
     ArrayDin barang = MakeArrayDin();
     List user = MakeList();
@@ -47,7 +47,6 @@ void storeremove(ArrayDin *store, int *nbarang) {
     test.money = 6699;
     manualStrcpy(test.password, "kuburkankamuhiduphidup");
 
-    ngetes
 
     loadcheck(&barang, &user, &nbarang, &nuser);
     printf("%s\n", barang.A[4].name);
@@ -58,7 +57,7 @@ void storeremove(ArrayDin *store, int *nbarang) {
     
     while (currentChar != '\n' && itemLen < 100 - 1) {
         item[itemLen++] = currentChar;
-        READADV();
+        ADVWORD();
     }
     item[itemLen] = '\0';
     manualStrcpy(test.name, item);
@@ -83,4 +82,6 @@ void storeremove(ArrayDin *store, int *nbarang) {
 
     save(barang, user, nbarang, nuser);
     return 0;
-} */
+}
+
+*/

@@ -5,6 +5,7 @@
 #define __MESIN_KAR_H_
 
 #include "boolean.h"
+#include <stdio.h>
 
 #define MARK '.'
 /* State Mesin */
@@ -28,6 +29,7 @@ I.S. : Karakter pada jendela = currentChar, currentChar != MARK
 F.S. : currentChar adalah karakter berikutnya dari currentChar yang lama,
         currentChar mungkin = MARK
           Jika  currentChar = MARK maka EOP akan menyala (true) */
+
 void READADV();
 
 char GetCC();

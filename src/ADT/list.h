@@ -1,3 +1,4 @@
+
 /* MODUL LIST INTEGER */
 /* Berisi definisi dan semua primitif pemrosesan list integer */
 /* Penempatan elemen selalu rapat kiri */
@@ -7,9 +8,11 @@
 
 #include "boolean.h"
 #include "custom.h"
+#include "stack.h"
+#include "setmap.h"
+#include "listlinier.h"
 
 /* Kamus Umum */
-#define MaxEl 100
 #define Mark -9999  /* Nilai tak terdefinisi */
 #define InvalidIdx -1  /* Indeks tak terdefinisi */
 
@@ -112,8 +115,7 @@ List Concat(List L1, List L2);
 /* Mengirimkan sebuah List yang merupakan gabungan dari L1 dan L2 */
 /* Urutan elemen terisi dari L1, lalu L2 */
 /* Contoh : L1 : [1, 2]; L2 : [3, 4]; Mengembalikan [1, 2, 3, 4] */
-#endif
 
-/* fungsi strcmp tanpa menggunakan string.h */
-/* mengembalikan 1 jika string TIDAK sama dan 0 jika iya */
 int myStrcmp(const char *str1, const char *str2);
+
+#endif

@@ -1,8 +1,8 @@
 #ifndef __ARRAY_DINAMIK__
 #define __ARRAY_DINAMIK__
 
-#include "custom.h"
 #include "list.h"
+#include "custom.h"
 // Boolean
 #define boolean unsigned char
 #define true 1
@@ -68,11 +68,6 @@ void insertAt(ArrayDin *array, elType el, idxType i);
  */
 void deleteAt(ArrayDin *array, idxType i);
 
-/**
- * Fungsi untuk mencari nama barang dalam array.
- * Mengembalikan indeks dari nama jika ditemukan, -1 jika tidak.
- * Prekondisi: array terdefinisi
- */
 idxType search(ArrayDin array, elType el);
 
 #endif
