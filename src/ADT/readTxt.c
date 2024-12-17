@@ -1,17 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "readTxt.h"
-#include "arraydin.h"
-#include "list.h"
 
-void manualStrcpy(char *dest, const char *source) {
-    int i = 0;
-    while (source[i] != '\0') {
-        dest[i] = source[i];
-        i++;
-    }
-    dest[i] = '\0'; 
-}
 
 void readtxt(char *filename, ArrayDin *barang, List *user, int *nBarang, int *nUser) {
     FILE *file = fopen(filename, "r");
@@ -19,6 +9,7 @@ void readtxt(char *filename, ArrayDin *barang, List *user, int *nBarang, int *nU
         printf("Gagal membuka file: %s\n", filename);
         return;
     }
+    printf("Save file berhasil dibaca. PURRMART berhasil dijalankan\n");
     STARTWORDFILE(file);
     *nBarang = atoi(CurrentWord.TabWord);
     (*barang).Neff = *nBarang;
@@ -39,19 +30,51 @@ void readtxt(char *filename, ArrayDin *barang, List *user, int *nBarang, int *nU
     *nUser = atoi(CurrentWord.TabWord);
 
     for (int i = 0; i < *nUser; i++) {
+        CreateEmptyLink(&((*user).A[i].wishlist));
+        CreateEmptyStack(&((*user).A[i].riwayat_pembelian));
+        CreateEmptySetMap(&((*user).A[i].keranjang));
+        
+        Stack tempStack;
+        CreateEmptyStack(&tempStack);
         ADVWORDFILE();
         (*user).A[i].money = atoi(CurrentWord.TabWord);
 
         ADVWORDFILE();
         manualStrcpy((*user).A[i].name, CurrentWord.TabWord);
 
-        if (i == *nUser - 1) {
-            CopyWordFile();
-        }
-        else {
-            ADVWORDFILE();
-        }
+        ADVWORDFILE();
         manualStrcpy((*user).A[i].password, CurrentWord.TabWord);
+
+        ADVWORDFILE();
+        int nRiwayat = atoi(CurrentWord.TabWord);
+        
+        for (int j = 0; j < nRiwayat; j++) {
+            Barang tempStackEl;
+            ADVWORDFILE();
+            tempStackEl.price = atoi(CurrentWord.TabWord);
+
+            ADVWORDSpasi();
+            manualStrcpy(tempStackEl.name, CurrentWord.TabWord);
+            Push(&tempStack, tempStackEl);
+        }
+
+        while(!IsEmptyStack(tempStack)) {
+            Barang userStack;
+            Pop(&tempStack, &userStack);
+            Push(&((*user).A[i].riwayat_pembelian), userStack);
+        }
+
+        ADVWORDFILE();
+        int nWishlist = atoi(CurrentWord.TabWord);
+        for (int k = 0; k < nWishlist; k++) {
+            if (i == *nUser - 1) {
+                CopyWordSpasi();
+            }
+            else {
+                ADVWORDSpasi();
+            }
+            InsVLast(&((*user).A[i].wishlist), CurrentWord.TabWord);
+        }
     }   
     fclose(file);
 }

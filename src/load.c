@@ -4,7 +4,6 @@
 #include "load.h"
 
 void load(ArrayDin *barang, List *user, int *nbarang, int *nuser) {
-    printf("Load: ");
     START();
     char loadfile[100] = "save/";
     int loadfileLen = 5;
@@ -19,7 +18,7 @@ void load(ArrayDin *barang, List *user, int *nbarang, int *nuser) {
 void loadcheck(ArrayDin *barang, List *user, int *nbarang, int *nuser) {
     do {
         load(barang, user, nbarang, nuser);
-    } while (*nbarang == 0);
+    } while (*nuser == 0);
     printf("Save file berhasil dibaca. PURRMART berhasil dijalankan\n");
 }
 

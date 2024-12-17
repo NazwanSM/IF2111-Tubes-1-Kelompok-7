@@ -21,6 +21,8 @@ typedef struct
 extern boolean EndWord;
 extern Word CurrentWord;
 
+void manualStrcpy(char *dest, const char *source);
+
 void IgnoreBlanks();
 /* Mengabaikan satu atau beberapa BLANK
 I.S. : currentChar sembarang

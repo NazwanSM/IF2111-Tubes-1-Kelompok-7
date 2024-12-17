@@ -5,7 +5,6 @@
 
 // Function to write data to a file
 void write(char *filename, ArrayDin barang, List user, int nbarang, int nuser) {
-
     FILE *file = fopen(filename, "w");
     if (file == NULL) {
         printf("Error opening file for writing: %s\n", filename);
@@ -20,6 +19,37 @@ void write(char *filename, ArrayDin barang, List user, int nbarang, int nuser) {
     fprintf(file, "%d\n", nuser);
     for (int i = 0; i < nuser; i++) {
         fprintf(file, "%d %s %s\n", user.A[i].money, user.A[i].name, user.A[i].password);
+        fprintf(file, "%d\n", Top(user.A[i].riwayat_pembelian) + 1);
+        Stack writeStack;
+        infotypeStack X;
+        CreateEmptyStack(&writeStack);
+        CopyStack(&(user.A[i].riwayat_pembelian), &writeStack);
+        while (!IsEmptyStack(writeStack)) {
+            Pop(&writeStack, &X);
+            fprintf(file, "%d %s\n", X.price, X.name);
+        }
+        fprintf(file, "%d\n", NbElmt(user.A[i].wishlist));
+
+        address P;
+        boolean isFirst = true;
+        if (!IsEmptyLink(user.A[i].wishlist))
+        {
+            P = First(user.A[i].wishlist);
+            while (P != Nil)
+            {
+                if (!isFirst)
+                {
+                    fprintf(file, "\n");
+                }
+                fprintf(file, "%s", Info(P));
+                isFirst = false;
+
+                P = Next(P);
+            }
+        }
+        if (i < nuser - 1) {
+            fprintf(file, "\n");  // Add newline between users but not after the last user
+        }
     }    
     fclose(file);
 }
@@ -27,7 +57,7 @@ void write(char *filename, ArrayDin barang, List user, int nbarang, int nuser) {
 void save(ArrayDin barang, List user, int nbarang, int nuser) {
     boolean check = false;
     do {
-        printf("Save (contoh: save.txt): ");
+        printf("\n\033[1;34m>> SAVE\033[0m ");
         START();
         char savefile[100] = "save/";
         int savefileLen = 5;
@@ -50,6 +80,7 @@ void save(ArrayDin barang, List user, int nbarang, int nuser) {
         } else if(!txt) {
             printf("\nPastikan file disimpan dalam format <nama file>.txt!\n");
         } else {
+            printf("Save file berhasil disimpan\n");
             write(savefile, barang, user, nbarang, nuser);
             check = true;
         }

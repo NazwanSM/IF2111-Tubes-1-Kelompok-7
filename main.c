@@ -1,73 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include "src/ADT/arraydin.h"
-#include "src/ADT/list.h"
-#include "src/ADT/readTxt.h"
-#include "src/ADT/mesinkata.h"
-#include "src/ADT/mesinkarakter.h"
-#include "src/ADT/custom.h"
-#include "src/ADT/boolean.h"
-#include "src/ADT/queue.h"
-#include "src/start.h"
-#include "src/work.h"
-#include "src/work_challenge.h"
-#include "src/load.h"
-#include "src/save.h"
-#include "src/help.h"
-#include "src/quit.h"
-#include "src/register.h"
-#include "src/login.h"
-#include "src/logout.h"
-#include "src/storeList.h"
-#include "src/storeRequest.h"
-#include "src/storeSupply.h"
-#include "src/storeRemove.h"
-
-void displayPurrMart() {
-    printf("\033[1;33m"); 
-    printf(" ######  ##  ## ######  ######  ##   ##  ######  ######  ######\n");
-    printf(" ##  ##  ##  ## ##  #   ##  #   ### ###  ##  ##  ##  #     ##  \n");
-    printf(" ######  ##  ## ######  ######  ## # ##  ######  ######    ##  \n");
-    printf("\033[0m");
-    printf("\033[1;32m");
-    printf(" ##      ##  ## ##  ##  ##  ##  ##   ##  ##  ##  ##  ##    ##  \n");
-    printf(" ##       ####  ##  ##  ##  ##  ##   ##  ##  ##  ##  ##    ##  \n");
-    printf("\033[0m");
-}
-
-void displayWelcomeMenu() {
-    printf("\n\033[1;33mWELCOME TO PURRMART!\033[0m\n\n");
-    printf("\033[1;34mPILIHAN MENU:\033[0m\n");
-    printf("1. START\n");
-    printf("2. LOAD\n");
-    printf("3. QUIT\n");
-    printf("\n\033[1;34mKetik 'HELP' untuk bantuan\033[0m\n");
-}
-
-void displayLoginMenu() {
-    printf("\n\033[1;33mLOGIN OR SIGNUP TO YOUR ACCOUNT!\033[0m\n\n");
-    printf("\033[1;34mPILIHAN MENU:\033[0m\n");
-    printf("1. REGISTER\n");
-    printf("2. LOGIN\n");
-    printf("3. QUIT\n");
-    printf("\n\033[1;34mKetik 'HELP' untuk bantuan\033[0m\n");
-}
-
-void displayMainMenu() {
-    printf("\n\033[1;33mWELCOME TO MAIN MENU\033[0m\n\n");
-    printf("\033[1;34mPILIHAN MENU:\033[0m\n");
-    printf("1. WORK\n");
-    printf("2. WORK CHALLENGE\n");
-    printf("3. STORE LIST\n");
-    printf("4. STORE REQUEST\n");
-    printf("5. STORE SUPPLY\n");
-    printf("6. STORE REMOVE\n");
-    printf("7. LOGOUT\n");
-    printf("8. SAVE\n");
-    printf("9. QUIT\n");
-    printf("\n\033[1;34mKetik 'HELP' untuk bantuan\033[0m\n");
-}
+#include "console.h"
 
 int main() {
     int nBarang = 0;
@@ -92,7 +26,6 @@ int main() {
             Word choice = CurrentWord;
 
             if (isKataSama(choice, "START")) {
-                printf("\n\033[1;34m>> START\033[0m\n");
                 start("../save/config.txt", &barang, &user, &nBarang, &nUser);
 
                 struct timespec req = {2, 0};
@@ -100,12 +33,14 @@ int main() {
                 loaded = true;
             }
             else if (isKataSama(choice, "LOAD")) {
-                printf("\n\033[1;34m>> LOAD\033[0m\n");
-                loadcheck(&barang, &user, &nBarang, &nUser);
+                printf("\n\033[1;34m>> LOAD\033[0m ");
+                load(&barang, &user, &nBarang, &nUser);
 
                 struct timespec req = {2, 0};
                 nanosleep(&req, NULL);
-                loaded = true;
+                if (nUser > 0){
+                    loaded = true;
+                }
             }
             else if (isKataSama(choice, "QUIT")) {
                 printf("\n\033[1;34m>> QUIT\033[0m\n");
@@ -200,13 +135,22 @@ int main() {
             choice.TabWord[choice.Length] = ' ';
             choice.Length++;
         
-            for (int i = 0; i < CurrentWord.Length; i++){
-                choice.TabWord[choice.Length] = CurrentWord.TabWord[i];
-                choice.Length++;
+                for (int i = 0; i < CurrentWord.Length; i++){
+                    choice.TabWord[choice.Length] = CurrentWord.TabWord[i];
+                    choice.Length++;
+                }
             }
-    }
 
-            if (isKataSama(choice, "WORK")) {
+            if (isKataSama(choice, "PROFILE")) {
+                system("cls || clear");
+                displayPurrMart();
+                printf("\n\033[1;34m>> PROFILE\033[0m\n\n");
+                profile(user, userIdx);
+                struct timespec req = {4, 0};
+                nanosleep(&req, NULL);
+            }
+
+            else if (isKataSama(choice, "WORK")) {
                 system("cls || clear");
                 displayPurrMart();
                 printf("\n\033[1;34m>> WORK\033[0m\n\n");
@@ -254,6 +198,41 @@ int main() {
                 change = true;
 
                 struct timespec req = {2, 0};
+                nanosleep(&req, NULL);
+            }
+            else if (isKataSama(choice, "CART ADD")) {
+                system("cls || clear");
+                displayPurrMart();
+                printf("\n\033[1;34m>> CART ADD\033[0m\n\n");
+                cartAdd(&user, userIdx, barang);
+
+                struct timespec req = {2, 0};
+                nanosleep(&req, NULL);
+            }
+
+            else if (isKataSama(choice, "CART REMOVE")) {
+                system("cls || clear");
+                printf("\n\033[1;34m>> CART REMOVE\033[0m\n\n");
+                cartRemove(&user, userIdx);
+
+                struct timespec req = {2, 0};
+                nanosleep(&req, NULL);
+            }
+            else if (isKataSama(choice, "CART SHOW")) {
+                printf("\n\033[1;34m>> CART SHOW\033[0m\n\n");
+                cartShow(user, userIdx);
+
+                struct timespec req = {4, 0};
+                nanosleep(&req, NULL);
+            }
+            else if (isKataSama(choice, "HISTORY")) {
+                int N;
+                printf("\nMasukkan nilai N : ");
+                scanf("%d", &N); // buat sementara
+                printf("\n\033[1;34m>> HISTORY %d\033[0m\n\n", N);
+                displayHistory(user, userIdx, N);
+
+                struct timespec req = {4, 0};
                 nanosleep(&req, NULL);
             }
             else if (isKataSama(choice, "LOGOUT")) {
