@@ -27,8 +27,13 @@ void cartAdd(List *user, int userIdx, ArrayDin store){
         printf("Barang tidak ada di toko!\n");
         return;
     }
-    else {
+    else if (idx != -1 && !IsMemberSetMap((*user).A[userIdx].keranjang, store.A[idx])) {
         InsertSetMap(&((*user).A[userIdx].keranjang), store.A[idx], qty);
+        printf("\nBerhasil menambahkan %d %s ke keranjang belanja!\n", qty, store.A[idx].name);
+    }
+    else {
+        int currentQty = ValueOfSetMap((*user).A[userIdx].keranjang, store.A[idx]);
+        InsertSetMap(&((*user).A[userIdx].keranjang), store.A[idx], currentQty + qty);
         printf("\nBerhasil menambahkan %d %s ke keranjang belanja!\n", qty, store.A[idx].name);
     }
 }
