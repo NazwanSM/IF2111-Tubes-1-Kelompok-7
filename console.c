@@ -37,20 +37,20 @@ void displayLoginMenu() {
 
 void displayMainMenu() {
     printf("\n\033[1;33mWELCOME TO MAIN MENU\033[0m\n\n");
-    printf("\033[1;34mPILIHAN MENU:\033[0m\n");
-    printf("1.  PROFILE\n");
-    printf("2.  WORK\n");
-    printf("3.  WORK CHALLENGE\n");
-    printf("4.  STORE LIST\n");
-    printf("5.  STORE REQUEST\n");
-    printf("6.  STORE SUPPLY\n");
-    printf("7.  STORE REMOVE\n");
-    printf("8.  CART ADD\n");
-    printf("9.  CART REMOVE\n");
-    printf("10. CART SHOW\n");
-    printf("11. HISTORY\n");
-    printf("12. LOGOUT\n");
-    printf("13. SAVE\n");
-    printf("14. QUIT\n");
+    printf(COLOR_BOLD_BLUE "PILIHAN MENU:\n" COLOR_OFF);
+    printf("\033[1;33m1.\033[0m  PROFILE\n");
+    printf("\033[1;33m2.\033[0m  WORK\n");
+    printf("\033[1;33m3.\033[0m  WORK CHALLENGE\n");
+    printf("\033[1;33m4.\033[0m  STORE LIST\n");
+    printf("\033[1;33m5.\033[0m  STORE REQUEST\n");
+    printf("\033[1;33m6.\033[0m  STORE SUPPLY\n");
+    printf("\033[1;33m7.\033[0m  STORE REMOVE\n");
+    printf("\033[1;33m8.\033[0m  CART ADD <nama> <n>\n");
+    printf("\033[1;33m9.\033[0m  CART REMOVE\n");
+    printf("\033[1;33m10.\033[0m CART SHOW\n");
+    printf("\033[1;33m11.\033[0m HISTORY <n>\n");
+    printf("\033[1;33m12.\033[0m LOGOUT\n");
+    printf("\033[1;33m13.\033[0m SAVE\n");
+    printf("\033[1;33m14.\033[0m QUIT\n");
     printf("\n\033[1;34mKetik 'HELP' untuk bantuan\033[0m\n");
 }

@@ -13,30 +13,8 @@ typedef struct {
     integer price;
 } Barang;
 
-/*MODUL Stack*/
 #define NilS -1
 #define MaxEl 50
-/* Nil adalah stack dengan elemen kosong . */
-
-typedef Barang infotypeStack;
-typedef int addressStack; /* indeks tabel */
-
-/* Contoh deklarasi variabel bertype stack dengan ciri TOP : */
-/* Versi I : dengan menyimpan tabel dan alamat top secara eksplisit*/
-typedef struct
-{
-  infotypeStack T[MaxEl]; /* tabel penyimpan elemen */
-  addressStack TOP;       /* alamat TOP: elemen puncak */
-} Stack;
-/* Definisi stack S kosong : S.TOP = Nil */
-/* Elemen yang dipakai menyimpan nilai Stack T[0]..T[MaxEl-1] */
-/* Jika S adalah Stack maka akses elemen : */
-/* S.T[(S.TOP)] untuk mengakses elemen TOP */
-/* S.TOP adalah alamat elemen TOP */
-
-/* Definisi akses dengan Selektor : Set dan Get */
-#define Top(S) (S).TOP
-#define InfoTop(S) (S).T[(S).TOP]
 
 /* MODUL Map
 Deklarasi stack yang dengan implementasi array eksplisit-statik rata kiri
@@ -65,6 +43,35 @@ typedef struct {
 /* Definisi Map M kosong : M.Count = Nil */
 /* M.Count = jumlah element Map */
 /* M.Elements = tempat penyimpanan element Map */
+
+/*MODUL Stack*/
+
+/* Nil adalah stack dengan elemen kosong . */
+typedef int addressStack; /* indeks tabel */
+typedef struct {
+	valuetype biaya;
+    valuetype items;
+    keytype *Key;
+	valuetype *Value;
+    valuetype *total;
+} infotypeStack;
+
+/* Contoh deklarasi variabel bertype stack dengan ciri TOP : */
+/* Versi I : dengan menyimpan tabel dan alamat top secara eksplisit*/
+typedef struct
+{
+  infotypeStack T[MaxEl]; /* tabel penyimpan elemen */
+  addressStack TOP;       /* alamat TOP: elemen puncak */
+} Stack;
+/* Definisi stack S kosong : S.TOP = Nil */
+/* Elemen yang dipakai menyimpan nilai Stack T[0]..T[MaxEl-1] */
+/* Jika S adalah Stack maka akses elemen : */
+/* S.T[(S.TOP)] untuk mengakses elemen TOP */
+/* S.TOP adalah alamat elemen TOP */
+
+/* Definisi akses dengan Selektor : Set dan Get */
+#define Top(S) (S).TOP
+#define InfoTop(S) (S).T[(S).TOP]
 
 /* MODUL LinkedList */
 #define Nil NULL

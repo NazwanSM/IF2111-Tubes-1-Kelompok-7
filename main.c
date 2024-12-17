@@ -45,7 +45,7 @@ int main() {
             else if (isKataSama(choice, "QUIT")) {
                 printf("\n\033[1;34m>> QUIT\033[0m\n");
                 quit(barang, user, nBarang, nUser, change);
-            }
+            } 
             else if (isKataSama(choice, "HELP")) {
                 printf("\n\033[1;34m>> HELP\033[0m\n");
                 help1();
@@ -200,11 +200,43 @@ int main() {
                 struct timespec req = {2, 0};
                 nanosleep(&req, NULL);
             }
-            else if (isKataSama(choice, "CART ADD")) {
-                system("cls || clear");
-                displayPurrMart();
-                printf("\n\033[1;34m>> CART ADD\033[0m\n\n");
-                cartAdd(&user, userIdx, barang);
+            else if (startsWith(choice, "CART ADD")) {
+                int i = 9;
+                char namaBarang[MAX_LEN];
+                int namaLength = 0;
+                int jumlah = 0;
+                
+                while (i < choice.Length && choice.TabWord[i] == ' ') {
+                    i++;
+                }
+                
+                int lastSpacePos = -1;
+                for (int j = choice.Length - 1; j >= i; j--) {
+                    if (choice.TabWord[j] == ' ') {
+                        if (j + 1 < choice.Length && 
+                            choice.TabWord[j + 1] >= '0' && 
+                            choice.TabWord[j + 1] <= '9') {
+                            lastSpacePos = j;
+                            break;
+                        }
+                    }
+                }
+                
+                if (lastSpacePos != -1) {
+                    for (int j = i; j < lastSpacePos; j++) {
+                        namaBarang[namaLength] = choice.TabWord[j];
+                        namaLength++;
+                    }
+                    namaBarang[namaLength] = '\0';
+                    
+                    for (int j = lastSpacePos + 1; j < choice.Length; j++) {
+                        if (choice.TabWord[j] >= '0' && choice.TabWord[j] <= '9') {
+                            jumlah = jumlah * 10 + (choice.TabWord[j] - '0');
+                        }
+                    }
+                }
+                printf("\n\033[1;34m>> CART ADD %s %d\033[0m\n\n", namaBarang, jumlah);
+                cartAdd(&user, userIdx, barang, namaBarang, jumlah);
 
                 struct timespec req = {2, 0};
                 nanosleep(&req, NULL);
@@ -216,10 +248,18 @@ int main() {
                 struct timespec req = {4, 0};
                 nanosleep(&req, NULL);
             }
-            else if (isKataSama(choice, "HISTORY")) {
-                int N;
-                printf("\nMasukkan nilai N : ");
-                scanf("%d", &N); // buat sementara
+            else if (startsWith(choice, "HISTORY")) {
+                int N = 0;
+                int i = 8; 
+                
+                while (i < choice.Length && choice.TabWord[i] == ' ') {
+                    i++;
+                }
+                
+                while (i < choice.Length && choice.TabWord[i] >= '0' && choice.TabWord[i] <= '9') {
+                    N = N * 10 + (choice.TabWord[i] - '0');
+                    i++;
+                }
                 printf("\n\033[1;34m>> HISTORY %d\033[0m\n\n", N);
                 displayHistory(user, userIdx, N);
 
@@ -240,7 +280,7 @@ int main() {
 
                 struct timespec req = {2, 0};
                 nanosleep(&req, NULL);
-            }
+            } 
             else if (isKataSama(choice, "QUIT")) {
                 if (change){
                     system("cls || clear");
@@ -252,7 +292,7 @@ int main() {
                     printf("\n\033[1;34m>> QUIT\033[0m\n");
                     quit(barang, user, nBarang, nUser, change);
                 }
-            }
+            } 
             else if (isKataSama(choice, "HELP")) {
                 printf("\n\033[1;34m>> HELP\033[0m\n");
                 help3();

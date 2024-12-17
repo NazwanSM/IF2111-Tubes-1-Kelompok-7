@@ -47,26 +47,47 @@ void readtxt(char *filename, ArrayDin *barang, List *user, int *nBarang, int *nU
 
         ADVWORDFILE();
         int nRiwayat = atoi(CurrentWord.TabWord);
-        
-        for (int j = 0; j < nRiwayat; j++) {
-            Barang tempStackEl;
-            ADVWORDFILE();
-            tempStackEl.price = atoi(CurrentWord.TabWord);
 
-            ADVWORDSpasi();
-            manualStrcpy(tempStackEl.name, CurrentWord.TabWord);
+        for (int j = 0; j < nRiwayat; j++) {
+            infotypeStack tempStackEl;
+            ADVWORDFILE();
+            int jumlahItem = atoi(CurrentWord.TabWord); 
+            
+            ADVWORDFILE();
+            int totalTransaksi = atoi(CurrentWord.TabWord);
+
+            tempStackEl.Key = (keytype*)malloc(jumlahItem * sizeof(keytype));
+            tempStackEl.Value = (valuetype*)malloc(jumlahItem * sizeof(valuetype));
+            tempStackEl.total = (valuetype*)malloc(jumlahItem * sizeof(valuetype)); 
+            
+            // Membaca setiap item dalam riwayat
+            for (int k = 0; k < jumlahItem; k++) {
+                ADVWORDFILE();
+                tempStackEl.total[k] = atoi(CurrentWord.TabWord);  
+                
+                ADVWORDFILE();
+                tempStackEl.Value[k] = atoi(CurrentWord.TabWord);  
+                
+                ADVWORDSpasi();
+                manualStrcpy(tempStackEl.Key[k].name, CurrentWord.TabWord);   
+                
+            }
+            tempStackEl.items = jumlahItem;     
+            tempStackEl.biaya = totalTransaksi; 
+                
             Push(&tempStack, tempStackEl);
         }
 
         while(!IsEmptyStack(tempStack)) {
-            Barang userStack;
+            infotypeStack userStack;
             Pop(&tempStack, &userStack);
             Push(&((*user).A[i].riwayat_pembelian), userStack);
         }
 
+
         ADVWORDFILE();
         int nWishlist = atoi(CurrentWord.TabWord);
-        for (int k = 0; k < nWishlist; k++) {
+        for (int l = 0; l < nWishlist; l++) {
             if (i == *nUser - 1) {
                 CopyWordSpasi();
             }

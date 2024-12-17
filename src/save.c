@@ -19,14 +19,21 @@ void write(char *filename, ArrayDin barang, List user, int nbarang, int nuser) {
     fprintf(file, "%d\n", nuser);
     for (int i = 0; i < nuser; i++) {
         fprintf(file, "%d %s %s\n", user.A[i].money, user.A[i].name, user.A[i].password);
-        fprintf(file, "%d\n", Top(user.A[i].riwayat_pembelian) + 1);
-        Stack writeStack;
+        int nRiwayat = Top(user.A[i].riwayat_pembelian) + 1;
+        fprintf(file, "%d\n", nRiwayat);
+        Stack tempStack, writeStack;
         infotypeStack X;
         CreateEmptyStack(&writeStack);
         CopyStack(&(user.A[i].riwayat_pembelian), &writeStack);
+        
+
         while (!IsEmptyStack(writeStack)) {
             Pop(&writeStack, &X);
-            fprintf(file, "%d %s\n", X.price, X.name);
+            int items = X.items;
+            fprintf(file, "%d %d\n", X.items, X.biaya);
+            for (int j = 0; j < items; j++) {
+                fprintf(file, "%d %d %s\n", X.total[j], X.Value[j], X.Key[j].name);
+            }
         }
         fprintf(file, "%d\n", NbElmt(user.A[i].wishlist));
 

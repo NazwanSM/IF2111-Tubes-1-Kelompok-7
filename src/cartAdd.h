@@ -8,6 +8,6 @@
 #include "ADT/list.h"
 #include "ADT/arraydin.h"
 
-void cartAdd(List *user, int userIdx, ArrayDin store);
+void cartAdd(List *user, int userIdx, ArrayDin store, char* namaBarang, int jumlah);
 
 #endif
