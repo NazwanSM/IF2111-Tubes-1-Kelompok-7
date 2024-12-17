@@ -49,7 +49,7 @@ typedef struct {
 typedef struct {
 	infotypeMap Elements[MaxEl];
 	addressMap Count;
-} SetMap;
+} Map;
 
 /* Definisi Map M kosong : M.Count = Nil */
 /* M.Count = jumlah element Map */
@@ -111,7 +111,7 @@ typedef struct {
     char name[MAX_LEN];
     char password[MAX_LEN];
     integer money;
-    SetMap keranjang;
+    Map keranjang;
     Stack riwayat_pembelian;
     LinkedList wishlist;
 } User;

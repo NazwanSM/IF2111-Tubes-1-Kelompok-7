@@ -63,7 +63,7 @@ void write(char *filename, ArrayDin barang, List user, int nbarang, int nuser) {
 void save(ArrayDin barang, List user, int nbarang, int nuser) {
     boolean check = false;
     do {
-        printf("\n\033[1;34m>> SAVE\033[0m ");
+        printf(COLOR_BOLD_CYAN"\n>> SAVE\033[0m\n\n");
         START();
         char savefile[100] = "save/";
         int savefileLen = 5;

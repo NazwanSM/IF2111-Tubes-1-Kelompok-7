@@ -20,6 +20,8 @@ int main() {
         while (!loaded){
             system("cls || clear");
             displayPurrMart();
+            struct timespec req = {1, 0};
+            nanosleep(&req, NULL);
             displayWelcomeMenu();
             printf(COLOR_BOLD_BLUE"Masukkan perintah Anda: "COLOR_OFF);
             STARTWORD();
@@ -275,7 +277,6 @@ int main() {
                 loggedIn = false;
             }
             else if (isKataSama(choice, "SAVE")) {
-                printf(COLOR_BOLD_CYAN"\n>> SAVE\033[0m\n\n");
                 save(barang, user, nBarang, nUser);
 
                 struct timespec req = {2, 0};
