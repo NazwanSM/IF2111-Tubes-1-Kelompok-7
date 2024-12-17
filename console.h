@@ -31,9 +31,6 @@
 #include "src/cartAdd.h"
 #include "src/cartShow.h"
 
-#define COLOR_BOLD_BLUE   "\e[1;34m"
-#define COLOR_OFF   "\e[0m"
-
 void displayPurrMart();
 void displayWelcomeMenu();
 void displayLoginMenu();

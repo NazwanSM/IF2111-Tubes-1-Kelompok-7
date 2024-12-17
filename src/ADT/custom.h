@@ -5,8 +5,17 @@
 
 #include "boolean.h"
 
-#define MAX_LEN 100
+#define COLOR_BOLD_CYAN_BLINK  "\e[1;5;36m"
+#define COLOR_BOLD_BLUE   "\e[1;34m"
+#define COLOR_BOLD_GREEN  "\e[1;32m"
+#define COLOR_BOLD_RED    "\e[1;31m"
+#define COLOR_BOLD_YELLOW "\e[1;33m"
+#define COLOR_BOLD_CYAN   "\e[1;36m"
+#define COLOR_BOLD       "\e[1m"
+#define COLOR_CYAN       "\e[36m"
+#define COLOR_OFF   "\e[0m"
 
+#define MAX_LEN 100
 #define integer int
 typedef struct {
     char name[MAX_LEN];
