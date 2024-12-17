@@ -248,6 +248,15 @@ int main() {
                 struct timespec req = {4, 0};
                 nanosleep(&req, NULL);
             }
+
+            else if (isKataSama(choice, "WISHLIST ADD")) {
+                printf("\n\033[1;34m>> WISHLIST ADD\033[0m\n");
+                wishlistAdd(&user, &barang, userIdx);
+
+                struct timespec req = {4, 0};
+                nanosleep(&req, NULL);
+            }
+
             else if (startsWith(choice, "HISTORY")) {
                 int N = 0;
                 int i = 8; 
