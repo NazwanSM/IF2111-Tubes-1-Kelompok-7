@@ -21,17 +21,16 @@ void write(char *filename, ArrayDin barang, List user, int nbarang, int nuser) {
         fprintf(file, "%d %s %s\n", user.A[i].money, user.A[i].name, user.A[i].password);
         int nRiwayat = Top(user.A[i].riwayat_pembelian) + 1;
         fprintf(file, "%d\n", nRiwayat);
-        Stack tempStack, writeStack;
-        infotypeStack X;
+        Stack writeStack;
         CreateEmptyStack(&writeStack);
         CopyStack(&(user.A[i].riwayat_pembelian), &writeStack);
         
 
         while (!IsEmptyStack(writeStack)) {
+            infotypeStack X;
             Pop(&writeStack, &X);
-            int items = X.items;
             fprintf(file, "%d %d\n", X.items, X.biaya);
-            for (int j = 0; j < items; j++) {
+            for (int j = 0; j < X.items; j++) {
                 fprintf(file, "%d %d %s\n", X.total[j], X.Value[j], X.Key[j].name);
             }
         }

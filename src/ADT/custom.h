@@ -6,6 +6,7 @@
 #include "boolean.h"
 
 #define COLOR_BOLD_CYAN_BLINK  "\e[1;5;36m"
+#define COLOR_BOLD_BLUE_BLINK  "\e[1;5;34m"
 #define COLOR_BOLD_BLUE   "\e[1;34m"
 #define COLOR_BOLD_GREEN  "\e[1;32m"
 #define COLOR_BOLD_RED    "\e[1;31m"
@@ -14,6 +15,7 @@
 #define COLOR_BOLD       "\e[1m"
 #define COLOR_CYAN       "\e[36m"
 #define COLOR_OFF   "\e[0m"
+#define COLOR_BLINK "\e[5m"
 
 #define MAX_LEN 100
 #define integer int

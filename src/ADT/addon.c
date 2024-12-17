@@ -25,11 +25,18 @@ int compareStrings(const char *str1, const char *str2) {
 }
 
 boolean startsWith(Word w, char* prefix) {
-    int prefixLen = strlen(prefix);
+    int prefixLen = 0;
+
+    while (prefix[prefixLen] != '\0') {
+        prefixLen++;
+    }
+
     if (w.Length < prefixLen) return false;
-    
+
     for (int i = 0; i < prefixLen; i++) {
         if (w.TabWord[i] != prefix[i]) return false;
     }
+
     return true;
 }
+
