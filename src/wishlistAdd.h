@@ -6,6 +6,7 @@
 #include "ADT/mesinkata.h"
 #include "ADT/arraydin.h"
 #include "ADT/list.h"
+#include "ADT/stringutils.h"
 
 void wishlistAdd(List *user, ArrayDin *barang, int userIdx);
 

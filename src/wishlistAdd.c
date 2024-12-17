@@ -3,27 +3,7 @@
 #include <string.h>
 #include "wishlistAdd.h"
 
-// Function to remove leading/trailing whitespace and special characters
-void trimString(char *str) {
-    int start = 0, end = strlen(str) - 1;
-    
-    // Remove leading special characters
-    while (start <= end && (str[start] == ' ' || str[start] == '-' || str[start] == ',')) {
-        start++;
-    }
-    
-    // Remove trailing special characters
-    while (end >= start && (str[end] == ' ' || str[end] == '-' || str[end] == ',')) {
-        end--;
-    }
-    
-    // Shift the string
-    int i;
-    for (i = 0; start <= end; start++, i++) {
-        str[i] = str[start];
-    }
-    str[i] = '\0';
-}
+
 
 void wishlistAdd(List *user, ArrayDin *barang, int userIdx) {
     // Input barang yang ingin ditambahkan ke wishlist

@@ -12,6 +12,7 @@
 #include "src/ADT/stack.h"
 #include "src/ADT/setmap.h"
 #include "src/ADT/listlinier.h"
+#include "src/ADT/stringutils.h"
 #include "src/start.h"
 #include "src/work.h"
 #include "src/work_challenge.h"
@@ -31,6 +32,7 @@
 #include "src/cartAdd.h"
 #include "src/cartShow.h"
 #include "src/wishlistAdd.h"
+#include "src/wishlistRemove.h"
 
 void displayPurrMart();
 void displayWelcomeMenu();
