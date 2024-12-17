@@ -209,7 +209,6 @@ int main() {
                 struct timespec req = {2, 0};
                 nanosleep(&req, NULL);
             }
-
             else if (isKataSama(choice, "CART REMOVE")) {
                 system("cls || clear");
                 printf("\n\033[1;34m>> CART REMOVE\033[0m\n\n");
@@ -221,6 +220,14 @@ int main() {
             else if (isKataSama(choice, "CART SHOW")) {
                 printf("\n\033[1;34m>> CART SHOW\033[0m\n\n");
                 cartShow(user, userIdx);
+
+                struct timespec req = {4, 0};
+                nanosleep(&req, NULL);
+            }
+            else if (isKataSama(choice, "CART PAY")) {
+                system("cls || clear");
+                printf("\n\033[1;34m>> CART PAY\033[0m\n\n");
+                cartPay(user, userIdx, &change);
 
                 struct timespec req = {4, 0};
                 nanosleep(&req, NULL);
