@@ -10,7 +10,8 @@ void storeList(ArrayDin barang, int nbarang){
         printf("\033[1;34mList barang yang ada di toko : \033[0m\n");
         for (int i = 0; i < nbarang; i++){
             printf("- ");
-            printf("%s\n", barang.A[i].name);
+            printf("%s - ", barang.A[i].name);
+            printf("Harga: %d\n", barang.A[i].price);
         }
     }
 }
