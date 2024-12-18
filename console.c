@@ -35,19 +35,22 @@ void displayLoginMenu() {
     printf("\n\033[1;34mKetik 'HELP' untuk bantuan\033[0m\n");
 }
 
-void displayMainMenu(List user, int userIdx) {
+void displayMainMenu() {
     printf("\n\033[1;33mWELCOME TO MAIN MENU\033[0m\n\n");
-    printf("\033[1;32mUsername: %s\033[0m\n", user.A[userIdx].name);
-    printf("\033[1;32mMoney: %d\033[0m\n\n", user.A[userIdx].money);
     printf("\033[1;34mPILIHAN MENU:\033[0m\n");
-    printf("1. WORK\n");
-    printf("2. WORK CHALLENGE\n");
-    printf("3. STORE LIST\n");
-    printf("4. STORE REQUEST\n");
-    printf("5. STORE SUPPLY\n");
-    printf("6. STORE REMOVE\n");
-    printf("7. LOGOUT\n");
-    printf("8. SAVE\n");
-    printf("9. QUIT\n");
+    printf("1.  PROFILE\n");
+    printf("2.  WORK\n");
+    printf("3.  WORK CHALLENGE\n");
+    printf("4.  STORE LIST\n");
+    printf("5.  STORE REQUEST\n");
+    printf("6.  STORE SUPPLY\n");
+    printf("7.  STORE REMOVE\n");
+    printf("8.  CART ADD\n");
+    printf("9.  CART REMOVE\n");
+    printf("10. CART SHOW\n");
+    printf("11. HISTORY\n");
+    printf("12. LOGOUT\n");
+    printf("13. SAVE\n");
+    printf("14. QUIT\n");
     printf("\n\033[1;34mKetik 'HELP' untuk bantuan\033[0m\n");
 }
