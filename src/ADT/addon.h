@@ -12,5 +12,6 @@
 int checkUsernameExists(const char *username, List user, int nUser);
 int compareStrings(const char *str1, const char *str2);
 boolean startsWith(Word w, char* prefix);
+void trimString(char *str);
 
 #endif
