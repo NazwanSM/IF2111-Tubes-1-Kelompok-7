@@ -20,8 +20,10 @@ int main() {
         while (!loaded){
             system("cls || clear");
             displayPurrMart();
+            struct timespec req = {1, 0};
+            nanosleep(&req, NULL);
             displayWelcomeMenu();
-            printf("\033[1;34mMasukkan perintah Anda: \033[0m");
+            printf(COLOR_BOLD_BLUE"Masukkan perintah Anda: "COLOR_OFF);
             STARTWORD();
             Word choice = CurrentWord;
 
@@ -32,8 +34,8 @@ int main() {
                 nanosleep(&req, NULL);
                 loaded = true;
             }
-            else if (isKataSama(choice, "LOAD")) {
-                printf("\n\033[1;34m>> LOAD\033[0m ");
+            else if (startsWith(choice, "LOAD")) {
+                printf(COLOR_BOLD_CYAN"\n>> LOAD\033[0m ");               
                 load(&barang, &user, &nBarang, &nUser);
 
                 struct timespec req = {2, 0};
@@ -43,11 +45,11 @@ int main() {
                 }
             }
             else if (isKataSama(choice, "QUIT")) {
-                printf("\n\033[1;34m>> QUIT\033[0m\n");
+                printf(COLOR_BOLD_CYAN"\n>> QUIT\n\n"COLOR_OFF);
                 quit(barang, user, nBarang, nUser, change);
-            }
+            } 
             else if (isKataSama(choice, "HELP")) {
-                printf("\n\033[1;34m>> HELP\033[0m\n");
+                printf(COLOR_BOLD_CYAN"\n>> HELP\n\n"COLOR_OFF);
                 help1();
 
                 struct timespec req = {4, 0};
@@ -65,14 +67,14 @@ int main() {
             system("cls || clear");
             displayPurrMart();
             displayLoginMenu();
-            printf("\033[1;34mMasukkan perintah Anda: \033[0m");
+            printf(COLOR_BOLD_BLUE"Masukkan perintah Anda: "COLOR_OFF);
             STARTWORD();
             Word choice = CurrentWord;
 
             if (isKataSama(choice, "REGISTER")) {
                 system("cls || clear");
                 displayPurrMart();
-                printf("\n\033[1;34m>> REGISTER\033[0m\n");
+                printf(COLOR_BOLD_CYAN"\n>> REGISTER\n\n"COLOR_OFF);
                 addUser(&user, &nUser);
                 change = true;
 
@@ -82,7 +84,7 @@ int main() {
             else if (isKataSama(choice, "LOGIN")) {
                 system("cls || clear");
                 displayPurrMart();
-                printf("\n\033[1;34m>> LOGIN\033[0m\n");
+                printf(COLOR_BOLD_CYAN"\n>> LOGIN\n\n"COLOR_OFF);
                 userIdx = loginUser(user, nUser);
 
                 if (userIdx != -1) {
@@ -99,16 +101,16 @@ int main() {
                 if (change){
                     system("cls || clear");
                     displayPurrMart();
-                    printf("\n\033[1;34m>> QUIT\033[0m\n");
+                    printf(COLOR_BOLD_CYAN"\n>> QUIT\n\n"COLOR_OFF);
                     quit(barang, user, nBarang, nUser, change);
                 }
                 else {
-                    printf("\n\033[1;34m>> QUIT\033[0m\n");
+                    printf(COLOR_BOLD_CYAN"\n>> QUIT\n\n"COLOR_OFF);
                     quit(barang, user, nBarang, nUser, change);
                 }
             }
             else if (isKataSama(choice, "HELP")) {
-                printf("\n\033[1;34m>> HELP\033[0m\n");
+                printf(COLOR_BOLD_CYAN"\n>> HELP\n\n"COLOR_OFF);
                 help2();
 
                 struct timespec req = {4, 0};
@@ -126,7 +128,7 @@ int main() {
             system("cls || clear");
             displayPurrMart();
             displayMainMenu();
-            printf("\033[1;34mMasukkan perintah Anda: \033[0m");
+            printf(COLOR_BOLD_BLUE"Masukkan perintah Anda: "COLOR_OFF);
             STARTWORD();
             Word choice = CurrentWord;
 
@@ -144,7 +146,7 @@ int main() {
             if (isKataSama(choice, "PROFILE")) {
                 system("cls || clear");
                 displayPurrMart();
-                printf("\n\033[1;34m>> PROFILE\033[0m\n\n");
+                printf(COLOR_BOLD_CYAN"\n>> PROFILE\033[0m\n\n");
                 profile(user, userIdx);
                 struct timespec req = {4, 0};
                 nanosleep(&req, NULL);
@@ -153,7 +155,7 @@ int main() {
             else if (isKataSama(choice, "WORK")) {
                 system("cls || clear");
                 displayPurrMart();
-                printf("\n\033[1;34m>> WORK\033[0m\n\n");
+                printf(COLOR_BOLD_CYAN"\n>> WORK\033[0m\n\n");
                 work(&user, userIdx);
                 change = true;
 
@@ -163,7 +165,7 @@ int main() {
             else if (isKataSama(choice, "WORK CHALLENGE")) {
                 system("cls || clear");
                 displayPurrMart();
-                printf("\n\033[1;34m>> WORK CHALLENGE\033[0m\n\n");
+                printf(COLOR_BOLD_CYAN"\n>> WORK CHALLENGE\033[0m\n\n");
                 work_challenge(&user, userIdx);
                 change = true;
 
@@ -171,21 +173,21 @@ int main() {
                 nanosleep(&req, NULL);
             }
             else if (isKataSama(choice, "STORE LIST")) {
-                printf("\n\033[1;34m>> STORE LIST\033[0m\n\n");
+                printf(COLOR_BOLD_CYAN"\n>> STORE LIST\033[0m\n\n");
                 storeList(barang, nBarang);
 
                 struct timespec req = {4, 0};
                 nanosleep(&req, NULL);
             }
             else if (isKataSama(choice, "STORE REQUEST")) {
-                printf("\n\033[1;34m>> STORE REQUEST\033[0m\n\n");
+                printf(COLOR_BOLD_CYAN"\n>> STORE REQUEST\033[0m\n\n");
                 storeRequest(&barang, &antrian);
 
                 struct timespec req = {2, 0};
                 nanosleep(&req, NULL);
             }
             else if (isKataSama(choice, "STORE SUPPLY")) {
-                printf("\n\033[1;34m>> STORE SUPPLY\033[0m\n\n");
+                printf(COLOR_BOLD_CYAN"\n>> STORE SUPPLY\033[0m\n\n");
                 storesupply(&barang, &antrian, &nBarang);
                 change = true;
 
@@ -193,57 +195,133 @@ int main() {
                 nanosleep(&req, NULL);
             }
             else if (isKataSama(choice, "STORE REMOVE")) {
-                printf("\n\033[1;34m>> STORE REMOVE\033[0m\n\n");
+                printf(COLOR_BOLD_CYAN"\n>> STORE REMOVE\033[0m\n\n");
                 storeremove(&barang, &nBarang);
                 change = true;
 
                 struct timespec req = {2, 0};
                 nanosleep(&req, NULL);
             }
-            else if (isKataSama(choice, "CART ADD")) {
-                system("cls || clear");
-                displayPurrMart();
-                printf("\n\033[1;34m>> CART ADD\033[0m\n\n");
-                cartAdd(&user, userIdx, barang);
+            else if (startsWith(choice, "CART ADD")) {
+                int i = 9;
+                char namaBarang[MAX_LEN];
+                int namaLength = 0;
+                int jumlah = 0;
+                
+                while (i < choice.Length && choice.TabWord[i] == ' ') {
+                    i++;
+                }
+                
+                int lastSpacePos = -1;
+                for (int j = choice.Length - 1; j >= i; j--) {
+                    if (choice.TabWord[j] == ' ') {
+                        if (j + 1 < choice.Length && 
+                            choice.TabWord[j + 1] >= '0' && 
+                            choice.TabWord[j + 1] <= '9') {
+                            lastSpacePos = j;
+                            break;
+                        }
+                    }
+                }
+                
+                if (lastSpacePos != -1) {
+                    for (int j = i; j < lastSpacePos; j++) {
+                        namaBarang[namaLength] = choice.TabWord[j];
+                        namaLength++;
+                    }
+                    namaBarang[namaLength] = '\0';
+                    
+                    for (int j = lastSpacePos + 1; j < choice.Length; j++) {
+                        if (choice.TabWord[j] >= '0' && choice.TabWord[j] <= '9') {
+                            jumlah = jumlah * 10 + (choice.TabWord[j] - '0');
+                        }
+                    }
+                }
+                printf(COLOR_BOLD_CYAN"\n>> CART ADD %s %d\033[0m\n\n", namaBarang, jumlah);
+                cartAdd(&user, userIdx, barang, namaBarang, jumlah);
 
                 struct timespec req = {2, 0};
                 nanosleep(&req, NULL);
             }
-            else if (isKataSama(choice, "CART REMOVE")) {
-                system("cls || clear");
-                printf("\n\033[1;34m>> CART REMOVE\033[0m\n\n");
-                cartRemove(&user, userIdx);
+
+            else if (startsWith(choice, "CART REMOVE")) {
+                int i = 12;
+                char namaBarang[MAX_LEN];
+                int namaLength = 0;
+                int jumlah = 0;
+                
+                while (i < choice.Length && choice.TabWord[i] == ' ') {
+                    i++;
+                }
+                
+                int lastSpacePos = -1;
+                for (int j = choice.Length - 1; j >= i; j--) {
+                    if (choice.TabWord[j] == ' ') {
+                        if (j + 1 < choice.Length && 
+                            choice.TabWord[j + 1] >= '0' && 
+                            choice.TabWord[j + 1] <= '9') {
+                            lastSpacePos = j;
+                            break;
+                        }
+                    }
+                }
+                
+                if (lastSpacePos != -1) {
+                    for (int j = i; j < lastSpacePos; j++) {
+                        namaBarang[namaLength] = choice.TabWord[j];
+                        namaLength++;
+                    }
+                    namaBarang[namaLength] = '\0';
+                    
+                    for (int j = lastSpacePos + 1; j < choice.Length; j++) {
+                        if (choice.TabWord[j] >= '0' && choice.TabWord[j] <= '9') {
+                            jumlah = jumlah * 10 + (choice.TabWord[j] - '0');
+                        }
+                    }
+                }
+                printf(COLOR_BOLD_CYAN"\n>> CART REMOVE\033[0m\n\n");
+                cartRemove(&user, userIdx, namaBarang, jumlah);
 
                 struct timespec req = {2, 0};
                 nanosleep(&req, NULL);
             }
             else if (isKataSama(choice, "CART SHOW")) {
-                printf("\n\033[1;34m>> CART SHOW\033[0m\n\n");
+                printf(COLOR_BOLD_CYAN"\n>> CART SHOW\033[0m\n\n");
                 cartShow(user, userIdx);
 
                 struct timespec req = {4, 0};
                 nanosleep(&req, NULL);
             }
-            else if (isKataSama(choice, "CART PAY")) {
+
+            else if(isKataSama(choice, "CART PAY")){
                 system("cls || clear");
-                printf("\n\033[1;34m>> CART PAY\033[0m\n\n");
+                printf(COLOR_BOLD_CYAN"\n>> CART PAY\033[0m\n\n");
                 cartPay(user, userIdx, &change);
 
                 struct timespec req = {4, 0};
                 nanosleep(&req, NULL);
             }
-            else if (isKataSama(choice, "HISTORY")) {
-                int N;
-                printf("\nMasukkan nilai N : ");
-                scanf("%d", &N); // buat sementara
-                printf("\n\033[1;34m>> HISTORY %d\033[0m\n\n", N);
+
+            else if (startsWith(choice, "HISTORY")) {
+                int N = 0;
+                int i = 8; 
+                
+                while (i < choice.Length && choice.TabWord[i] == ' ') {
+                    i++;
+                }
+                
+                while (i < choice.Length && choice.TabWord[i] >= '0' && choice.TabWord[i] <= '9') {
+                    N = N * 10 + (choice.TabWord[i] - '0');
+                    i++;
+                }
+                printf(COLOR_BOLD_CYAN"\n>> HISTORY %d\033[0m\n\n", N);
                 displayHistory(user, userIdx, N);
 
                 struct timespec req = {4, 0};
                 nanosleep(&req, NULL);
             }
             else if (isKataSama(choice, "LOGOUT")) {
-                printf("\n\033[1;34m>> LOGOUT\033[0m\n\n");
+                printf(COLOR_BOLD_CYAN"\n>> LOGOUT\033[0m\n\n");
                 logoutUser(&userIdx, user);
 
                 struct timespec req = {2, 0};
@@ -251,26 +329,25 @@ int main() {
                 loggedIn = false;
             }
             else if (isKataSama(choice, "SAVE")) {
-                printf("\n\033[1;34m>> SAVE\033[0m\n\n");
                 save(barang, user, nBarang, nUser);
 
                 struct timespec req = {2, 0};
                 nanosleep(&req, NULL);
-            }
+            } 
             else if (isKataSama(choice, "QUIT")) {
                 if (change){
                     system("cls || clear");
                     displayPurrMart();
-                    printf("\n\033[1;34m>> QUIT\033[0m\n");
+                    printf(COLOR_BOLD_CYAN"\n>> QUIT\n\n"COLOR_OFF);
                     quit(barang, user, nBarang, nUser, change);
                 }
                 else {
-                    printf("\n\033[1;34m>> QUIT\033[0m\n");
+                    printf(COLOR_BOLD_CYAN"\n>> QUIT\n\n"COLOR_OFF);
                     quit(barang, user, nBarang, nUser, change);
                 }
-            }
+            } 
             else if (isKataSama(choice, "HELP")) {
-                printf("\n\033[1;34m>> HELP\033[0m\n");
+                printf(COLOR_BOLD_CYAN"\n>> HELP\n\n"COLOR_OFF);
                 help3();
 
                 struct timespec req = {4, 0};

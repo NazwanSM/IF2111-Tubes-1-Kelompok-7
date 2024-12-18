@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include "boolean.h"
 #include "custom.h"
+#include "mesinkata.h"
 
 /* MODUL Map
 Deklarasi stack yang dengan implementasi array eksplisit-statik rata kiri

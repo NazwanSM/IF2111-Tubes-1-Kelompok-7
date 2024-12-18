@@ -29,13 +29,12 @@ valuetype Value(Map M, keytype k)
 /* Mengembalikan nilai value dengan key k dari M */
 /* Jika tidak ada key k pada M, akan mengembalikan Undefined */
 {
-    addressMap idx = 0;
-
-    while (idx < M.Count) {
-        if (M.Elements[idx].Key == k) return M.Elements[idx].Value;
-        idx++;
+    int i;
+    for (i = 0; i < M.Count; i++) {
+        if (manualStrCmp(M.Elements[i].Key.name, k.name) == 0) {
+            return M.Elements[i].Value;
+        }
     }
-
     return Undefined;
 }
 
@@ -45,13 +44,22 @@ void InsertMap(Map *M, keytype k, valuetype v)
         M mungkin sudah beranggotakan v dengan key k */
 /* F.S. v menjadi anggota dari M dengan key k. Jika k sudah ada, operasi tidak dilakukan */
 {
-    if (IsMember(*M, k)) return;
+if (!IsFull(*M)) {
+        int i;
 
-    M->Elements[M->Count].Key = k;
-    M->Elements[M->Count].Value = v;
-    M->Count++;
+        for (i = 0; i < M->Count; i++) {
+            if (manualStrCmp(M->Elements[i].Key.name, k.name) == 0) {
+
+                M->Elements[i].Value = v;
+                return;
+            }
+        }
+
+        M->Elements[M->Count].Key = k;
+        M->Elements[M->Count].Value = v;
+        M->Count++;
+    }
 }
-
 void DeleteMap(Map *M, keytype k)
 /* Menghapus Elmt dari Map M. */
 /* I.S. M tidak kosong
@@ -63,7 +71,7 @@ void DeleteMap(Map *M, keytype k)
     addressMap idx = 0, iterator;
 
     while (idx < M->Count) {
-        if (M->Elements[idx].Key == k) break;
+        if (M->Elements[idx].Key.name == k.name) break;
         idx++;
     }
 
@@ -78,11 +86,11 @@ void DeleteMap(Map *M, keytype k)
 boolean IsMember(Map M, keytype k)
 /* Mengembalikan true jika k adalah member dari M */
 {
-    addressMap idx = 0;  
-    while (idx < M.Count) {
-        if (M.Elements[idx].Key == k) return true;
-        idx++;
+    int i;
+    for (i = 0; i < M.Count; i++) {
+        if (manualStrCmp(M.Elements[i].Key.name, k.name) == 0) {
+            return true;
+        }
     }
-    
     return false;
 }

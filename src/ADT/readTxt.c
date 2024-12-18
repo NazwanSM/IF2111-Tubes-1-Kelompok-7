@@ -9,7 +9,7 @@ void readtxt(char *filename, ArrayDin *barang, List *user, int *nBarang, int *nU
         printf("Gagal membuka file: %s\n", filename);
         return;
     }
-    printf("Save file berhasil dibaca. PURRMART berhasil dijalankan\n");
+    printf("\nSave file berhasil dibaca. PURRMART berhasil dijalankan\n");
     STARTWORDFILE(file);
     *nBarang = atoi(CurrentWord.TabWord);
     (*barang).Neff = *nBarang;
@@ -32,7 +32,7 @@ void readtxt(char *filename, ArrayDin *barang, List *user, int *nBarang, int *nU
     for (int i = 0; i < *nUser; i++) {
         CreateEmptyLink(&((*user).A[i].wishlist));
         CreateEmptyStack(&((*user).A[i].riwayat_pembelian));
-        CreateEmptySetMap(&((*user).A[i].keranjang));
+        CreateEmptyMap(&((*user).A[i].keranjang));
         
         Stack tempStack;
         CreateEmptyStack(&tempStack);
@@ -47,33 +47,58 @@ void readtxt(char *filename, ArrayDin *barang, List *user, int *nBarang, int *nU
 
         ADVWORDFILE();
         int nRiwayat = atoi(CurrentWord.TabWord);
-        
-        for (int j = 0; j < nRiwayat; j++) {
-            Barang tempStackEl;
-            ADVWORDFILE();
-            tempStackEl.price = atoi(CurrentWord.TabWord);
 
-            ADVWORDSpasi();
-            manualStrcpy(tempStackEl.name, CurrentWord.TabWord);
-            Push(&tempStack, tempStackEl);
-        }
+        if (nRiwayat != 0) {
+            for (int j = 0; j < nRiwayat; j++) {
+                infotypeStack tempStackEl;
+                ADVWORDFILE();
+                int jumlahItem = atoi(CurrentWord.TabWord); 
+                
+                ADVWORDFILE();
+                int totalTransaksi = atoi(CurrentWord.TabWord);
 
-        while(!IsEmptyStack(tempStack)) {
-            Barang userStack;
-            Pop(&tempStack, &userStack);
-            Push(&((*user).A[i].riwayat_pembelian), userStack);
+                tempStackEl.Key = (keytype*)malloc(jumlahItem * sizeof(keytype));
+                tempStackEl.Value = (valuetype*)malloc(jumlahItem * sizeof(valuetype));
+                tempStackEl.total = (valuetype*)malloc(jumlahItem * sizeof(valuetype)); 
+                
+                // Membaca setiap item dalam riwayat
+                for (int k = 0; k < jumlahItem; k++) {
+                    ADVWORDFILE();
+                    tempStackEl.total[k] = atoi(CurrentWord.TabWord);  
+                    
+                    ADVWORDFILE();
+                    tempStackEl.Value[k] = atoi(CurrentWord.TabWord);  
+                    
+                    ADVWORDSpasi();
+                    manualStrcpy(tempStackEl.Key[k].name, CurrentWord.TabWord);   
+                    
+                }
+                tempStackEl.items = jumlahItem;     
+                tempStackEl.biaya = totalTransaksi; 
+                    
+                Push(&tempStack, tempStackEl);
+            }
+
+            while(!IsEmptyStack(tempStack)) {
+                infotypeStack userStack;
+                Pop(&tempStack, &userStack);
+                Push(&((*user).A[i].riwayat_pembelian), userStack);
+            }
+
         }
 
         ADVWORDFILE();
         int nWishlist = atoi(CurrentWord.TabWord);
-        for (int k = 0; k < nWishlist; k++) {
-            if (i == *nUser - 1) {
-                CopyWordSpasi();
+        if (nWishlist != 0) {
+            for (int l = 0; l < nWishlist; l++) {
+                if (i == *nUser - 1) {
+                    CopyWordSpasi();
+                }
+                else {
+                    ADVWORDSpasi();
+                }
+                InsVLast(&((*user).A[i].wishlist), CurrentWord.TabWord);
             }
-            else {
-                ADVWORDSpasi();
-            }
-            InsVLast(&((*user).A[i].wishlist), CurrentWord.TabWord);
         }
     }   
     fclose(file);

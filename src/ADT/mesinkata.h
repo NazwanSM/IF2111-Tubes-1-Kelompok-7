@@ -23,6 +23,8 @@ extern Word CurrentWord;
 
 void manualStrcpy(char *dest, const char *source);
 
+int manualStrCmp(char* str1, char* str2);
+
 void IgnoreBlanks();
 /* Mengabaikan satu atau beberapa BLANK
 I.S. : currentChar sembarang

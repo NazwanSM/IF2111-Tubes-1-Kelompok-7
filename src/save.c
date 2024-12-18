@@ -19,14 +19,20 @@ void write(char *filename, ArrayDin barang, List user, int nbarang, int nuser) {
     fprintf(file, "%d\n", nuser);
     for (int i = 0; i < nuser; i++) {
         fprintf(file, "%d %s %s\n", user.A[i].money, user.A[i].name, user.A[i].password);
-        fprintf(file, "%d\n", Top(user.A[i].riwayat_pembelian) + 1);
+        int nRiwayat = Top(user.A[i].riwayat_pembelian) + 1;
+        fprintf(file, "%d\n", nRiwayat);
         Stack writeStack;
-        infotypeStack X;
         CreateEmptyStack(&writeStack);
         CopyStack(&(user.A[i].riwayat_pembelian), &writeStack);
+        
+
         while (!IsEmptyStack(writeStack)) {
+            infotypeStack X;
             Pop(&writeStack, &X);
-            fprintf(file, "%d %s\n", X.price, X.name);
+            fprintf(file, "%d %d\n", X.items, X.biaya);
+            for (int j = 0; j < X.items; j++) {
+                fprintf(file, "%d %d %s\n", X.total[j], X.Value[j], X.Key[j].name);
+            }
         }
         fprintf(file, "%d\n", NbElmt(user.A[i].wishlist));
 
@@ -57,7 +63,7 @@ void write(char *filename, ArrayDin barang, List user, int nbarang, int nuser) {
 void save(ArrayDin barang, List user, int nbarang, int nuser) {
     boolean check = false;
     do {
-        printf("\n\033[1;34m>> SAVE\033[0m ");
+        printf(COLOR_BOLD_CYAN"\n>> SAVE\033[0m\n\n");
         START();
         char savefile[100] = "save/";
         int savefileLen = 5;

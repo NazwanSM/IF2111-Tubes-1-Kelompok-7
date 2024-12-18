@@ -18,7 +18,12 @@ void displayHistory(List user, int userIdx, int N){
             }
             infotypeStack temp;
             Pop(&tempStack, &temp);
-            printf("%d. %s %d\n", i+1, temp.name, temp.price);
+            printf("Pembelian %d - Total %d\n", i+1, temp.biaya);
+            printf("\033[1;34m%-10s %-20s %-10s\033[0m\n", "Kuantitas", "Nama", "Total");
+            for (int j = 0; j < temp.items; j++) {
+                printf("%-10d %-20s %-10d\n", temp.Value[j], temp.Key[j].name, temp.total[j]);
+            }
+            printf("\n");
         }
     }
 }

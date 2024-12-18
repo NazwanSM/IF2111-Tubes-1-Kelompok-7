@@ -25,15 +25,21 @@ void cartPay(List user, int userIdx, boolean *change){
                 return;
             }
             else{
-                user.A[userIdx].money -= biaya;
                 for (int i = 0; i < user.A[userIdx].keranjang.Count; i++){
                     infotypeStack X;
-                    X.price = user.A[userIdx].keranjang.Elements[i].Key.price;
-                    manualStrcpy(X.name, user.A[userIdx].keranjang.Elements[i].Key.name);
+                    X.biaya = biaya;
+                    for (int i = 0; i < user.A[userIdx].keranjang.Count; i++){
+                        manualStrcpy(X.Key[i].name, user.A[userIdx].keranjang.Elements[i].Key.name);
+                        X.Key[i].price = user.A[userIdx].keranjang.Elements[i].Key.price;
+                        X.Value[i] = user.A[userIdx].keranjang.Elements[i].Value;
+                        X.total[i] = X.Value[i] * X.Key[i].price;
+                        X.items++;
+                    }
                     Push(&(user.A[userIdx].riwayat_pembelian), X);
                 }
+                user.A[userIdx].money -= biaya;
                 printf("Selamat kamu telah membeli barang-barang tersebut!\n");
-                CreateEmptySetMap(&(user.A[userIdx].keranjang));
+                CreateEmptyMap(&(user.A[userIdx].keranjang));
                 *change = true;
                 
             }

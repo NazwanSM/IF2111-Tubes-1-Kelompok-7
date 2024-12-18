@@ -4,10 +4,10 @@
 #include <stdio.h>
 #include "ADT/boolean.h"
 #include "ADT/custom.h"
-#include "ADT/setmap.h"
+#include "ADT/map.h"
 #include "ADT/list.h"
 #include "ADT/arraydin.h"
 
-void cartAdd(List *user, int userIdx, ArrayDin store);
+void cartAdd(List *user, int userIdx, ArrayDin store, char* namaBarang, int jumlah);
 
 #endif
