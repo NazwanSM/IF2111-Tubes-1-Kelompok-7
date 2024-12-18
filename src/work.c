@@ -38,14 +38,14 @@ Work* cariPekerjaan(WorkList *L, Word input){
 }
 
 void prosesKerja(Work* work, List* user, int indexUser){
-    printf("\nAnda sedang bekerja sebagai "COLOR_BOLD_BLUE_BLINK"%s"COLOR_OFF COLOR_BLINK"... harap tunggu.\n"COLOR_OFF, work->nama);
+    printf("\nAnda sedang bekerja sebagai " COLOR_BOLD_BLUE_BLINK"%s"COLOR_OFF COLOR_BLINK"... harap tunggu.\n"COLOR_OFF, work->nama);
     
     struct timespec req = {work->durasi, 0};
     nanosleep(&req, NULL);
     
     user->A[indexUser].money += work->pendapatan;
     
-    printf("\nPekerjaan selesai, +%d rupiah telah ditambahkan ke akun Anda.\n", 
+    printf(COLOR_BOLD"\nPekerjaan selesai, "COLOR_OFF COLOR_BOLD_RED"+%d"COLOR_OFF COLOR_BOLD" rupiah telah ditambahkan ke akun Anda.\n"COLOR_OFF, 
         work->pendapatan);
 }
 

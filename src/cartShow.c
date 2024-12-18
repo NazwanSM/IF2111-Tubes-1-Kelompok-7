@@ -16,6 +16,6 @@ void cartShow(List user, int userIdx){
             printf("%-10d %-20s %-10d\n", user.A[userIdx].keranjang.Elements[i].Value, user.A[userIdx].keranjang.Elements[i].Key.name, total);
             biaya += total;
         }
-        printf("\nTotal biaya yang harus dikeluarkan adalah %d\n", biaya);
+        printf("\nTotal biaya yang harus dikeluarkan adalah "COLOR_BOLD_RED"%d\n"COLOR_OFF, biaya);
     }
 }

@@ -5,7 +5,7 @@ void cartPay(List *user, int userIdx, boolean *change){
     int biaya = 0;
     
     if (user->A[userIdx].keranjang.Count == 0){
-        printf("\nKeranjang kamu kosong!\n");
+        printf(COLOR_BOLD_RED"\nKeranjang kamu kosong!\n"COLOR_OFF);
         return;
     }
     else{
@@ -16,12 +16,12 @@ void cartPay(List *user, int userIdx, boolean *change){
             printf("%-10d %-20s %-10d\n", user->A[userIdx].keranjang.Elements[i].Value, user->A[userIdx].keranjang.Elements[i].Key.name, total);
             biaya += total;
         }
-        printf("\nTotal biaya yang harus dikeluarkan adalah %d, apakah jadi dibeli?", biaya);
+        printf("\nTotal biaya yang harus dikeluarkan adalah "COLOR_BOLD_RED"%d"COLOR_OFF", apakah jadi dibeli?", biaya);
         printf("\n(Ya/Tidak): ");
         STARTWORD();
         if (isKataSama(CurrentWord, "Ya")){
             if (user->A[userIdx].money < biaya){
-                printf("Uang kamu hanya %d, tidak cukup untuk membeli keranjang!\n", user->A[userIdx].money);
+                printf("Uang kamu hanya "COLOR_BOLD_RED"%d"COLOR_OFF", tidak cukup untuk membeli keranjang!\n", user->A[userIdx].money);
                 return;
             }
             else{
@@ -54,7 +54,7 @@ void cartPay(List *user, int userIdx, boolean *change){
             }
         }
         else{
-            printf("Pembelian dibatalkan!\n");
+            printf(COLOR_BOLD_RED"Pembelian dibatalkan!\n"COLOR_OFF);
         }
     }
 }

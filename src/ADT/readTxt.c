@@ -9,7 +9,7 @@ void readtxt(char *filename, ArrayDin *barang, List *user, int *nBarang, int *nU
         printf("Gagal membuka file: %s\n", filename);
         return;
     }
-    printf("\nSave file berhasil dibaca. PURRMART berhasil dijalankan\n");
+    printf("\nSave file berhasil dibaca. "COLOR_BOLD_YELLOW"PURR"COLOR_OFF COLOR_CYAN"MART"COLOR_OFF" berhasil dijalankan\n");
     STARTWORDFILE(file);
     *nBarang = atoi(CurrentWord.TabWord);
     (*barang).Neff = *nBarang;

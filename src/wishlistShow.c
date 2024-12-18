@@ -12,7 +12,7 @@ void wishlistShow(List user, int userIdx) {
         P = First(user.A[userIdx].wishlist);
         while (P != Nil)
         {
-            printf("%d %s\n", i,Info(P));
+            printf(COLOR_BOLD_YELLOW"%d"COLOR_OFF" %s\n", i,Info(P));
             P = Next(P);
             i++;
         }

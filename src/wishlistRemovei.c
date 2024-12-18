@@ -13,10 +13,10 @@ void wishlistRemovei(List *user, int userIdx, int i) {
             a++;
         }
         if (P == Nil) {
-            printf("Penghapusan barang WISHLIST gagal dilakukan, Barang ke-%d tidak ada di WISHLIST!\n", i);
+            printf(COLOR_BOLD"Penghapusan barang WISHLIST gagal dilakukan, Barang ke-"COLOR_OFF COLOR_BOLD_RED"%d"COLOR_OFF COLOR_BOLD" tidak ada di WISHLIST!\n"COLOR_OFF, i);
         } else {
             DelP(&((*user).A[userIdx].wishlist), Info(P));
-            printf("Berhasil menghapus barang posisi ke-%d di wishlist!\n", i);
+            printf(COLOR_BOLD"Berhasil menghapus barang posisi ke-"COLOR_OFF COLOR_BOLD_RED"%d"COLOR_OFF COLOR_BOLD" di wishlist!\n"COLOR_OFF, i);
         }
     }
 }

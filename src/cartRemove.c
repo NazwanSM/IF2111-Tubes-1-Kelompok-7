@@ -14,20 +14,20 @@ void cartRemove(List *user, int userIdx, char* namaBarang, int jumlah) {
 
     int currentQty = Value((*user).A[userIdx].keranjang, itemArrayDin);
     if (jumlah <= 0) {
-        printf("Kuantitas barang yang dihapus harus lebih dari 0!\n");
+        printf(COLOR_BOLD_RED"Kuantitas barang yang dihapus harus lebih dari 0!\n"COLOR_OFF);
         return;
     }
     else if (currentQty < jumlah){
-        printf("Kuantitas barang yang ingin dihapus melebihi kuantitas barang di keranjang!\n");
+        printf(COLOR_BOLD_RED"Kuantitas barang yang ingin dihapus melebihi kuantitas barang di keranjang!\n"COLOR_OFF);
         return;
     }
     else if (currentQty > jumlah) {
         InsertMap(&((*user).A[userIdx].keranjang), itemArrayDin, currentQty - jumlah);
-        printf("\nBerhasil menghapus %d %s dari keranjang belanja!\n", jumlah, itemArrayDin.name);
+        printf("\nBerhasil menghapus"COLOR_BOLD_RED" %d"COLOR_OFF COLOR_BOLD_CYAN" %s "COLOR_OFF"dari keranjang belanja!\n", jumlah, itemArrayDin.name);
     }
     else {
         DeleteMap(&((*user).A[userIdx].keranjang), itemArrayDin);
-        printf("\nBerhasil menghapus %d %s dari keranjang belanja!\n", jumlah, itemArrayDin.name);
+        printf("\nBerhasil menghapus"COLOR_BOLD_RED" %d"COLOR_OFF COLOR_BOLD_CYAN" %s "COLOR_OFF"dari keranjang belanja!\n", jumlah, itemArrayDin.name);
     }
 }
 

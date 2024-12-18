@@ -8,5 +8,5 @@ void wishlistClear(List *user, int userIdx) {
     {
         DelFirst(&(*user).A[userIdx].wishlist, &P);
     }
-    printf("Wishlist telah dikosongkan.\n");
+    printf(COLOR_BOLD"Wishlist telah dikosongkan.\n"COLOR_OFF);
 }

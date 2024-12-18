@@ -15,7 +15,7 @@ const int numValidWords = 20;
 int tebak_angka(List* user, int userIdx){
     // Mengecek uang user
     if (user->A[userIdx].money < GAME_COST1){
-        printf("Uang Anda tidak cukup untuk bermain game ini.\n");
+        printf(COLOR_BOLD_RED"Uang Anda tidak cukup untuk bermain game ini.\n"COLOR_OFF);
         return -1;
     }
 
@@ -42,7 +42,7 @@ int tebak_angka(List* user, int userIdx){
             if (reward < 200) reward = 200;
 
                 user->A[userIdx].money += reward;
-                printf("Tebakanmu benar! +%d rupiah telah ditambahkan ke akun anda.\n", reward);
+                printf("Tebakanmu benar! "COLOR_BOLD_RED"+%d"COLOR_OFF" rupiah telah ditambahkan ke akun anda.\n", reward);
                 return reward;
         }
         // Jika tebakan salah

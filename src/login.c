@@ -41,7 +41,7 @@ int loginUser(List user, int nUser) {
         return -1;
     }
     else {
-        printf("\nAnda telah login ke PURRMART sebagai "COLOR_BOLD_BLUE"%s.\n"COLOR_OFF, username);
+        printf(COLOR_BOLD"\nAnda telah login ke "COLOR_OFF COLOR_BOLD_YELLOW"PURR"COLOR_OFF COLOR_CYAN"MART"COLOR_OFF COLOR_BOLD" sebagai "COLOR_OFF COLOR_BOLD_BLUE"%s.\n"COLOR_OFF, username);
         return userIdx;
     }
 }

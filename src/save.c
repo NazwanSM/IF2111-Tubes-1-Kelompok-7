@@ -84,9 +84,9 @@ void save(ArrayDin barang, List user, int nbarang, int nuser) {
         if (!config) {
             printf("Ini merupakan file konfigurasi, mohon jangan save disini!\n");
         } else if(!txt) {
-            printf("\nPastikan file disimpan dalam format <nama file>.txt!\n");
+            printf(COLOR_BOLD_RED"\nPastikan file disimpan dalam format <nama file>.txt!\n"COLOR_OFF);
         } else {
-            printf("Save file berhasil disimpan\n");
+            printf(COLOR_BOLD"Save file berhasil disimpan\n"COLOR_OFF);
             write(savefile, barang, user, nbarang, nuser);
             check = true;
         }

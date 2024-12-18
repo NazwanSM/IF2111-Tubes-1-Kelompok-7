@@ -26,7 +26,7 @@ void wishlistSwap(List *user, int userIdx, int i, int j) {
 
     if (P == Nil || Q == Nil) {
         if (P != Nil && Q == Nil) {
-            printf("Gagal menukar posisi %s!\n", Info(P));
+            printf(COLOR_BOLD_RED"Gagal menukar posisi %s!\n"COLOR_OFF, Info(P));
         } else {
             printf("Posisi yang dimasukkan tidak valid\n");
         }
@@ -38,5 +38,7 @@ void wishlistSwap(List *user, int userIdx, int i, int j) {
         DelP(&((*user).A[userIdx].wishlist), Info(Q));
         InsertAfter(&((*user).A[userIdx].wishlist), Qafter, P);
         DelP(&((*user).A[userIdx].wishlist), Info(P));
+
+        printf(COLOR_BOLD"Berhasil menukar posisi %s dengan %s pada wishlist!\n"COLOR_OFF, Info(Pafter), Info(Qafter));
     }
 }
