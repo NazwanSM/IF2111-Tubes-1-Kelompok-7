@@ -41,19 +41,21 @@ boolean startsWith(Word w, char* prefix) {
 }
 
 void trimString(char *str) {
-    int start = 0, end = strlen(str) - 1;
+    int start = 0, end = 0;
     
-    // Remove leading special characters
-    while (start <= end && (str[start] == ' ' || str[start] == '-' || str[start] == ',')) {
+    while (str[start] == ' ' || str[start] == '-' || str[start] == ',') {
         start++;
     }
     
-    // Remove trailing special characters
+    end = start;
+    while (str[end] != '\0') {
+        end++;
+    }
+    end--;
     while (end >= start && (str[end] == ' ' || str[end] == '-' || str[end] == ',')) {
         end--;
     }
     
-    // Shift the string
     int i;
     for (i = 0; start <= end; start++, i++) {
         str[i] = str[start];

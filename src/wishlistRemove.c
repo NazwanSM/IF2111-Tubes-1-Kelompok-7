@@ -2,8 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include "wishlistRemove.h"
-#include "ADT/stringutils.h"
-
 
 
 void wishlistRemove(List *user, int userIdx) {

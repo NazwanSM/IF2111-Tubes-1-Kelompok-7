@@ -23,7 +23,7 @@ void wishlistAdd(List *user, ArrayDin *barang, int userIdx) {
         trimString(wishlistItem);
         
         if (strcmp(wishlistItem, inputItemss) == 0) {
-            printf("%s sudah ada di wishlist!\n", inputItemss);
+            printf(COLOR_BOLD_RED"%s sudah ada di wishlist!\n"COLOR_OFF, inputItemss);
             return;
         }
         current = Next(current);
@@ -41,14 +41,14 @@ void wishlistAdd(List *user, ArrayDin *barang, int userIdx) {
             
             // Tambahkan ke wishlist
             InsVLast(&((*user).A[userIdx].wishlist), inputItemss);
-            printf("Berhasil menambahkan %s ke wishlist!\n", inputItemss);
+            printf("Berhasil menambahkan "COLOR_BOLD_BLUE"%s"COLOR_OFF" ke wishlist!\n", inputItemss);
             return;
         }
     }
     
     // Jika barang tidak ditemukan di daftar barang
     if (!barangFound) {
-        printf("Tidak ada barang dengan nama %s!\n", inputItemss);
+        printf(COLOR_BOLD_RED"Tidak ada barang dengan nama %s!\n"COLOR_OFF, inputItemss);
     }
 }
 
