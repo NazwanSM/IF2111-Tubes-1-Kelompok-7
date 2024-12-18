@@ -3,8 +3,8 @@
 /* Representasi address dengan pointer */
 /* infotype adalah integer */
 
-#include "stdio.h"
-#include "stdlib.h"
+#include <stdio.h>
+#include <stdlib.h>
 #include "listlinier.h"
 
 /* PROTOTYPE */

@@ -1,8 +1,8 @@
 #ifndef __ARRAY_DINAMIK__
 #define __ARRAY_DINAMIK__
 
-#include "list.h"
-#include "custom.h"
+#include "../list/list.h"
+#include "../custom/custom.h"
 // Boolean
 #define boolean unsigned char
 #define true 1

@@ -6,11 +6,11 @@
 #ifndef ADTList1
 #define ADTList1
 
-#include "boolean.h"
-#include "custom.h"
-#include "stack.h"
-#include "setmap.h"
-#include "listlinier.h"
+#include "../boolean/boolean.h"
+#include "../custom/custom.h"
+#include "../stack/stack.h"
+#include "../setmap/setmap.h"
+#include "../listlinier/listlinier.h"
 
 /* Kamus Umum */
 #define Mark -9999  /* Nilai tak terdefinisi */

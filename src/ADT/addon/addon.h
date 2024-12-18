@@ -1,11 +1,11 @@
 #ifndef ADDON_H
 #define ADDON_H
 
-#include "mesinkata.h"
-#include "mesinkarakter.h"
-#include "custom.h"
-#include "boolean.h"
-#include "list.h"
+#include "../mesinkata/mesinkata.h"
+#include "../mesinkarakter/mesinkarakter.h"
+#include "../custom/custom.h"
+#include "../boolean/boolean.h"
+#include "../list/list.h"
 
 #define MAX_USERS 50
 

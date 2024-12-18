@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include "mesinkata.h"
-#include "mesinkarakter.h"
+#include "../mesinkarakter/mesinkarakter.h"
 
 boolean EndWord;
 Word CurrentWord;

@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include "queue.h"
-#include "mesinkata.h"
+#include "../mesinkata/mesinkata.h"
 
 int main() {
     Queue queueBarang;

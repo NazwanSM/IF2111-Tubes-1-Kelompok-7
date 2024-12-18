@@ -4,8 +4,8 @@
 
 #include <stdio.h>
 #include <string.h>
-#include "boolean.h"
-#include "custom.h"
+#include "../boolean/boolean.h"
+#include "../custom/custom.h"
 
 /* KONSTRUKTOR */
 void CreateEmptySetMap(SetMap *sm);

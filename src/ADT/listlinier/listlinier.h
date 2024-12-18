@@ -6,12 +6,12 @@
 #ifndef listlinier_H
 #define listlinier_H
 
-#include "boolean.h"
-#include "stdio.h"
-#include "stdlib.h"
-#include "custom.h"
-#include "mesinkata.h"
-#include "list.h"
+#include "../boolean/boolean.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include "../custom/custom.h"
+#include "../mesinkata/mesinkata.h"
+#include "../list/list.h"
 
 /* PROTOTYPE */
 /****************** TEST LIST KOSONG ******************/

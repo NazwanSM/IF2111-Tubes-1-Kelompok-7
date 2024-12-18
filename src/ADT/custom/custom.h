@@ -3,7 +3,7 @@
 #ifndef CUSTOM_H
 #define CUSTOM_H
 
-#include "boolean.h"
+#include "../boolean/boolean.h"
 
 #define MAX_LEN 100
 

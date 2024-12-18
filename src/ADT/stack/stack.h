@@ -5,8 +5,8 @@
 #ifndef stackt_H
 #define stackt_H
 
-#include "boolean.h"
-#include "custom.h"
+#include "../boolean/boolean.h"
+#include "../custom/custom.h"
 
 /* ************ Prototype ************ */
 /* *** Konstruktor/Kreator *** */

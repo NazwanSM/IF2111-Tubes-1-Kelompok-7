@@ -2,7 +2,7 @@
 #define __QUIT_H__
 
 #include <stdio.h>
-#include "ADT/mesinkarakter.h"
+#include "ADT/mesinkarakter/mesinkarakter.h"
 #include <stdlib.h>
 #include "save.h"
 #include "start.h"

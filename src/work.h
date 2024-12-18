@@ -3,11 +3,11 @@
 #ifndef WORK_H
 #define WORK_H
 
-#include "ADT/list.h"
-#include "ADT/mesinkata.h"
-#include "ADT/mesinkarakter.h"
-#include "ADT/custom.h"
-#include "ADT/boolean.h"
+#include "ADT/list/list.h"
+#include "ADT/mesinkata/mesinkata.h"
+#include "ADT/mesinkarakter/mesinkarakter.h"
+#include "ADT/custom/custom.h"
+#include "ADT/boolean/boolean.h"
 
 #define JUMLAH_PEKERJAAN 5
 
