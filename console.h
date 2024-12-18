@@ -32,6 +32,10 @@
 #include "src/cartShow.h"
 #include "src/cartRemove.h"
 #include "src/cartPay.h"
+#include "src/wishlistClear.h"
+#include "src/wishlistShow.h"
+#include "src/wishlistRemovei.h"
+#include "src/wishlistSwap.h"
 
 void displayPurrMart();
 void displayWelcomeMenu();

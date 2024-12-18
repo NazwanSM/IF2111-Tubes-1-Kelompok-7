@@ -316,6 +316,45 @@ int main() {
                 struct timespec req = {4, 0};
                 nanosleep(&req, NULL);
             }
+            else if (isKataSama(choice, "WISHLIST SWAP")) { //ini swap <i> <j>
+                int N, M;
+                printf("\nMasukkan nilai N dan M: ");
+                scanf("%d %d", &N, &M); // buat sementara
+                printf("\n\033[1;34m>> WISHLIST SWAP %d %d\033[0m\n\n", N, M);
+                wishlistSwap(&user, userIdx, N, M);
+
+                struct timespec req = {4, 0};
+                nanosleep(&req, NULL);
+            }
+            else if (isKataSama(choice, "WISHLIST REMOVE")) { //ini harusnya remove <i>
+                int N;
+                printf("\nMasukkan nilai N : ");
+                scanf("%d", &N);
+                if (1) { // ini mksdnya ngecek kalo angka ato bukan tp sementara gw giniin dulu
+                    printf("\n\033[1;34m>> WISHLIST REMOVE %d\033[0m\n\n", N);
+                    wishlistRemovei(&user, userIdx, N);
+                } else {
+                    printf("\n\033[1;34m>> WISHLIST REMOVE \033[0m\n\n");
+                    printf("Penghapusan barang WISHLIST gagal dilakukan, command tidak\n");
+                }
+
+                struct timespec req = {4, 0};
+                nanosleep(&req, NULL);
+            }
+            else if (isKataSama(choice, "WISHLIST CLEAR")) {
+                printf("\n\033[1;34m>> WISHLIST CLEAR \033[0m\n\n");
+                wishlistClear(&user, userIdx);
+
+                struct timespec req = {4, 0};
+                nanosleep(&req, NULL);
+            }
+            else if (isKataSama(choice, "WISHLIST SHOW")) {
+                printf("\n\033[1;34m>> WISHLIST SHOW \033[0m\n\n");
+                wishlistShow(user, userIdx);
+
+                struct timespec req = {4, 0};
+                nanosleep(&req, NULL);
+            }
             else if (isKataSama(choice, "LOGOUT")) {
                 printf(COLOR_BOLD_CYAN"\n>> LOGOUT\033[0m\n\n");
                 logoutUser(&userIdx, user);
