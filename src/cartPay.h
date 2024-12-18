@@ -6,7 +6,8 @@
 #include "ADT/custom.h"
 #include "ADT/map.h"
 #include "ADT/list.h"
+#include "ADT/stack.h"
 
-void cartPay(List user, int userIdx, boolean *change);
+void cartPay(List *user, int userIdx, boolean *change);
 
 #endif

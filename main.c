@@ -243,11 +243,59 @@ int main() {
                 struct timespec req = {2, 0};
                 nanosleep(&req, NULL);
             }
+            else if (startsWith(choice, "CART REMOVE")) {
+                int i = 12;
+                char namaBarang[MAX_LEN];
+                int namaLength = 0;
+                int jumlah = 0;
+                
+                while (i < choice.Length && choice.TabWord[i] == ' ') {
+                    i++;
+                }
+                
+                int lastSpacePos = -1;
+                for (int j = choice.Length - 1; j >= i; j--) {
+                    if (choice.TabWord[j] == ' ') {
+                        if (j + 1 < choice.Length && 
+                            choice.TabWord[j + 1] >= '0' && 
+                            choice.TabWord[j + 1] <= '9') {
+                            lastSpacePos = j;
+                            break;
+                        }
+                    }
+                }
+                
+                if (lastSpacePos != -1) {
+                    for (int j = i; j < lastSpacePos; j++) {
+                        namaBarang[namaLength] = choice.TabWord[j];
+                        namaLength++;
+                    }
+                    namaBarang[namaLength] = '\0';
+                    
+                    for (int j = lastSpacePos + 1; j < choice.Length; j++) {
+                        if (choice.TabWord[j] >= '0' && choice.TabWord[j] <= '9') {
+                            jumlah = jumlah * 10 + (choice.TabWord[j] - '0');
+                        }
+                    }
+                }
+                printf(COLOR_BOLD_CYAN"\n>> CART REMOVE\033[0m\n\n");
+                cartRemove(&user, userIdx, namaBarang, jumlah);
+
+                struct timespec req = {2, 0};
+                nanosleep(&req, NULL);
+            }
             else if (isKataSama(choice, "CART SHOW")) {
                 printf(COLOR_BOLD_CYAN"\n>> CART SHOW\033[0m\n\n");
                 cartShow(user, userIdx);
 
                 struct timespec req = {4, 0};
+                nanosleep(&req, NULL);
+            }
+            else if(isKataSama(choice, "CART PAY")){
+                printf(COLOR_BOLD_CYAN"\n>> CART PAY\033[0m\n\n");
+                cartPay(&user, userIdx, &change);
+
+                struct timespec req = {3, 0};
                 nanosleep(&req, NULL);
             }
             else if (startsWith(choice, "HISTORY")) {

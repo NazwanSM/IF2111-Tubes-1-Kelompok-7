@@ -30,6 +30,8 @@
 #include "src/history.h"
 #include "src/cartAdd.h"
 #include "src/cartShow.h"
+#include "src/cartRemove.h"
+#include "src/cartPay.h"
 
 void displayPurrMart();
 void displayWelcomeMenu();
