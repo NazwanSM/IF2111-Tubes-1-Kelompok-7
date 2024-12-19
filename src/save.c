@@ -47,10 +47,11 @@ void write(char *filename, ArrayDin barang, List user, int nbarang, int nuser) {
                 P = Next(P);
             }
         }
-        if (i < nuser - 1) {
+        if (i < nuser - 1 && !IsEmptyLink(user.A[i].wishlist)) {
             fprintf(file, "\n");  // Add newline between users but not after the last user
         }
-    }    
+    }
+    fprintf(file, "\n");
     fclose(file);
 }
 

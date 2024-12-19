@@ -64,10 +64,19 @@ void readtxt(char *filename, ArrayDin *barang, List *user, int *nBarang, int *nU
             Push(&((*user).A[i].riwayat_pembelian), userStack);
         }
 
-        ADVWORDFILE();
+        if (i == *nUser - 1) {
+            CopyWordSpasi();
+        }
+        else {
+            ADVWORDFILE();
+        }
+        
         int nWishlist = atoi(CurrentWord.TabWord);
         for (int k = 0; k < nWishlist; k++) {
-            if (i == *nUser - 1) {
+            if ((i == *nUser - 1) && (nWishlist == 1)) {
+                IgnoreBlanksFile();
+                CopyWordSpasi();
+            } else if ((i == *nUser - 1) && (k == nWishlist -1)) {
                 CopyWordSpasi();
             }
             else {
