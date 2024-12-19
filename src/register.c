@@ -66,5 +66,5 @@ void addUser(List *user, int *nUser) {
     user->A[*nUser].keranjang.Count = NilM;
     First(user->A[*nUser].wishlist) = Nil;
     (*nUser)++;
-    printf("Akun dengan username "COLOR_BOLD_BLUE"%s"COLOR_OFF" telah berhasil dibuat. Silakan LOGIN untuk melanjutkan.\n", username);
+    printf("\nAkun dengan username "COLOR_BOLD_BLUE"%s"COLOR_OFF" telah berhasil dibuat. Silakan LOGIN untuk melanjutkan.\n", username);
 }

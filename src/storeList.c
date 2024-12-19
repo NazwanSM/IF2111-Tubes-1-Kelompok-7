@@ -11,7 +11,7 @@ void storeList(ArrayDin barang, int nbarang){
         for (int i = 0; i < nbarang; i++){
             printf(COLOR_BOLD_YELLOW"- "COLOR_OFF);
             printf("%s - ", barang.A[i].name);
-            printf("Harga: "COLOR_BOLD_RED"%d\n"COLOR_OFF, barang.A[i].price);
+            printf(COLOR_BOLD_BLUE"Harga: "COLOR_OFF COLOR_BOLD_RED"%d\n"COLOR_OFF, barang.A[i].price);
         }
     }
 }

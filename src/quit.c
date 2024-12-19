@@ -36,7 +36,7 @@ void quit(ArrayDin Barang, List User, int nBarang, int nUser, boolean change) {
             printf("Save dibatalkan!\n");
         }
     }
-    printf(COLOR_BOLD_YELLOW"\n------"COLOR_OFF COLOR_BOLD_CYAN"TERIMA KASIH SUDAH BERKUNJUNG DI PURRMART"COLOR_OFF COLOR_BOLD_CYAN"------"COLOR_OFF);
+    printf(COLOR_BOLD_YELLOW"\n------ "COLOR_OFF COLOR_BOLD_CYAN"TERIMA KASIH SUDAH BERKUNJUNG DI PURRMART"COLOR_OFF COLOR_BOLD_YELLOW" ------"COLOR_OFF);
     
     struct timespec req = {2, 0};
     nanosleep(&req, NULL);

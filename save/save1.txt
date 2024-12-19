@@ -1,8 +1,15 @@
-4
+11
 10 AK47
 20 Lalabu
 20 Ayam Goreng Crisbar
+25 Asep Spakbor
+30 Bebek Stalon
+100 Bakso Meteor
+150 Anjing Salto
+200 AWP
 500 Meong
+1000 Skibidi Toilet
+9999 Bintang Sigma
 3
 100 user1 alstrukdatkeren
 6
@@ -28,7 +35,21 @@ AK47
 0
 1
 Meong
-0 a a
-0
+99999 nz wn
+6
+1 1000
+1000 1 Skibidi Toilet
+2 280
+80 8 AK47
+200 1 AWP
+2 50
+30 3 AK47
+20 1 Lalabu
+1 10
+10 1 AK47
+1 500
+500 1 Meong
+1 20
+20 1 Ayam Goreng Crisbar
 1
 AK47
