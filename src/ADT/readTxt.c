@@ -87,19 +87,26 @@ void readtxt(char *filename, ArrayDin *barang, List *user, int *nBarang, int *nU
 
         }
 
-        ADVWORDFILE();
-        int nWishlist = atoi(CurrentWord.TabWord);
-        if (nWishlist != 0) {
-            for (int l = 0; l < nWishlist; l++) {
-                if (i == *nUser - 1) {
-                    CopyWordSpasi();
-                }
-                else {
-                    ADVWORDSpasi();
-                }
-                InsVLast(&((*user).A[i].wishlist), CurrentWord.TabWord);
-            }
+        if (i == *nUser - 1) {
+            CopyWordSpasi();
         }
-    }   
+        else {
+            ADVWORDFILE();
+        }
+
+        int nWishlist = atoi(CurrentWord.TabWord);
+        for (int k = 0; k < nWishlist; k++) {
+            if ((i == *nUser - 1) && (nWishlist == 1)) {
+                IgnoreBlanksFile();
+                CopyWordSpasi();
+            } else if ((i == *nUser - 1) && (k == nWishlist -1)) {
+                CopyWordSpasi();
+            }
+            else {
+                ADVWORDSpasi();
+            }
+            InsVLast(&((*user).A[i].wishlist), CurrentWord.TabWord);
+        }
+    }  
     fclose(file);
 }

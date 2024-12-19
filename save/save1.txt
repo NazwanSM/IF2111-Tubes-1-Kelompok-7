@@ -3,11 +3,9 @@
 20 Lalabu
 20 Ayam Goreng Crisbar
 500 Meong
-2
-80 user1 alstrukdatkeren
-7
-1 20
-20 2 AK47
+3
+100 user1 alstrukdatkeren
+6
 2 40
 20 2 AK47
 20 1 Lalabu
@@ -29,4 +27,8 @@ AK47
 25 user2 kerenbangetkak
 0
 1
-Meongggggggggggggggggggggggggggggggggggggggggggggg
+Meong
+0 a a
+0
+1
+AK47
