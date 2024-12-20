@@ -79,7 +79,7 @@ void displayGuessResult(const char target[], const char guess[], int length){
     // Pertama, cek huruf yang benar di posisi yang tepat
     for (int i = 0; i < length; i++){
         if (guess[i] == target[i]){
-            printf("%c  ", guess[i]);
+            printf(COLOR_BOLD_GREEN"%c  "COLOR_OFF, guess[i]);
             used[i] = true;
         } 
         else {
@@ -87,14 +87,14 @@ void displayGuessResult(const char target[], const char guess[], int length){
             boolean found = false;
             for (int j = 0; j < length; j++){
                 if (!used[j] && guess[i] == target[j]){
-                    printf("%c* ", guess[i]);
+                    printf(COLOR_BOLD_YELLOW"%c* "COLOR_OFF, guess[i]);
                     used[j] = true;
                     found = true;
                     break;
                 }
             }
             if (!found) {
-                printf("%c%% ", guess[i]);
+                printf(COLOR_BOLD_RED"%c%% "COLOR_OFF, guess[i]);
             }
         }
     }
@@ -140,7 +140,7 @@ int W0RDL3(List* user, int userIdx){
         // Menyimpan kata tebakan
         guess[attempts] = CurrentWord;
 
-        printf("Hasil: \n");
+        printf(COLOR_BOLD_BLUE"\nHasil: \n"COLOR_OFF);
 
         for (int j = 0; j <= attempts; j++){
             displayGuessResult(targetWord, guess[j].TabWord, WORD_LENGTH);
