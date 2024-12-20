@@ -29,8 +29,7 @@ void quit(ArrayDin Barang, List User, int nBarang, int nUser, boolean change) {
         clearInputBuffer();
         
         if (cc == 'Y' || cc == 'y') {
-            save(Barang, User, nBarang, nUser);
-            printf("Save berhasil!\n");
+            savequit(Barang, User, nBarang, nUser);
         }
         else if (cc == 'N' || cc == 'n') {
             printf("Save dibatalkan!\n");
