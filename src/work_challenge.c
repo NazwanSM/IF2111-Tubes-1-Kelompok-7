@@ -15,7 +15,7 @@ const int numValidWords = 20;
 int tebak_angka(List* user, int userIdx){
     // Mengecek uang user
     if (user->A[userIdx].money < GAME_COST1){
-        printf("Uang Anda tidak cukup untuk bermain game ini.\n");
+        printf(COLOR_BOLD_RED"Uang Anda tidak cukup untuk bermain game ini.\n"COLOR_OFF);
         return -1;
     }
 
@@ -42,7 +42,7 @@ int tebak_angka(List* user, int userIdx){
             if (reward < 200) reward = 200;
 
                 user->A[userIdx].money += reward;
-                printf("Tebakanmu benar! +%d rupiah telah ditambahkan ke akun anda.\n", reward);
+                printf("Tebakanmu benar! "COLOR_BOLD_RED"+%d"COLOR_OFF" rupiah telah ditambahkan ke akun anda.\n", reward);
                 return reward;
         }
         // Jika tebakan salah
@@ -160,7 +160,7 @@ int W0RDL3(List* user, int userIdx){
 
         if (correct) {
             printf("\nSelamat, Anda menang!\n");
-            printf("+%d rupiah telah ditambahkan ke akun Anda.\n", W0RDL3_REWARD);
+            printf(COLOR_BOLD_RED"+%d"COLOR_OFF" rupiah telah ditambahkan ke akun Anda.\n", W0RDL3_REWARD);
             user->A[userIdx].money += W0RDL3_REWARD;
             return W0RDL3_REWARD;
         }
@@ -176,8 +176,8 @@ int W0RDL3(List* user, int userIdx){
 void work_challenge(List* user, int userIdx){
     printf("\033[1;33mSelamat datang di Work Challenge!\033[0m\n\n");
     printf("\033[1;34mDaftar challenge yang tersedia:\033[0m\n");
-    printf("1. Tebak Angka (Biaya: %d rupiah)\n", GAME_COST1);
-    printf("2. W0RDL3 (Biaya: %d rupiah)\n", GAME_COST2);
+    printf(COLOR_BOLD_YELLOW"1."COLOR_OFF" Tebak Angka "COLOR_BOLD_BLUE"(Biaya: "COLOR_OFF COLOR_BOLD_RED"%d"COLOR_OFF COLOR_BOLD_BLUE" rupiah, MAX hadiah "COLOR_OFF COLOR_BOLD_RED"500"COLOR_OFF COLOR_BOLD_BLUE")\n"COLOR_OFF, GAME_COST1);
+    printf(COLOR_BOLD_YELLOW"2."COLOR_OFF" W0RDL3 "COLOR_BOLD_BLUE"(Biaya: "COLOR_OFF COLOR_BOLD_RED"%d"COLOR_OFF COLOR_BOLD_BLUE" rupiah, MAX hadiah "COLOR_OFF COLOR_BOLD_RED"1500"COLOR_OFF COLOR_BOLD_BLUE")\n"COLOR_OFF, GAME_COST2);
 
     printf("\nMasukkan challenge yang hendak dimainkan: ");
     STARTWORD();

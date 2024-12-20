@@ -37,12 +37,11 @@ int loginUser(List user, int nUser) {
     passwordLen = CurrentWord.Length;
 
     if (userIdx == -1 || !compareStrings(user.A[userIdx].password, password)) {
-        printf("Username atau password salah.\n");
+        printf(COLOR_BOLD_RED"\nUsername atau password salah.\n"COLOR_OFF);
         return -1;
     }
     else {
-        printf("Anda telah login ke PURRMART sebagai %s.\n", username);
+        printf(COLOR_BOLD"\nAnda telah login ke "COLOR_OFF COLOR_BOLD_YELLOW"PURR"COLOR_OFF COLOR_CYAN"MART"COLOR_OFF COLOR_BOLD" sebagai "COLOR_OFF COLOR_BOLD_BLUE"%s.\n"COLOR_OFF, username);
         return userIdx;
     }
 }
-

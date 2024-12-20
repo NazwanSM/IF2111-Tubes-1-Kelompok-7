@@ -15,12 +15,6 @@ void load(ArrayDin *barang, List *user, int *nbarang, int *nuser) {
     readtxt(loadfile, barang, user, nbarang, nuser);
 }   
 
-void loadcheck(ArrayDin *barang, List *user, int *nbarang, int *nuser) {
-    do {
-        load(barang, user, nbarang, nuser);
-    } while (*nuser == 0);
-    printf("Save file berhasil dibaca. PURRMART berhasil dijalankan\n");
-}
 
 /* int main() {
 

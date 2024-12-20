@@ -4,53 +4,54 @@
 #include "console.h"
 
 void displayPurrMart() {
-    printf("\033[1;33m"); 
-    printf(" ######  ##  ## ######  ######  ##   ##  ######  ######  ######\n");
-    printf(" ##  ##  ##  ## ##  #   ##  #   ### ###  ##  ##  ##  #     ##  \n");
-    printf(" ######  ##  ## ######  ######  ## # ##  ######  ######    ##  \n");
-    printf("\033[0m");
-    printf("\033[1;32m");
-    printf(" ##      ##  ## ##  ##  ##  ##  ##   ##  ##  ##  ##  ##    ##  \n");
-    printf(" ##       ####  ##  ##  ##  ##  ##   ##  ##  ##  ##  ##    ##  \n");
-    printf("\033[0m");
+    printf(COLOR_BOLD_YELLOW" ######  ##  ## ######  ######"COLOR_OFF COLOR_BOLD_CYAN"  ##   ##  ######  ######  ######\n"COLOR_OFF);
+    printf(COLOR_BOLD_YELLOW" ##  ##  ##  ## ##  #   ##  # "COLOR_OFF COLOR_BOLD_CYAN"  ### ###  ##  ##  ##  #     ##  \n"COLOR_OFF);
+    printf(COLOR_BOLD_YELLOW" ######  ##  ## ######  ######"COLOR_OFF COLOR_BOLD_CYAN"  ## # ##  ######  ######    ##  \n"COLOR_OFF);
+    printf(COLOR_BOLD_YELLOW" ##      ##  ## ##  ##  ##  ##"COLOR_OFF COLOR_BOLD_CYAN"  ##   ##  ##  ##  ##  ##    ##  \n"COLOR_OFF);
+    printf(COLOR_BOLD_YELLOW" ##       ####  ##  ##  ##  ##"COLOR_OFF COLOR_BOLD_CYAN"  ##   ##  ##  ##  ##  ##    ##  \n"COLOR_OFF);
 }
 
 void displayWelcomeMenu() {
-    printf("\n\033[1;33mWELCOME TO PURRMART!\033[0m\n\n");
-    printf("\033[1;34mPILIHAN MENU:\033[0m\n");
-    printf("1. START\n");
-    printf("2. LOAD\n");
-    printf("3. QUIT\n");
-    printf("\n\033[1;34mKetik 'HELP' untuk bantuan\033[0m\n");
-    printf("\033[1;34mLoad file bisa langsung dipanggil dengan mendouble huruf\033[0m\n");
-    printf("\033[1;34mpertamanya (contoh: LOAD ssave.txt)\033[0m\n\n");
+    printf(COLOR_BOLD_CYAN_BLINK"\nWELCOME TO PURRMART!\n\n"COLOR_OFF);
+    printf(COLOR_BOLD_BLUE"PILIHAN MENU:\n"COLOR_OFF);
+    printf(COLOR_BOLD_YELLOW"1.  "COLOR_OFF"START\n");
+    printf(COLOR_BOLD_YELLOW"2.  "COLOR_OFF "LOAD" COLOR_CYAN" <nama_file>\n"COLOR_OFF);
+    printf(COLOR_BOLD_YELLOW"3.  "COLOR_OFF "QUIT\n");
+    printf(COLOR_BOLD_BLUE"\nKetik "COLOR_OFF COLOR_BOLD_RED"HELP"COLOR_OFF COLOR_BOLD_BLUE" untuk bantuan\n"COLOR_OFF);
 }
 
 void displayLoginMenu() {
-    printf("\n\033[1;33mLOGIN OR SIGNUP TO YOUR ACCOUNT!\033[0m\n\n");
-    printf("\033[1;34mPILIHAN MENU:\033[0m\n");
-    printf("1. REGISTER\n");
-    printf("2. LOGIN\n");
-    printf("3. QUIT\n");
-    printf("\n\033[1;34mKetik 'HELP' untuk bantuan\033[0m\n");
+    printf(COLOR_BOLD_CYAN_BLINK"\nLOGIN OR SIGNUP TO YOUR ACCOUNT!\n\n"COLOR_OFF);
+    printf(COLOR_BOLD_BLUE"PILIHAN MENU:\n"COLOR_OFF);
+    printf(COLOR_BOLD_YELLOW"1.  "COLOR_OFF "REGISTER\n");
+    printf(COLOR_BOLD_YELLOW"2.  "COLOR_OFF "LOGIN\n");
+    printf(COLOR_BOLD_YELLOW"3.  "COLOR_OFF "QUIT\n");
+    printf(COLOR_BOLD_BLUE"\nKetik "COLOR_OFF COLOR_BOLD_RED"HELP"COLOR_OFF COLOR_BOLD_BLUE" untuk bantuan\n"COLOR_OFF);
 }
 
 void displayMainMenu() {
-    printf("\n\033[1;33mWELCOME TO MAIN MENU\033[0m\n\n");
-    printf("\033[1;34mPILIHAN MENU:\033[0m\n");
-    printf("1.  PROFILE\n");
-    printf("2.  WORK\n");
-    printf("3.  WORK CHALLENGE\n");
-    printf("4.  STORE LIST\n");
-    printf("5.  STORE REQUEST\n");
-    printf("6.  STORE SUPPLY\n");
-    printf("7.  STORE REMOVE\n");
-    printf("8.  CART ADD\n");
-    printf("9.  CART REMOVE\n");
-    printf("10. CART SHOW\n");
-    printf("11. HISTORY\n");
-    printf("12. LOGOUT\n");
-    printf("13. SAVE\n");
-    printf("14. QUIT\n");
-    printf("\n\033[1;34mKetik 'HELP' untuk bantuan\033[0m\n");
+    printf(COLOR_BOLD_CYAN_BLINK"\nWELCOME TO MAIN MENU\n\n"COLOR_OFF);
+    printf(COLOR_BOLD_BLUE "PILIHAN MENU:\n"COLOR_OFF);
+    printf(COLOR_BOLD_YELLOW"1.  "COLOR_OFF "PROFILE\n");
+    printf(COLOR_BOLD_YELLOW"2.  "COLOR_OFF "WORK\n");
+    printf(COLOR_BOLD_YELLOW"3.  "COLOR_OFF "WORK CHALLENGE\n");
+    printf(COLOR_BOLD_YELLOW"4.  "COLOR_OFF "STORE LIST\n");
+    printf(COLOR_BOLD_YELLOW"5.  "COLOR_OFF "STORE REQUEST\n");
+    printf(COLOR_BOLD_YELLOW"6.  "COLOR_OFF "STORE SUPPLY\n");
+    printf(COLOR_BOLD_YELLOW"7.  "COLOR_OFF "STORE REMOVE\n");
+    printf(COLOR_BOLD_YELLOW"8.  "COLOR_OFF "CART ADD "COLOR_CYAN"<nama> <jumlah>\n"COLOR_OFF);
+    printf(COLOR_BOLD_YELLOW"9.  "COLOR_OFF "CART REMOVE "COLOR_CYAN"<nama> <jumlah>\n"COLOR_OFF);
+    printf(COLOR_BOLD_YELLOW"10. "COLOR_OFF "CART SHOW\n");
+    printf(COLOR_BOLD_YELLOW"11. "COLOR_OFF "CART PAY\n");
+    printf(COLOR_BOLD_YELLOW"12. "COLOR_OFF "HISTORY " COLOR_CYAN"<jumlah>\n"COLOR_OFF);
+    printf(COLOR_BOLD_YELLOW"13. "COLOR_OFF "WISHLIST ADD\n");
+    printf(COLOR_BOLD_YELLOW"14. "COLOR_OFF "WISHLIST SWAP "COLOR_CYAN"<nomor1> <nomor2>\n"COLOR_OFF);
+    printf(COLOR_BOLD_YELLOW"15. "COLOR_OFF "WISHLIST REMOVE "COLOR_CYAN"<nomor>\n"COLOR_OFF);
+    printf(COLOR_BOLD_YELLOW"16. "COLOR_OFF "WISHLIST REMOVE\n");
+    printf(COLOR_BOLD_YELLOW"17. "COLOR_OFF "WISHLIST CLEAR\n");
+    printf(COLOR_BOLD_YELLOW"18. "COLOR_OFF "WISHLIST SHOW\n");
+    printf(COLOR_BOLD_YELLOW"19. "COLOR_OFF "LOGOUT\n");
+    printf(COLOR_BOLD_YELLOW"20. "COLOR_OFF "SAVE\n");
+    printf(COLOR_BOLD_YELLOW"21. "COLOR_OFF "QUIT\n");
+    printf(COLOR_BOLD_BLUE"\nKetik "COLOR_OFF COLOR_BOLD_RED"HELP"COLOR_OFF COLOR_BOLD_BLUE" untuk bantuan\n"COLOR_OFF);
 }

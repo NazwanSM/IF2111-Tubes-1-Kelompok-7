@@ -9,7 +9,7 @@
 #include "../boolean/boolean.h"
 #include "../custom/custom.h"
 #include "../stack/stack.h"
-#include "../setmap/setmap.h"
+#include "../map/map.h"
 #include "../listlinier/listlinier.h"
 
 /* Kamus Umum */

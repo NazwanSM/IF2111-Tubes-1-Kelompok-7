@@ -1,5 +1,5 @@
-#ifndef __CARTADD_h__
-#define __CARTADD_h__
+#ifndef __CARTREMOVE_h__
+#define __CARTREMOVE_h__
 
 #include <stdio.h>
 #include "ADT/boolean/boolean.h"
@@ -8,6 +8,6 @@
 #include "ADT/list/list.h"
 #include "ADT/arraydin/arraydin.h"
 
-void cartAdd(List *user, int userIdx, ArrayDin store, char* namaBarang, int jumlah);
+void cartRemove(List *user, int userIdx, char* namaBarang, int jumlah);
 
 #endif

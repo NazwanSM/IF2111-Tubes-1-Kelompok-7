@@ -10,7 +10,7 @@
 #include "src/ADT/boolean/boolean.h"
 #include "src/ADT/queue/queue.h"
 #include "src/ADT/stack/stack.h"
-#include "src/ADT/setmap/setmap.h"
+#include "src/ADT/map/map.h"
 #include "src/ADT/listlinier/listlinier.h"
 #include "src/start.h"
 #include "src/work.h"
@@ -30,6 +30,14 @@
 #include "src/history.h"
 #include "src/cartAdd.h"
 #include "src/cartShow.h"
+#include "src/cartRemove.h"
+#include "src/cartPay.h"
+#include "src/wishlistClear.h"
+#include "src/wishlistShow.h"
+#include "src/wishlistRemovei.h"
+#include "src/wishlistSwap.h"
+#include "src/wishlistAdd.h"
+#include "src/wishlistRemove.h"
 
 void displayPurrMart();
 void displayWelcomeMenu();

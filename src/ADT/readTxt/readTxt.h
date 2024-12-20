@@ -8,7 +8,7 @@
 #include "../list/list.h"
 #include "../listlinier/listlinier.h"
 #include "../stack/stack.h"
-#include "../setmap/setmap.h"
+#include "../map/map.h"
 
 
 void readtxt(char *filename, ArrayDin *barang, List *user, int *nBarang, int *nUser);
