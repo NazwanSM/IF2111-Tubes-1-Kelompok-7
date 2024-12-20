@@ -1,20 +1,55 @@
-3
+11
 10 AK47
 20 Lalabu
 20 Ayam Goreng Crisbar
-3
-100 admin alstrukdatkeren
-6
-40 AK47
-100 AK47
-35 Lalabu
-10 AK47
+25 Asep Spakbor
+30 Bebek Stalon
+100 Bakso Meteor
+150 Anjing Salto
+200 AWP
 500 Meong
-20 Ayam Goreng Crisbar
+1000 Skibidi Toilet
+9999 Bintang Sigma
+3
+100 user1 alstrukdatkeren
+6
+2 40
+20 2 AK47
+20 1 Lalabu
+2 100
+80 8 AK47
+20 1 Lalabu
+2 50
+30 3 AK47
+20 1 Lalabu
+1 10
+10 1 AK47
+1 500
+500 1 Meong
+1 20
+20 1 Ayam Goreng Crisbar
 2
 Ayam Goreng Crisbar
 AK47
-25 praktikan kerenbangetkak
+25 user2 kerenbangetkak
 0
 1
 Meong
+99999 nz wn
+6
+1 1000
+1000 1 Skibidi Toilet
+2 280
+80 8 AK47
+200 1 AWP
+2 50
+30 3 AK47
+20 1 Lalabu
+1 10
+10 1 AK47
+1 500
+500 1 Meong
+1 20
+20 1 Ayam Goreng Crisbar
+1
+AK47
