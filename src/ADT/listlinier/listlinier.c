@@ -165,7 +165,7 @@ void InsertFirstLink(LinkedList *L, address P)
     First(*L) = P;
 }
 
-void InsertAfter(LinkedList *L, address P, address Prec)
+void InsertAfter(address P, address Prec)
 /* I.S. Prec pastilah elemen list dan bukan elemen terakhir, */
 /*      P sudah dialokasi  */
 /* F.S. Insert P sebagai elemen sesudah elemen beralamat Prec */
@@ -191,7 +191,7 @@ void InsertLastLink(LinkedList *L, address P)
         {
             Last = Next(Last);
         }
-        InsertAfter(L, P, Last);
+        InsertAfter(P, Last);
     }
 }
 
@@ -243,7 +243,7 @@ void DelP(LinkedList *L, infotype X)
 
             if (bFound)
             {
-                DelAfter(L, &P, Prec);
+                DelAfter(&P, Prec);
                 Dealokasi(&P);
             }
         }
@@ -277,7 +277,7 @@ void DelLast(LinkedList *L, address *P)
     }
 }
 
-void DelAfter(LinkedList *L, address *Pdel, address Prec)
+void DelAfter(address *Pdel, address Prec)
 /* I.S. List tidak kosong. Prec adalah anggota list  */
 /* F.S. Menghapus Next(Prec): */
 /*      Pdel adalah alamat elemen list yang dihapus  */

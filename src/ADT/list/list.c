@@ -70,11 +70,11 @@ IdxType LastIdx(List L){
 /* Mengirimkan indeks elemen terakhir */
 
 /* ********** Test Indeks yang valid ********** */
-boolean IsIdxValid(List L, IdxType i){
+boolean IsIdxValid(IdxType i){
     return i >= 0 && i < MaxEl;
 }
 
-boolean IsIdxEff(List L, IdxType i){
+boolean IsIdxEff(List L,IdxType i){
     return i >= 0 && i < Length(L);
 }
 
@@ -108,7 +108,7 @@ void InsertFirst(List *L, ElType X){
 
 void InsertAt(List *L, ElType X, IdxType i){
     int j;
-    if (IsIdxValid(*L, i)) {
+    if (IsIdxValid(i)) {
         for (j = LastIdx(*L); j >= i; j--) {
             L->A[j + 1] = L->A[j];  
         }

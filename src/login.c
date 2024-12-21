@@ -12,8 +12,8 @@ int loginUser(List user, int nUser) {
     for (int i = 0; i < CurrentWord.Length; i++) {
         username[i] = CurrentWord.TabWord[i];
     }
-    username[CurrentWord.Length] = '\0';
     usernameLen = CurrentWord.Length;
+    username[usernameLen] = '\0';
 
     int userIdx = -1;
     for (int i = 0; i < nUser; i++) {
@@ -33,8 +33,8 @@ int loginUser(List user, int nUser) {
     for (int i = 0; i < CurrentWord.Length; i++) {
         password[i] = CurrentWord.TabWord[i];
     }
-    password[CurrentWord.Length] = '\0';
     passwordLen = CurrentWord.Length;
+    password[passwordLen] = '\0';
 
     if (userIdx == -1 || !compareStrings(user.A[userIdx].password, password)) {
         printf(COLOR_BOLD_RED"\nUsername atau password salah.\n"COLOR_OFF);

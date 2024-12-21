@@ -34,9 +34,9 @@ void wishlistSwap(List *user, int userIdx, int i, int j) {
         address Pafter = Alokasi(Info(P));
         address Qafter = Alokasi(Info(Q));
 
-        InsertAfter(&((*user).A[userIdx].wishlist), Pafter, Q);
+        InsertAfter(Pafter, Q);
         DelP(&((*user).A[userIdx].wishlist), Info(Q));
-        InsertAfter(&((*user).A[userIdx].wishlist), Qafter, P);
+        InsertAfter(Qafter, P);
         DelP(&((*user).A[userIdx].wishlist), Info(P));
 
         printf(COLOR_BOLD"Berhasil menukar posisi %s dengan %s pada wishlist!\n"COLOR_OFF, Info(Pafter), Info(Qafter));

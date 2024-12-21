@@ -39,7 +39,7 @@ int main() {
             }
 
             if (isKataSama(choice, "START")) {
-                start("../save/config.txt", &barang, &user, &nBarang, &nUser);
+                start(&barang, &user, &nBarang, &nUser);
 
                 struct timespec req = {2, 0};
                 nanosleep(&req, NULL);
@@ -371,7 +371,6 @@ int main() {
                 int N = 0;
                 int i = 14;
                 int M = 0;
-                int j = 0;
 
                 while (i < choice.Length && choice.TabWord[i] == ' ') {
                     i++;

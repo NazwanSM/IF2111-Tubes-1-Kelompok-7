@@ -70,6 +70,7 @@ boolean isValidWord(Word input){
             input.TabWord[i] = input.TabWord[i] - 32; // Konversi ke uppercase
         }
     }
+    return true;
 }
 
 void displayGuessResult(const char target[], const char guess[], int length){

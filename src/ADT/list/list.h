@@ -70,7 +70,7 @@ IdxType LastIdx(List L);
 /* Mengirimkan indeks elemen terakhir */
 
 /* ********** Test Indeks yang valid ********** */
-boolean IsIdxValid (List L, IdxType i);
+boolean IsIdxValid (IdxType i);
 /* Prekondisi : i sembarang */
 /* Mengirimkan true jika i adalah indeks yang valid utk ukuran list */
 /* yaitu antara indeks yang terdefinisi untuk container*/

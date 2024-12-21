@@ -1,59 +1,74 @@
-# Compiler yang digunakan
+# Compiler
 CC = gcc
 
-# Nama executable/program akhir
-TARGET = program
+# Compiler flags
+CFLAGS = -Wall -Wextra -g
 
-# Direktori source files (satu level ke atas karena Makefile ada di bin)
-SRC_DIR = ../src
-ADT_DIR = $(SRC_DIR)/ADT
-MAIN = ../main.c
-CONSOLE = ../console.c
+# Include directories
+INCLUDES = -I../src -I../src/ADT -I..
 
-# Daftar semua source files
-SOURCES = $(MAIN) \
-	$(CONSOLE) \
-        $(ADT_DIR)/addon.c \
-        $(ADT_DIR)/arraydin.c \
-        $(ADT_DIR)/list.c \
-        $(ADT_DIR)/readTxt.c \
-        $(ADT_DIR)/mesinkata.c \
-        $(ADT_DIR)/mesinkarakter.c \
-        $(ADT_DIR)/queue.c \
-        $(SRC_DIR)/start.c \
-        $(SRC_DIR)/work.c \
-        $(SRC_DIR)/work_challenge.c \
-        $(SRC_DIR)/load.c \
-        $(SRC_DIR)/save.c \
-        $(SRC_DIR)/help.c \
-        $(SRC_DIR)/quit.c \
-        $(SRC_DIR)/register.c \
-        $(SRC_DIR)/login.c \
-        $(SRC_DIR)/logout.c \
-        $(SRC_DIR)/storeList.c \
-        $(SRC_DIR)/storeRequest.c \
-        $(SRC_DIR)/storeSupply.c \
-        $(SRC_DIR)/storeRemove.c
+# Main source files
+MAIN_SRC = ../main.c
+CONSOLE_SRC = ../console.c
 
-# Object files (akan dibuat di folder bin)
-OBJECTS = $(SOURCES:%.c=%.o)
+# Source files (exclude driver files)
+SRC_FILES = \
+        ../src/cartAdd.c \
+        ../src/cartPay.c \
+        ../src/cartRemove.c \
+        ../src/cartShow.c \
+        ../src/help.c \
+        ../src/history.c \
+        ../src/load.c \
+        ../src/login.c \
+        ../src/logout.c \
+        ../src/profile.c \
+        ../src/quit.c \
+        ../src/register.c \
+        ../src/save.c \
+        ../src/start.c \
+        ../src/storeList.c \
+        ../src/storeRemove.c \
+        ../src/storeRequest.c \
+        ../src/storeSupply.c \
+        ../src/wishlistAdd.c \
+        ../src/wishlistClear.c \
+        ../src/wishlistRemove.c \
+        ../src/wishlistRemovei.c \
+        ../src/wishlistShow.c \
+        ../src/wishlistSwap.c \
+        ../src/work.c \
+        ../src/work_challenge.c
 
-# Default target
+# ADT source files (exclude driver files)
+ADT_SRC_FILES = \
+        ../src/ADT/addon/addon.c \
+        ../src/ADT/arraydin/arraydin.c \
+        ../src/ADT/list/list.c \
+        ../src/ADT/listlinier/listlinier.c \
+        ../src/ADT/map/map.c \
+        ../src/ADT/mesinkarakter/mesinkarakter.c \
+        ../src/ADT/mesinkata/mesinkata.c \
+        ../src/ADT/queue/queue.c \
+        ../src/ADT/readTxt/readTxt.c \
+        ../src/ADT/stack/stack.c
+
+# Target executable
+TARGET = ../main.exe
+
+# Combine all source files
+ALL_SRC_FILES = $(MAIN_SRC) $(CONSOLE_SRC) $(SRC_FILES) $(ADT_SRC_FILES)
+
+# Rule utama
 all: $(TARGET)
 
-# Linking
-$(TARGET): $(OBJECTS)
-	$(CC) $(OBJECTS) -o $(TARGET)
+# Kompilasi
+$(TARGET): $(ALL_SRC_FILES)
+	$(CC) $(CFLAGS) $(INCLUDES) $^ -o $@
 
-# Kompilasi source files menjadi object files
-%.o: %.c
-	$(CC) -c $< -o $@
-
-# Membersihkan file hasil kompilasi
+# Clean rule
 clean:
-	rm -f $(OBJECTS) $(TARGET)
+	rm -f $(TARGET)
 
-# Target untuk mengkompilasi ulang semuanya
-rebuild: clean all
-
-.PHONY: all clean rebuild
+# Phony targets
+.PHONY: all clean
