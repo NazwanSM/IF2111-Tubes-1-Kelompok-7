@@ -35,8 +35,11 @@ AK47
 0
 1
 Meong
-99999 nz wn
-6
+109699 nz wn
+7
+2 300
+100 10 AK47
+200 10 Lalabu
 1 1000
 1000 1 Skibidi Toilet
 2 280

@@ -30,4 +30,3 @@ void cartRemove(List *user, int userIdx, char* namaBarang, int jumlah) {
         printf("\nBerhasil menghapus"COLOR_BOLD_RED" %d"COLOR_OFF COLOR_BOLD_CYAN" %s "COLOR_OFF"dari keranjang belanja!\n", jumlah, itemArrayDin.name);
     }
 }
-

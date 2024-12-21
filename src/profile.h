@@ -3,7 +3,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "ADT/list.h"
+#include "ADT/list/list.h"
 
 void profile(List user, int userIdx);
 

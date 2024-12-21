@@ -3,15 +3,7 @@
 
 #include "load.h"
 
-void load(ArrayDin *barang, List *user, int *nbarang, int *nuser) {
-    START();
-    char loadfile[100] = "save/";
-    int loadfileLen = 5;
-    while (currentChar != '\n' && loadfileLen < 100 - 1) {
-        loadfile[loadfileLen++] = currentChar;
-        READADV();
-    }
-    loadfile[loadfileLen] = '\0';    
+void load(char *loadfile, ArrayDin *barang, List *user, int *nbarang, int *nuser) {
     readtxt(loadfile, barang, user, nbarang, nuser);
 }   
 

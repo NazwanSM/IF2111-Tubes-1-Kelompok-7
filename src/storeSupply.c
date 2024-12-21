@@ -4,8 +4,7 @@
 #include "storeSupply.h"
 
 void storesupply(ArrayDin *store, Queue *antrian, int *nbarang){
-    ElTypeQ itemQueue;
-    elType pilihan, baranginput;
+    elType pilihan;
     ElTypeQ x;
 
     if (isEmptyQueue(*antrian)) {
@@ -27,7 +26,6 @@ void storesupply(ArrayDin *store, Queue *antrian, int *nbarang){
     pilihan.price = -1;
 
     if (myStrcmp(pilihan.name, "terima") == 0 || myStrcmp(pilihan.name, "Terima") == 0 || myStrcmp(pilihan.name, "TERIMA") == 0){
-        int price;
         idxType i = *nbarang;
         ElTypeQ input;
         printf("Masukkan harga barang: ");
