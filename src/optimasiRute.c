@@ -83,28 +83,53 @@ void findBestPath(Graph* g) {
     printf(" dengan total jarak "COLOR_BOLD_RED"%d.\n"COLOR_OFF, bestDist);
 }
 
-int optimasiRute() {
+boolean isValidInput(int value) {
+    return value > 0;
+}
+
+void optimasiRute() {
     Graph g;
     int nodes, edges;
-    
+
+
     printf("\nMasukkan jumlah lokasi pengiriman "COLOR_CYAN"(node)"COLOR_OFF": ");
-    scanf("%d", &nodes);
+    if (scanf("%d", &nodes) != 1 || !isValidInput(nodes)) {
+        printf(COLOR_BOLD_RED"Input tidak valid! Jumlah lokasi harus berupa angka positif.\n"COLOR_OFF);
+        return;
+    }
+
+
     printf("Masukkan jumlah rute "COLOR_CYAN"(edge)"COLOR_OFF": ");
-    scanf("%d", &edges);
-    
+    if (scanf("%d", &edges) != 1 || !isValidInput(edges)) {
+        printf(COLOR_BOLD_RED"Input tidak valid! Jumlah rute harus berupa angka positif.\n"COLOR_OFF);
+        return ;
+    }
+
+
     initGraph(&g, nodes);
-    
+
+
     printf("Masukkan jarak antarlokasi "COLOR_CYAN"(weight)"COLOR_OFF":\n");
     for (int i = 0; i < edges; i++) {
         int src, dest, weight;
-        scanf("%d %d %d", &src, &dest, &weight);
+
+        if (scanf("%d %d %d", &src, &dest, &weight) != 3 || 
+            src < 0 || src >= nodes || 
+            dest < 0 || dest >= nodes || 
+            weight <= 0) {
+            printf(COLOR_BOLD_RED"Input tidak valid! Pastikan:\n"COLOR_OFF);
+            printf("- Lokasi asal (src) dan tujuan (dest) adalah indeks yang valid (0 hingga %d).\n", nodes - 1);
+            printf("- Berat (weight) adalah angka positif.\n");
+            return;
+        }
+
         addEdge(&g, src, dest, weight);
     }
-    
+
     printf("\nData diterima, silakan tunggu...\n");
     struct timespec req = {1, 0};
     nanosleep(&req, NULL);
+
     findBestPath(&g);
-    
-    return 0;
+
 }

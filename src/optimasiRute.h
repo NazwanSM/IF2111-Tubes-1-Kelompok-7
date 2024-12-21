@@ -1,5 +1,5 @@
-#ifndef ROUTE_OPTIMIZATION_H
-#define ROUTE_OPTIMIZATION_H
+#ifndef OPTIMASI_RUTE_H
+#define OPTIMASI_RUTE_H
 
 #define MAX_NODES 100
 #define INF 999999
@@ -25,7 +25,8 @@ void addEdge(Graph* g, int src, int dest, int weight);
 void findBestPath(Graph* g);
 boolean nextPermutation(int* arr, int n);
 void swap(int* a, int* b);
-int optimasiRute();
+boolean isValidInput(int value);
+void optimasiRute();
 
 
 #endif
