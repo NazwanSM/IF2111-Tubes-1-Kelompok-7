@@ -29,14 +29,13 @@ void quit(ArrayDin Barang, List User, int nBarang, int nUser, boolean change) {
         clearInputBuffer();
         
         if (cc == 'Y' || cc == 'y') {
-            save(Barang, User, nBarang, nUser);
-            printf("Save berhasil!\n");
+            savequit(Barang, User, nBarang, nUser);
         }
         else if (cc == 'N' || cc == 'n') {
             printf("Save dibatalkan!\n");
         }
     }
-    printf("\n\033[1m------TERIMA KASIH SUDAH BERKUNJUNG DI PURRMART------\033[0m\n");
+    printf(COLOR_BOLD_YELLOW"\n------ "COLOR_OFF COLOR_BOLD_CYAN"TERIMA KASIH SUDAH BERKUNJUNG DI PURRMART"COLOR_OFF COLOR_BOLD_YELLOW" ------"COLOR_OFF);
     
     struct timespec req = {2, 0};
     nanosleep(&req, NULL);

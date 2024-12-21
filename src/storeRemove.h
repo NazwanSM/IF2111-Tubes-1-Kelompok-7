@@ -3,12 +3,12 @@
 
 #include "load.h"
 #include "save.h"
-#include "ADT/arraydin.h"
-#include "ADT/custom.h"
-#include "ADT/list.h"
-#include "ADT/mesinkata.h"
-#include "ADT/mesinkarakter.h"
-#include "ADT/boolean.h"
+#include "ADT/arraydin/arraydin.h"
+#include "ADT/custom/custom.h"
+#include "ADT/list/list.h"
+#include "ADT/mesinkata/mesinkata.h"
+#include "ADT/mesinkarakter/mesinkarakter.h"
+#include "ADT/boolean/boolean.h"
 
 
 void storeremove(ArrayDin *store, int *nbarang);

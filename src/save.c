@@ -19,14 +19,20 @@ void write(char *filename, ArrayDin barang, List user, int nbarang, int nuser) {
     fprintf(file, "%d\n", nuser);
     for (int i = 0; i < nuser; i++) {
         fprintf(file, "%d %s %s\n", user.A[i].money, user.A[i].name, user.A[i].password);
-        fprintf(file, "%d\n", Top(user.A[i].riwayat_pembelian) + 1);
+        int nRiwayat = Top(user.A[i].riwayat_pembelian) + 1;
+        fprintf(file, "%d\n", nRiwayat);
         Stack writeStack;
-        infotypeStack X;
         CreateEmptyStack(&writeStack);
         CopyStack(&(user.A[i].riwayat_pembelian), &writeStack);
+        
+
         while (!IsEmptyStack(writeStack)) {
+            infotypeStack X;
             Pop(&writeStack, &X);
-            fprintf(file, "%d %s\n", X.price, X.name);
+            fprintf(file, "%d %d\n", X.items, X.biaya);
+            for (int j = 0; j < X.items; j++) {
+                fprintf(file, "%d %d %s\n", X.total[j], X.Value[j], X.Key[j].name);
+            }
         }
         fprintf(file, "%d\n", NbElmt(user.A[i].wishlist));
 
@@ -47,17 +53,40 @@ void write(char *filename, ArrayDin barang, List user, int nbarang, int nuser) {
                 P = Next(P);
             }
         }
-        if (i < nuser - 1) {
+        if (i < nuser - 1 && !IsEmptyLink(user.A[i].wishlist)) {
             fprintf(file, "\n");  // Add newline between users but not after the last user
         }
-    }    
+    }
+    fprintf(file, "\n");
     fclose(file);
 }
 
-void save(ArrayDin barang, List user, int nbarang, int nuser) {
+void save(char *savefile, int savefileLen, ArrayDin barang, List user, int nbarang, int nuser) {
     boolean check = false;
     do {
-        printf("\n\033[1;34m>> SAVE\033[0m ");
+        boolean txt = false;
+        int config = myStrcmp(savefile, "save/config.txt");
+
+        if (savefile[savefileLen-4] == '.' && savefile[savefileLen-3] == 't' && savefile[savefileLen-2] == 'x' && savefile[savefileLen-1] == 't') {
+            txt = true;
+        }
+
+        if (!config) {
+            printf("Ini merupakan file konfigurasi, mohon jangan save disini!\n");
+        } else if(!txt) {
+            printf(COLOR_BOLD_RED"\nPastikan file disimpan dalam format <nama file>.txt!\n"COLOR_OFF);
+        } else {
+            printf(COLOR_BOLD"Save file berhasil disimpan\n"COLOR_OFF);
+            write(savefile, barang, user, nbarang, nuser);
+            check = true;
+        }
+    } while (check == false);
+}
+
+void savequit(ArrayDin barang, List user, int nbarang, int nuser) {
+    boolean check = false;
+    do {
+        printf(COLOR_BOLD_CYAN"\n>> SAVE\033[0m\n\n");
         START();
         char savefile[100] = "save/";
         int savefileLen = 5;
@@ -78,9 +107,9 @@ void save(ArrayDin barang, List user, int nbarang, int nuser) {
         if (!config) {
             printf("Ini merupakan file konfigurasi, mohon jangan save disini!\n");
         } else if(!txt) {
-            printf("\nPastikan file disimpan dalam format <nama file>.txt!\n");
+            printf(COLOR_BOLD_RED"\nPastikan file disimpan dalam format <nama file>.txt!\n"COLOR_OFF);
         } else {
-            printf("Save file berhasil disimpan\n");
+            printf(COLOR_BOLD"Save file berhasil disimpan\n"COLOR_OFF);
             write(savefile, barang, user, nbarang, nuser);
             check = true;
         }

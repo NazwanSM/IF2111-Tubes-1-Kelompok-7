@@ -23,7 +23,7 @@ void isiDaftarPekerjaan(WorkList* daftarPekerjaan){
 void displayDaftarPekerjaan(WorkList *L){
     printf("\033[1;34mDaftar pekerjaan:\033[0m\n");
     for(int i = 0; i < JUMLAH_PEKERJAAN; i++) {
-        printf("%d. %s (pendapatan = %d, durasi = %ds)\n", i + 1, L->A[i].nama, L->A[i].pendapatan, L->A[i].durasi);
+        printf(COLOR_BOLD_YELLOW"%d."COLOR_OFF" %s "COLOR_BOLD_CYAN"(pendapatan = "COLOR_OFF COLOR_BOLD_RED"%d"COLOR_OFF COLOR_BOLD_CYAN", durasi ="COLOR_OFF COLOR_BOLD_RED" %ds"COLOR_OFF COLOR_BOLD_CYAN")\n"COLOR_OFF, i + 1, L->A[i].nama, L->A[i].pendapatan, L->A[i].durasi);
     }
 }
 
@@ -38,19 +38,19 @@ Work* cariPekerjaan(WorkList *L, Word input){
 }
 
 void prosesKerja(Work* work, List* user, int indexUser){
-    printf("\nAnda sedang bekerja sebagai %s... harap tunggu.\n", work->nama);
+    printf("\nAnda sedang bekerja sebagai " COLOR_BOLD_BLUE_BLINK"%s"COLOR_OFF COLOR_BLINK"... harap tunggu.\n"COLOR_OFF, work->nama);
     
     struct timespec req = {work->durasi, 0};
     nanosleep(&req, NULL);
     
     user->A[indexUser].money += work->pendapatan;
     
-    printf("\nPekerjaan selesai, +%d rupiah telah ditambahkan ke akun Anda.\n", 
+    printf(COLOR_BOLD"\nPekerjaan selesai, "COLOR_OFF COLOR_BOLD_RED"+%d"COLOR_OFF COLOR_BOLD" rupiah telah ditambahkan ke akun Anda.\n"COLOR_OFF, 
         work->pendapatan);
 }
 
 void work(List* user, int indexUser){
-    printf("\033[1;33mSelamat datang di Work!\033[0m\n\n");
+    printf(COLOR_BOLD_YELLOW"Selamat datang di Work!\n\n"COLOR_OFF);
     isiDaftarPekerjaan(&daftarPekerjaan);
     
     displayDaftarPekerjaan(&daftarPekerjaan);

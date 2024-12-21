@@ -2,6 +2,7 @@
 #define __help_H__
 
 #include <stdio.h>
+#include "ADT/custom/custom.h"
 
 void help1();
 

@@ -3,11 +3,11 @@
 #ifndef WORK_CHALLENGE_H
 #define WORK_CHALLENGE_H
 
-#include "ADT/mesinkata.h"
-#include "ADT/mesinkarakter.h"
-#include "ADT/custom.h"
-#include "ADT/boolean.h"
-#include "ADT/list.h"
+#include "ADT/mesinkata/mesinkata.h"
+#include "ADT/mesinkarakter/mesinkarakter.h"
+#include "ADT/custom/custom.h"
+#include "ADT/boolean/boolean.h"
+#include "ADT/list/list.h"
 
 #define GAME_COST1 200
 #define GAME_COST2 500

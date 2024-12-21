@@ -3,24 +3,10 @@
 
 #include "load.h"
 
-void load(ArrayDin *barang, List *user, int *nbarang, int *nuser) {
-    START();
-    char loadfile[100] = "save/";
-    int loadfileLen = 5;
-    while (currentChar != '\n' && loadfileLen < 100 - 1) {
-        loadfile[loadfileLen++] = currentChar;
-        READADV();
-    }
-    loadfile[loadfileLen] = '\0';    
+void load(char *loadfile, ArrayDin *barang, List *user, int *nbarang, int *nuser) {
     readtxt(loadfile, barang, user, nbarang, nuser);
 }   
 
-void loadcheck(ArrayDin *barang, List *user, int *nbarang, int *nuser) {
-    do {
-        load(barang, user, nbarang, nuser);
-    } while (*nuser == 0);
-    printf("Save file berhasil dibaca. PURRMART berhasil dijalankan\n");
-}
 
 /* int main() {
 
