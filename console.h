@@ -38,6 +38,7 @@
 #include "src/wishlistSwap.h"
 #include "src/wishlistAdd.h"
 #include "src/wishlistRemove.h"
+#include "src/optimasiRute.h"
 
 void displayPurrMart();
 void displayWelcomeMenu();

@@ -37,9 +37,10 @@ void help3() {
     printf(COLOR_BOLD_YELLOW"16. "COLOR_OFF "WISHLIST REMOVE <nomor> -> Untuk menghapus barang pada wishlist\n");
     printf(COLOR_BOLD_YELLOW"17. "COLOR_OFF "WISHLIST CLEAR -> Untuk menghapus seluruh barang pada wishlist\n");
     printf(COLOR_BOLD_YELLOW"18. "COLOR_OFF "WISHLIST SHOW -> Untuk melihat isi wishlist\n");
-    printf(COLOR_BOLD_YELLOW"19. "COLOR_OFF "LOGOUT -> Untuk keluar dari sesi\n");
-    printf(COLOR_BOLD_YELLOW"20. "COLOR_OFF "SAVE -> Untuk menyimpan state ke dalam file\n");
-    printf(COLOR_BOLD_YELLOW"21. "COLOR_OFF "QUIT -> Untuk keluar dari program\n");
+    printf(COLOR_BOLD_YELLOW"19. "COLOR_OFF "OPTIMASI RUTE -> Untuk mengoptimalkan rute\n");
+    printf(COLOR_BOLD_YELLOW"20. "COLOR_OFF "LOGOUT -> Untuk keluar dari sesi\n");
+    printf(COLOR_BOLD_YELLOW"21. "COLOR_OFF "SAVE -> Untuk menyimpan state ke dalam file\n");
+    printf(COLOR_BOLD_YELLOW"22. "COLOR_OFF "QUIT -> Untuk keluar dari program\n");
 }
 
 /*

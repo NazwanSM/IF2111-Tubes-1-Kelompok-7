@@ -38,7 +38,8 @@ SRC_FILES = \
         ../src/wishlistShow.c \
         ../src/wishlistSwap.c \
         ../src/work.c \
-        ../src/work_challenge.c
+        ../src/work_challenge.c \
+        ../src/optimasiRute.c
 
 # ADT source files (exclude driver files)
 ADT_SRC_FILES = \

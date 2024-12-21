@@ -434,6 +434,15 @@ int main() {
                 struct timespec req = {3, 0};
                 nanosleep(&req, NULL);
             }
+            else if (isKataSama(choice, "OPTIMASI RUTE")) {
+                system("cls || clear");
+                displayPurrMart();
+                printf(COLOR_BOLD_CYAN"\n>> OPTIMASI RUTE \n\n"COLOR_OFF);
+                optimasiRute();
+
+                struct timespec req = {3, 0};
+                nanosleep(&req, NULL);
+            }
             else if (isKataSama(choice, "LOGOUT")) {
                 printf(COLOR_BOLD_CYAN"\n>> LOGOUT\n\n"COLOR_OFF);
                 logoutUser(&userIdx, user);
