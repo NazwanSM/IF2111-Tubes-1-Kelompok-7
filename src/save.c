@@ -70,7 +70,7 @@ void save(char *savefile, int savefileLen, ArrayDin barang, List user, int nbara
     }
 
     if (!config) {
-        printf("Ini merupakan file konfigurasi, mohon jangan save disini!\n");
+        printf(COLOR_BOLD_RED"\nIni merupakan file konfigurasi, mohon jangan save disini!\n"COLOR_OFF);
     } else if(!txt) {
         printf(COLOR_BOLD_RED"\nPastikan file disimpan dalam format <nama file>.txt!\n"COLOR_OFF);
     } else {
