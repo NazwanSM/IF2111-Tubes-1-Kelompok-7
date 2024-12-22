@@ -387,7 +387,7 @@ int main() {
                 struct timespec req = {3, 0};
                 nanosleep(&req, NULL);
             }
-            else if (startsWith(choice, "WISHLIST SWAP")) { //ini swap <i> <j>
+            else if (startsWith(choice, "WISHLIST SWAP")) { 
                 int N = 0;
                 int i = 14;
                 int M = 0;
@@ -409,14 +409,19 @@ int main() {
                     M = M * 10 + (choice.TabWord[i] - '0');
                     i++;
                 }
-                
-                printf(COLOR_BOLD_CYAN"\n>> WISHLIST SWAP %d %d\n\n"COLOR_OFF, N, M);
-                wishlistSwap(&user, userIdx, N, M);
+
+                if (N > 0 && M > 0) {
+                    printf(COLOR_BOLD_CYAN"\n>> WISHLIST SWAP %d %d\n\n"COLOR_OFF, N, M);
+                    wishlistSwap(&user, userIdx, N, M);
+                } else {
+                    printf(COLOR_BOLD_CYAN"\n>> WISHLIST SWAP\n\n"COLOR_OFF);
+                    printf(COLOR_BOLD_RED"Gunakan format WISHLIST SWAP <nomor1> <nomor2> \n"COLOR_OFF);
+                }
 
                 struct timespec req = {2, 0};
                 nanosleep(&req, NULL);
             }
-            else if (startsWith(choice, "WISHLIST REMOVE")) { //ini harusnya remove <i>
+            else if (startsWith(choice, "WISHLIST REMOVE")) { //ini remove <i>
                 int N = 0;
                 int i = 16;
 
@@ -429,12 +434,12 @@ int main() {
                     i++;
                 }
 
-                if (1) { // ini mksdnya ngecek kalo angka ato bukan tp sementara gw giniin dulu
+                if (N > 0) { 
                     printf(COLOR_BOLD_CYAN"\n>> WISHLIST REMOVE %d\n\n"COLOR_OFF, N);
                     wishlistRemovei(&user, userIdx, N);
                 } else {
-                    printf(COLOR_BOLD_CYAN"\n>> WISHLIST REMOVE \n\n"COLOR_OFF);
-                    printf("Penghapusan barang WISHLIST gagal dilakukan, command tidak\n");
+                    printf(COLOR_BOLD_CYAN"\n>> WISHLIST REMOVE\033[0m\n\n");
+                    printf(COLOR_BOLD_RED"Gunakan format WISHLIST REMOVE <nomor> \n"COLOR_OFF);
                 }
 
                 struct timespec req = {2, 0};
