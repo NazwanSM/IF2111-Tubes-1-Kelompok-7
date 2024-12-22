@@ -18,9 +18,54 @@ Fitur utama PURRMART meliputi:
 - Sebastian Albern Nugroho	/ 18223074
 - Joan Melkior Silaen	/ 18223102
 
-## Cara Kompilasi Program
-1. Buka terminal
-2. Pastikan directory berada pada folder ini
-3. Windows : ubah compiler.txt menjadi compiler.bat\
-   Linux : ubah compiler.txt menjadi compiler.sh
-5. Jalankan file main.exe 
+## Cara Kompilasi dan Menjalankan Program
+
+### Prasyarat
+- Pastikan Anda telah menginstal `make`
+- Windows: Gunakan MinGW atau Cygwin
+- Linux: Biasanya sudah terinstal, jika tidak jalankan `sudo apt-get install make`
+- macOS: Instal melalui Xcode Command Line Tools
+  
+### Metode 1: Kompilasi dengan Makefile
+1. Pastikan Anda telah menginstal `make`
+2. Berada di direktori utama proyek
+3. Jalankan perintah kompilasi:
+ ```bash
+ make -C bin
+ ```
+4. Jalankan program:
+ ```bash
+ ./main
+ ```
+
+### Metode 2: Kompilasi menggunakan compiler.txt
+
+#### Untuk Windows:
+1. Ubah `compiler.txt` menjadi `compiler.bat`
+2. Jalankan file batch:
+ ```
+ compiler.bat
+ ```
+3. Jalankan program:
+ ```
+ ./main
+ ```
+
+#### Untuk Linux/macOS:
+1. Ubah `compiler.txt` menjadi `compiler.sh`
+2. Berikan izin eksekusi:
+ ```bash
+ chmod +x compiler.sh
+ ```
+3. Jalankan script shell:
+ ```bash
+ ./compiler.sh
+ ```
+4. Jalankan program:
+ ```bash
+ ./main
+ ```
+
+### Catatan Penting
+- Pastikan Anda memiliki GCC atau kompiler C yang kompatibel
+- Untuk Windows, gunakan MinGW atau Cygwin jika tidak memiliki kompiler bawaan
