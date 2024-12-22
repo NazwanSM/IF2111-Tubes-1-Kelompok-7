@@ -28,7 +28,7 @@ void wishlistSwap(List *user, int userIdx, int i, int j) {
         if (P != Nil && Q == Nil) {
             printf(COLOR_BOLD_RED"Gagal menukar posisi %s!\n"COLOR_OFF, Info(P));
         } else {
-            printf("Posisi yang dimasukkan tidak valid\n");
+            printf(COLOR_BOLD_RED"Posisi yang dimasukkan tidak valid!\n"COLOR_OFF);
         }
     } else {
         address Pafter = Alokasi(Info(P));
