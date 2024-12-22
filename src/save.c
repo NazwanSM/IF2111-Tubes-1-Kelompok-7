@@ -62,25 +62,22 @@ void write(char *filename, ArrayDin barang, List user, int nbarang, int nuser) {
 }
 
 void save(char *savefile, int savefileLen, ArrayDin barang, List user, int nbarang, int nuser) {
-    boolean check = false;
-    do {
-        boolean txt = false;
-        int config = myStrcmp(savefile, "save/config.txt");
+    boolean txt = false;
+    int config = myStrcmp(savefile, "save/config.txt");
 
-        if (savefile[savefileLen-4] == '.' && savefile[savefileLen-3] == 't' && savefile[savefileLen-2] == 'x' && savefile[savefileLen-1] == 't') {
-            txt = true;
-        }
+    if (savefile[savefileLen-4] == '.' && savefile[savefileLen-3] == 't' && savefile[savefileLen-2] == 'x' && savefile[savefileLen-1] == 't') {
+        txt = true;
+    }
 
-        if (!config) {
-            printf("Ini merupakan file konfigurasi, mohon jangan save disini!\n");
-        } else if(!txt) {
-            printf(COLOR_BOLD_RED"\nPastikan file disimpan dalam format <nama file>.txt!\n"COLOR_OFF);
-        } else {
-            printf(COLOR_BOLD"Save file berhasil disimpan\n"COLOR_OFF);
-            write(savefile, barang, user, nbarang, nuser);
-            check = true;
-        }
-    } while (check == false);
+    if (!config) {
+        printf("Ini merupakan file konfigurasi, mohon jangan save disini!\n");
+    } else if(!txt) {
+        printf(COLOR_BOLD_RED"\nPastikan file disimpan dalam format <nama file>.txt!\n"COLOR_OFF);
+    } else {
+        printf(COLOR_BOLD"Save file berhasil disimpan\n"COLOR_OFF);
+        write(savefile, barang, user, nbarang, nuser);
+    }
+
 }
 
 void savequit(ArrayDin barang, List user, int nbarang, int nuser) {
