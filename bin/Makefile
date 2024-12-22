@@ -55,7 +55,7 @@ ADT_SRC_FILES = \
         ../src/ADT/stack/stack.c
 
 # Target executable
-TARGET = ../main.exe
+TARGET = ../main
 
 # Combine all source files
 ALL_SRC_FILES = $(MAIN_SRC) $(CONSOLE_SRC) $(SRC_FILES) $(ADT_SRC_FILES)
