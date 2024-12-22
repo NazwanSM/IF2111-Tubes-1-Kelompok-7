@@ -365,10 +365,8 @@ int main() {
                 wishlistRemove(&user, userIdx);
 
                 struct timespec req = {3, 0};
-
                 nanosleep(&req, NULL);
             }
-            
             else if (startsWith(choice, "WISHLIST SWAP")) { //ini swap <i> <j>
                 int N = 0;
                 int i = 14;
