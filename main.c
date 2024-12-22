@@ -242,7 +242,7 @@ int main() {
                 for (int j = choice.Length - 1; j >= i; j--) {
                     if (choice.TabWord[j] == ' ') {
                         if (j + 1 < choice.Length && 
-                            choice.TabWord[j + 1] >= '0' && 
+                            choice.TabWord[j + 1] >= '1' && 
                             choice.TabWord[j + 1] <= '9') {
                             lastSpacePos = j;
                             break;
@@ -258,7 +258,7 @@ int main() {
                     namaBarang[namaLength] = '\0';
                     
                     for (int j = lastSpacePos + 1; j < choice.Length; j++) {
-                        if (choice.TabWord[j] >= '0' && choice.TabWord[j] <= '9') {
+                        if (choice.TabWord[j] >= '1' && choice.TabWord[j] <= '9') {
                             jumlah = jumlah * 10 + (choice.TabWord[j] - '0');
                         }
                     }
@@ -289,7 +289,7 @@ int main() {
                 for (int j = choice.Length - 1; j >= i; j--) {
                     if (choice.TabWord[j] == ' ') {
                         if (j + 1 < choice.Length && 
-                            choice.TabWord[j + 1] >= '0' && 
+                            choice.TabWord[j + 1] >= '1' && 
                             choice.TabWord[j + 1] <= '9') {
                             lastSpacePos = j;
                             break;
@@ -305,7 +305,7 @@ int main() {
                     namaBarang[namaLength] = '\0';
                     
                     for (int j = lastSpacePos + 1; j < choice.Length; j++) {
-                        if (choice.TabWord[j] >= '0' && choice.TabWord[j] <= '9') {
+                        if (choice.TabWord[j] >= '1' && choice.TabWord[j] <= '9') {
                             jumlah = jumlah * 10 + (choice.TabWord[j] - '0');
                         }
                     }
@@ -337,18 +337,38 @@ int main() {
             else if (startsWith(choice, "HISTORY")) {
                 int N = 0;
                 int i = 8; 
+                int validInput = 1;
                 
                 while (i < choice.Length && choice.TabWord[i] == ' ') {
                     i++;
                 }
                 
-                while (i < choice.Length && choice.TabWord[i] >= '0' && choice.TabWord[i] <= '9') {
-                    N = N * 10 + (choice.TabWord[i] - '0');
-                    i++;
+                if (i >= choice.Length) {
+                    printf(COLOR_BOLD_RED"\nMasukkan jumlah history yang valid (bilangan bulat positif)!\n"COLOR_OFF);
+                    validInput = 0;
+                } else {
+                    while (i < choice.Length && choice.TabWord[i] >= '0' && choice.TabWord[i] <= '9') {
+                        N = N * 10 + (choice.TabWord[i] - '0');
+                        i++;
+                    }
+                    
+                    while (i < choice.Length && choice.TabWord[i] == ' ') {
+                        i++;
+                    }
+                    
+                    if (i < choice.Length) {
+                        printf(COLOR_BOLD_RED"\nInput HISTORY harus berupa bilangan bulat positif!\n"COLOR_OFF);
+                        validInput = 0;
+                    } else if (N <= 0) {
+                        printf(COLOR_BOLD_RED"\nJumlah history harus lebih dari 0!\n"COLOR_OFF);
+                        validInput = 0;
+                    }
                 }
-                printf(COLOR_BOLD_CYAN"\n>> HISTORY %d\033[0m\n\n", N);
-                displayHistory(user, userIdx, N);
-
+                
+                if (validInput) {
+                    printf(COLOR_BOLD_CYAN"\n>> HISTORY %d\033[0m\n\n", N);
+                    displayHistory(user, userIdx, N);
+                }
                 struct timespec req = {4, 0};
                 nanosleep(&req, NULL);
             }
