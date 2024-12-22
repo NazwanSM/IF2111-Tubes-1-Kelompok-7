@@ -1,54 +1,61 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include "wishlistAdd.h"
 
 
 
 void wishlistAdd(List *user, ArrayDin *barang, int userIdx) {
-    // Input barang yang ingin ditambahkan ke wishlist
     printf("Masukkan nama barang: ");
     STARTWORD();
-    
-    // Buat salinan nama barang untuk dimodifikasi
+    Word choice = CurrentWord;
+
+    while (currentChar != '\n') {
+        ADVWORD();
+        choice.TabWord[choice.Length] = ' ';
+        choice.Length++;
+        
+        for (int i = 0; i < CurrentWord.Length; i++) {
+            choice.TabWord[choice.Length] = CurrentWord.TabWord[i];
+            choice.Length++;
+        }
+    }
+
+    choice.TabWord[choice.Length] = '\0';
+
     char inputItemss[MAX_LEN];
-    manualStrcpy(inputItemss, CurrentWord.TabWord);
+    manualStrcpy(inputItemss, choice.TabWord);
     trimString(inputItemss);
     
-    // Cek apakah barang sudah ada di wishlist
     address current = First((*user).A[userIdx].wishlist);
     while (current != Nil) {
         char wishlistItem[MAX_LEN];
         manualStrcpy(wishlistItem, Info(current));
         trimString(wishlistItem);
         
-        if (strcmp(wishlistItem, inputItemss) == 0) {
-            printf(COLOR_BOLD_RED"%s sudah ada di wishlist!\n"COLOR_OFF, inputItemss);
+        if (manualStrCmp(wishlistItem, inputItemss) == 0) {
+            printf(COLOR_BOLD_RED"\n%s sudah ada di wishlist!\n"COLOR_OFF, inputItemss);
             return;
         }
         current = Next(current);
     }
     
-    // Cek apakah barang tersedia di daftar barang (store)
     int barangFound = 0;
     for (int i = 0; i < (*barang).Neff; i++) {
         char storeItem[MAX_LEN];
         manualStrcpy(storeItem, (*barang).A[i].name);
         trimString(storeItem);
         
-        if (strcmp(storeItem, inputItemss) == 0) {
+        if (manualStrCmp(storeItem, inputItemss) == 0) {
             barangFound = 1;
             
-            // Tambahkan ke wishlist
             InsVLast(&((*user).A[userIdx].wishlist), inputItemss);
-            printf("Berhasil menambahkan "COLOR_BOLD_BLUE"%s"COLOR_OFF" ke wishlist!\n", inputItemss);
+            printf("\nBerhasil menambahkan "COLOR_BOLD_BLUE"%s"COLOR_OFF" ke wishlist!\n", inputItemss);
             return;
         }
     }
     
-    // Jika barang tidak ditemukan di daftar barang
     if (!barangFound) {
-        printf(COLOR_BOLD_RED"Tidak ada barang dengan nama %s!\n"COLOR_OFF, inputItemss);
+        printf(COLOR_BOLD_RED"\nTidak ada barang dengan nama %s!\n"COLOR_OFF, inputItemss);
     }
 }
 

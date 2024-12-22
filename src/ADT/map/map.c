@@ -61,27 +61,28 @@ if (!IsFull(*M)) {
     }
 }
 void DeleteMap(Map *M, keytype k)
-/* Menghapus Elmt dari Map M. */
+/* Menghapus Elemen dari Map M. */
 /* I.S. M tidak kosong
-        element dengan key k mungkin anggota / bukan anggota dari M */
-/* F.S. element dengan key k bukan anggota dari M */
+        elemen dengan key k mungkin anggota / bukan anggota dari M */
+/* F.S. elemen dengan key k bukan anggota dari M */
 {
-    if (!IsMember(*M, k)) return;
-
-    addressMap idx = 0, iterator;
-
-    while (idx < M->Count) {
-        if (M->Elements[idx].Key.name == k.name) break;
-        idx++;
+    int idx = -1;
+    for (int i = 0; i < M->Count; i++) {
+        if (manualStrCmp(M->Elements[i].Key.name, k.name) == 0) {
+            idx = i;
+            break;
+        }
     }
 
-    for (iterator = (idx + 1); iterator < M->Count; iterator++) {
-        M->Elements[iterator - 1].Key = M->Elements[iterator].Key;
-        M->Elements[iterator - 1].Value = M->Elements[iterator].Value;
+    if (idx == -1) return;
+
+    for (int i = idx; i < M->Count - 1; i++) {
+        M->Elements[i] = M->Elements[i + 1];
     }
 
     M->Count--;
 }
+
 
 boolean IsMember(Map M, keytype k)
 /* Mengembalikan true jika k adalah member dari M */
